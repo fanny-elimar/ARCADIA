@@ -1,0 +1,10 @@
+<?php
+// controllers/homepage.php
+
+
+
+function home() {
+	
+
+	require('templates/pages/home.php');
+}
