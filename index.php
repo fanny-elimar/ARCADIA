@@ -23,28 +23,31 @@ require __DIR__ . "/templates/_habitat_card.php";
 </div>
 
 <div class="container">
-      <h1>Carrousel</h1>
+      <h1>Nos animaux</h1>
       <div id="demo" class="carousel slide carousel-fade" data-bs-ride="carousel">
         
 
         <!-- Carrousel -->
-        <div class="carousel-inner">
+        <div class="carousel-inner mb-5">
           <div class="carousel-item active" data-interval="4000">
             <div class="row">
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'jungle.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'jungle_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
             </div>
           </div>
           <div class="carousel-item" data-interval="2000">
           <div class="row">
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'jungle.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+          <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
             </div>
           </div>
           <div class="carousel-item" data-interval="1000">
           <div class="row">
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+          <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
             </div>
           </div>
         </div>
@@ -60,6 +63,22 @@ require __DIR__ . "/templates/_habitat_card.php";
         </a>
       </div>
     </div>
+
+    <div>
+    <p>
+    Lors de votre venue, profitez également de nos <a href="services.php" class="link-text">services</a> : restauration, visite guidée des habitats, visite du zoo en petit train.
+    </p>
+</div>
+
+<div class="bandeau-habitats justify-content-center">
+
+<?php
+require __DIR__ . "/templates/_service_card.php";
+require __DIR__ . "/templates/_service_card.php";
+require __DIR__ . "/templates/_service_card.php";
+?>
+
+</div>
 
 
 <?php require_once __DIR__ . "/templates/_footer.php"; ?>
