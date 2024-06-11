@@ -11958,6 +11958,11 @@ a {
   display: none;
 }
 
+@media (min-width: 760px) {
+  .bandeau-habitats {
+    display: flex;
+  }
+}
 @media (min-width: 600px) {
   .big, .medium {
     display: flex;
@@ -11984,4 +11989,9 @@ a {
 
 .nav {
   width: 100%;
-}/*# sourceMappingURL=custom3.css.map */
+  background-color: #dc3545;
+}
+
+.carousel-item {
+  height: 20px;
+}/*# sourceMappingURL=custom4.css.map */

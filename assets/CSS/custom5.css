@@ -11932,12 +11932,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .nav-item {
   font-family: Just another hand, "Times New Roman", Times, serif;
 }
 
-p {
-  font-size: 1rem;
+.card-text {
+  font-size: small;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--primary);
   font-weight: 800;
 }
@@ -11958,6 +11958,11 @@ a {
   display: none;
 }
 
+@media (min-width: 760px) {
+  .bandeau-habitats {
+    display: flex;
+  }
+}
 @media (min-width: 600px) {
   .big, .medium {
     display: flex;
@@ -11984,4 +11989,9 @@ a {
 
 .nav {
   width: 100%;
-}/*# sourceMappingURL=custom2.css.map */
+  background-color: #dc3545;
+}
+
+.carousel-item {
+  height: 40vh;
+}/*# sourceMappingURL=custom5.css.map */

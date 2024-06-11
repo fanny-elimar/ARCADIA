@@ -14,7 +14,7 @@ require_once __DIR__ . "/../lib/config.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/CSS/custom3.css">
+    <link rel="stylesheet" href="assets/CSS/custom5.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@ require_once __DIR__ . "/../lib/config.php";
         <header class="">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
-                <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:600px)" alt="logo-arcadia" class="img-fluid img-logo">
+                <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
                 <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
             </picture>    
                 <div class="text-end nav-item">
