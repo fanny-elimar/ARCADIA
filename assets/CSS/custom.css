@@ -11925,10 +11925,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 body {
   font-family: Comfortaa, arial, sans-serif;
+  color: var(--primary);
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, .nav-item {
   font-family: Just another hand, "Times New Roman", Times, serif;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: underline;
+  color: var(--primary);
+  font-weight: 800;
 }
 
 .container-flux {

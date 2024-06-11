@@ -11932,12 +11932,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .nav-item {
   font-family: Just another hand, "Times New Roman", Times, serif;
 }
 
-p {
-  font-size: 1rem;
+.card-text {
+  font-size: small;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--primary);
   font-weight: 800;
 }
@@ -11984,4 +11984,4 @@ a {
 
 .nav {
   width: 100%;
-}/*# sourceMappingURL=custom2.css.map */
+}/*# sourceMappingURL=custom3.css.map */

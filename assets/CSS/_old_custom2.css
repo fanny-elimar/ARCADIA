@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Comfortaa, arial, sans-serif;
+}
+
+h1, h2, h3, h4, .nav-item {
+    font-family: Just another hand, 'Times New Roman', Times, serif;
+}
+
+.container-flux {
+    max-width: 1000px;
+}
+
+.header_img {
+    width: 98%;
+}
+
+.big {
+    display: none;
+}
+
+.medium {
+    display: none;
+}
+
+@media (min-width : 600px) {
+    .big, .medium {
+        display: flex;
+    }
+    .header_img {
+        width: 31%;
+    }
+}
+
+@media (min-width : 400px) and (max-width : 599px){
+    .medium {
+        display: flex;
+    }
+    .header_img {
+        width: 48%;
+    }
+
+}
+
+.img-logo {
+    max-height: 50px;
+}
+
+.nav-item {
+    font-size: x-large;
+}
+
+.nav {
+width : 100%;
+}
