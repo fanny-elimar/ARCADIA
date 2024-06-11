@@ -2,9 +2,9 @@
 
 define("_DOMAIN_", ".techtrendzstudi.local");
 define("_DB_SERVER_", "localhost");
-define("_DB_NAME_", "studi_techtrendz_live");
-define("_DB_USER_", "root");
-define("_DB_PASSWORD_", "");
+define("_DB_NAME_", "arcadiadb");
+define("_DB_USER_", "postgres");
+define("_DB_PASSWORD_", "c!boule//e");
 define("_ASSETS_IMAGES_FOLDER_", "assets/images/");
 define("_ARTICLES_IMAGES_FOLDER_", "uploads/articles/");
 define("_HOME_ARTICLES_LIMIT_", 3);

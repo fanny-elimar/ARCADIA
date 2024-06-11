@@ -3,8 +3,9 @@
    
 
   <div class="card-body justify-content-center">
-    <h6 class="card-title">Habitat titre</h5>
-    <p class="card-text">Habitat description</p>
+    <h6 class="card-title"><?= htmlentities($habitat["ha_name"])?></h5>
+    <p class="card-text"><?= htmlentities($habitat["ha_description"])?></p>
     <a href="#" class="btn btn-primary">Voir</a>
   </div>
 </div>
+
