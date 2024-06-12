@@ -1,0 +1,98 @@
+CREATE DATABASE arcadiadb;
+
+CREATE TABLE arc_habitat (
+	id SERIAL PRIMARY KEY,
+	ha_name VARCHAR(60) NOT NULL, 
+	ha_description TEXT,
+	ha_images VARCHAR(255),
+	ha_comment TEXT
+);
+
+ALTER TABLE Habitat RENAME COLUMN id TO ha_id;
+
+
+CREATE TABLE arc_animal (
+	an_id SERIAL PRIMARY KEY,
+	an_name VARCHAR(60) NOT NULL, 
+	an_species VARCHAR(60),
+	an_images VARCHAR(255)
+);
+
+CREATE TABLE arc_visit (
+	vi_id SERIAL PRIMARY KEY,
+	vi_condition VARCHAR(255) NOT NULL, 
+	vi_date DATE NOT NULL,
+	vi_condition_details TEXT
+);
+
+CREATE TABLE arc_animal_visit (
+	av_id SERIAL PRIMARY KEY,
+	av_animal_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE, 
+	av_visit_id INT NOT NULL REFERENCES arc_visit(vi_id) ON DELETE CASCADE
+);
+
+CREATE TABLE arc_food (
+	fo_id SERIAL PRIMARY KEY,
+	fo_type VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE arc_instruction (
+	in_id SERIAL PRIMARY KEY,
+	in_food_id INT NOT NULL REFERENCES arc_food(fo_id) ON DELETE RESTRICT,
+	in_animal_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE,
+	in_quantity REAL
+);
+
+CREATE TABLE arc_feeding (
+	fe_id SERIAL PRIMARY KEY,
+	fe_food_id INT NOT NULL REFERENCES arc_food(fo_id) ON DELETE RESTRICT,
+	fe_animal_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE,
+	fe_quantity REAL NOT NULL,
+	fe_date DATE NOT NULL,
+	fe_time TIME NOT NULL
+);
+
+CREATE TABLE arc_service (
+	se_id SERIAL PRIMARY KEY,
+	se_name VARCHAR(255) NOT NULL,
+	se_description TEXT
+);
+
+CREATE TABLE arc_review (
+	re_id SERIAL PRIMARY KEY,
+	re_pseudo VARCHAR(60) NOT NULL,
+	re_review TEXT NOT NULL,
+	re_approved BOOL
+);
+
+CREATE TABLE arc_user (
+	us_id SERIAL PRIMARY KEY,
+	us_email VARCHAR(60) NOT NULL,
+	us_password VARCHAR(255) NOT NULL,
+	us_role VARCHAR(60) NOT NULL
+);
+
+INSERT INTO arc_habitat(ha_name, ha_description)
+VALUES ('jungle', 'la jungle est un espace exotique')
+RETURNING ha_id;
+
+INSERT INTO arc_habitat(ha_name, ha_description)
+VALUES ('savane', 'la savane est un espace exotique')
+RETURNING ha_id;
+
+UPDATE arc_habitat
+SET ha_description = 'L''espace jungle de notre zoo est une immersion totale dans l''exubérante forêt tropicale. Dès votre entrée, une végétation luxuriante vous entoure, avec des lianes pendantes, des fougères géantes et des arbres imposants abritant une multitude de créatures exotiques. Vous pouvez apercevoir des singes espiègles se balancer de branche en branche, tandis que des perroquets colorés survolent les sentiers. Des panneaux éducatifs jalonnent le parcours, offrant des informations fascinantes sur les espèces végétales et animales de la jungle. L''humidité ambiante et les sons envoûtants de la faune créent une expérience sensorielle unique, transportant les visiteurs au cœur de la nature sauvage.'
+WHERE ha_name = 'jungle';
+
+INSERT INTO arc_habitat(ha_name,ha_description)
+VALUES ('marais', 'L''espace marais de notre zoo vous plonge dans l''atmosphère des zones humides. En avançant sur des passerelles surélevées, vous pourrez admirer des étendues d''eau bordées de joncs et de nénuphars. Des tortues paressent sur des troncs d''arbres émergés, tandis que des alligators se dissimulent à peine sous la surface calme de l''eau. Des oiseaux, comme les hérons et les ibis, picorent dans les marécages à la recherche de leur prochain repas. Vous découvrirez également une variété de poissons et d''amphibiens. Des panneaux informatifs racontent l''importance écologique des marais et la diversité des espèces qui y vivent. Vous apprécierez cette promenade relaxante au cœur de ce biotope fascinant et vital.');
+
+UPDATE arc_habitat
+SET ha_images = 'jungle.webp'
+WHERE ha_name = 'jungle';
+UPDATE arc_habitat
+SET ha_images = 'savane.webp'
+WHERE ha_name = 'savane';
+UPDATE arc_habitat
+SET ha_images = 'marais.webp'
+WHERE ha_name = 'marais';
