@@ -4,6 +4,7 @@ require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php"; 
 require_once __DIR__ . "/templates/_header.php";
 require_once __DIR__ . "/lib/habitat.php"; 
+require_once __DIR__ . "/lib/service.php";
 ?>
 
 <div>
@@ -14,6 +15,7 @@ require_once __DIR__ . "/lib/habitat.php";
 
 <?php 
 $habitats = getHabitats($pdo);
+
 foreach ($habitats as $habitat) {
         require __DIR__ . "/templates/_habitat_card.php";
     } ?>
@@ -75,11 +77,12 @@ foreach ($habitats as $habitat) {
 
 <div class="bandeau-habitats justify-content-center">
 
-<?php
-require __DIR__ . "/templates/_service_card.php";
-require __DIR__ . "/templates/_service_card.php";
-require __DIR__ . "/templates/_service_card.php";
-?>
+<?php 
+$services = getServices($pdo);
+//var_dump($services);
+foreach ($services as $service) {
+        require __DIR__ . "/templates/_service_card.php";
+    } ?>
 
 </div>
 

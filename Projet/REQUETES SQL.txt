@@ -96,3 +96,38 @@ WHERE ha_name = 'savane';
 UPDATE arc_habitat
 SET ha_images = 'marais.webp'
 WHERE ha_name = 'marais';
+
+INSERT INTO arc_service(se_name,se_description)
+VALUES ('restauration','Notre zoo propose une variété de services de restauration pour satisfaire toutes vos envies culinaires pendant votre visite. Vous trouverez plusieurs snacks disséminés dans le parc, offrant des en-cas rapides comme des sandwiches, des fruits frais et des boissons rafraîchissantes. Pour une pause gourmande, arrêtez-vous à l''un de nos stands de glace, où des délices glacés aux saveurs variées raviront petits et grands. Pour un repas plus complet, notre restaurant vous accueille dans un cadre convivial, avec un menu diversifié comprenant des plats chauds, des salades, et des options végétariennes. Des aires de pique-nique ont été également été aménagées dans chaque espace.');
+INSERT INTO arc_service(se_name,se_description)
+VALUES ('visite guidée des habitats','Profitez de visites guidées gratuites des habitats. Elles vous permettront de découvrir nos animaux de manière enrichissante et éducative. Chaque visite est une occasion d''apprendre des anecdotes fascinantes sur les espèces que vous rencontrez, leurs comportements et leurs habitats naturels. Les guides sont également disponibles pour répondre à vos questions et partager des faits surprenants. Ces visites guidées sont idéales pour tous les âges, offrant une expérience immersive et interactive qui enrichira votre visite et vous laissera avec des souvenirs inoubliables.');
+INSERT INTO arc_service(se_name,se_description)
+VALUES ('Petit train','Embarquez à bord de notre petit train, qui vous conduira à travers les différentes zones du parc, telles que la jungle, la savane et les marais. Conçu pour toute la famille, ce moyen de transport pratique permet de profiter d''une vue panoramique sur les habitats et les animaux, tout en se relaxant. Le petit train est commenté, offrant des informations intéressantes et des anecdotes amusantes sur les espèces que vous croisez. C''est l''occasion idéale pour découvrir le zoo sans fatigue. Rejoignez-nous pour une expérience mémorable et conviviale, qui plaira aux petits comme aux grands.');
+
+ALTER TABLE arc_service
+ADD COLUMN se_images VARCHAR(255);
+
+UPDATE arc_service
+SET se_images = 'restaurant.webp'
+WHERE se_name = 'restauration';
+
+UPDATE arc_service
+SET se_images = 'petit_train.webp'
+WHERE se_name = 'petit train';
+
+UPDATE arc_service
+SET se_images = 'visite_guidee.webp'
+WHERE se_name = 'visite guidée des habitats';
+
+UPDATE arc_service
+SET se_name = 'petit train'
+WHERE se_name = 'Petit train';
+
+UPDATE arc_service
+SET se_images = 'petit_train.webp'
+WHERE se_name = 'petit train';
+
+UPDATE arc_service
+SET se_images = 'petit_train.webp'
+WHERE se_name = 'petit train';
+
