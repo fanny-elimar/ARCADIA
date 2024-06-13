@@ -1,11 +1,22 @@
 <?php
 
-function getReviews(PDO $pdo):array|bool
+function getReviews(PDO $pdo, int $limit = null, int $offset = null):array|bool
 {
-    $sql = "SELECT * FROM arc_review";
+    $sql = "SELECT * FROM arc_review ORDER BY re_date DESC";
+    if ($limit && !$offset) {
+        $sql .= " LIMIT  :limit";}
+
+        if ($limit && $offset) {
+            $sql .= " LIMIT  :limit OFFSET :offset";}
 
     $query = $pdo->prepare($sql);
+    if ($limit) {
+        $query->bindValue(":limit", $limit, PDO::PARAM_INT);
+    }
 
+    if ($offset) {
+        $query->bindValue(":offset", $offset, PDO::PARAM_INT);
+    }
 
     $query->execute();
     $reviews = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -22,4 +33,16 @@ function addReview(PDO $pdo, string $re_pseudo, string $re_review) {
 
     
     return $query->execute();
+}
+
+function getNumberOfReviews(PDO $pdo) {
+    $sql = "SELECT COUNT(*) FROM arc_review WHERE re_approved = true;";
+    $query = $pdo->prepare($sql);
+
+    
+    $query->execute();
+    $numberOfReviews = $query->fetch();
+
+    return $numberOfReviews;
+
 }
