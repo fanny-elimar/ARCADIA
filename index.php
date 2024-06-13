@@ -90,16 +90,22 @@ foreach ($services as $service) {
 
 </div>
 <div class="border-top mt-3 pt-3">
-<div class="d-flex justify-content-between">
+
 
     <div><h2>Ils sont venus nous voir</h2></div>
-    <div class="mt-3"><a href="" class="btn btn-primary btn-sm">Laisser un avis</a></div>
-  </div>
+
+
+
+  <?php 
+
+        require __DIR__ . "/templates/_review_add.php";
+?>
+
   <?php 
 $reviews = getReviews($pdo);
 
 foreach ($reviews as $review) {
-        require __DIR__ . "/templates/_review.php";
+        require __DIR__ . "/templates/_review_show.php";
     } ?>
 
   <div class="d-flex">
