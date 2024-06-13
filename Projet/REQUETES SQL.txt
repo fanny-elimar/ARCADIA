@@ -131,3 +131,12 @@ UPDATE arc_service
 SET se_images = 'petit_train.webp'
 WHERE se_name = 'petit train';
 
+INSERT INTO arc_review (re_pseudo, re_review, re_approved)
+VALUES ('Marie63','Nous avons passé une superbe journée à Arcadia. C’est un plaisir de voir que les animaux sont si bien traités :)',true);
+
+INSERT INTO arc_review (re_pseudo, re_review, re_approved)
+VALUES ('Paul.legarec','Bravo pour ce joli parc, toute la famille a adoré !',true);
+
+INSERT INTO arc_review (re_pseudo, re_review, re_approved)
+VALUES ('Julie87','Quel plaisir de voir un parc où les animaux sont si bien traités ! Nous avons aimé les explications des guides.',true);
+

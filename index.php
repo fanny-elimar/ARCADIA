@@ -5,13 +5,14 @@ require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/templates/_header.php";
 require_once __DIR__ . "/lib/habitat.php"; 
 require_once __DIR__ . "/lib/service.php";
+require_once __DIR__ . "/lib/review.php";
 ?>
 
 <div>
     <p>Situé en Bretagne, près de la forêt de Brocéliande, Arcadia est un lieu de découverte de la biodiversité mondiale. Au fil de votre visite, vous découvrirez des <a href="habitats.php" class="link-text">habitats</a> variés et la faune   qui y vit.</p>
 </div>
-
-<div class="bandeau-habitats justify-content-center">
+<div d-inline>
+  <div class="bandeau-habitats justify-content-center">
 
 <?php 
 $habitats = getHabitats($pdo);
@@ -20,7 +21,10 @@ foreach ($habitats as $habitat) {
         require __DIR__ . "/templates/_habitat_card.php";
     } ?>
 
+  </div>
+  
 </div>
+
 <div>
     <p>
         En venant à Arcadia, vous aurez le plaisir de rencontrer de nombreux animaux : girafes,  éléphants,  hippopotames,  singes,  serpents,  tortues et bien d'autres encore.
@@ -85,6 +89,24 @@ foreach ($services as $service) {
     } ?>
 
 </div>
+<div class="border-top mt-3 pt-3">
+<div class="d-flex justify-content-between">
+
+    <div><h2>Ils sont venus nous voir</h2></div>
+    <div class="mt-3"><a href="" class="btn btn-primary btn-sm">Laisser un avis</a></div>
+  </div>
+  <?php 
+$reviews = getReviews($pdo);
+
+foreach ($reviews as $review) {
+        require __DIR__ . "/templates/_review.php";
+    } ?>
+
+  <div class="d-flex">
+    <a href="" class="btn btn-primary btn-sm">Voir plus d'avis</a>
+  </div>
+
+  </div>
 
 
 <?php require_once __DIR__ . "/templates/_footer.php"; ?>
