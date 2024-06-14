@@ -99,7 +99,7 @@ foreach ($services as $service) {
 ?>
 
   <?php 
-$reviews = getReviews($pdo, _REVIEWS_LIMIT_);
+$reviews = getApprovedReviews($pdo, _REVIEWS_LIMIT_);
 
 foreach ($reviews as $review) {
 
@@ -116,14 +116,14 @@ foreach ($reviews as $review) {
 
 <?php 
 
-$numberOfReviews=getNumberOfReviews($pdo);
+$numberOfReviews=getNumberOfApprovedReviews($pdo);
 
 for ($i = 2; $i<$numberOfReviews;$i++) {if ($i == 10) break; ?>
 
 <div class="collapse" id="collapseShowAllReviews<?= $i;?>">
 <?php 
 $offset = _REVIEWS_LIMIT_ * ($i-1);
-$reviews = getReviews($pdo, _REVIEWS_LIMIT_, $offset);
+$reviews = getApprovedReviews($pdo, _REVIEWS_LIMIT_, $offset);
 foreach ($reviews as $review) {
         require __DIR__ . "/templates/_review_show.php";
     } ?>

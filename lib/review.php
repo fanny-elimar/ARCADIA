@@ -1,8 +1,8 @@
 <?php
 
-function getReviews(PDO $pdo, int $limit = null, int $offset = null):array|bool
+function getApprovedReviews(PDO $pdo, int $limit = null, int $offset = null):array|bool
 {
-    $sql = "SELECT * FROM arc_review ORDER BY re_date DESC";
+    $sql = "SELECT * FROM arc_review WHERE re_approved = true ORDER BY re_date DESC";
     if ($limit && !$offset) {
         $sql .= " LIMIT  :limit";}
 
@@ -35,7 +35,7 @@ function addReview(PDO $pdo, string $re_pseudo, string $re_review) {
     return $query->execute();
 }
 
-function getNumberOfReviews(PDO $pdo) {
+function getNumberOfApprovedReviews(PDO $pdo) {
     $sql = "SELECT COUNT(*) FROM arc_review WHERE re_approved = true;";
     $query = $pdo->prepare($sql);
 
