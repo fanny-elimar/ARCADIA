@@ -95,25 +95,31 @@ foreach ($services as $service) {
     <div><h2>Ils sont venus nous voir</h2></div>
   <?php 
         require __DIR__ . "/templates/_review_add.php";
+
 ?>
 
   <?php 
 $reviews = getReviews($pdo, _REVIEWS_LIMIT_);
+
 foreach ($reviews as $review) {
+
         require __DIR__ . "/templates/_review_show.php";
     } ?>
 
 <!--Affichage des avis supplémentaires-->
+
+<p>
+  <a class="btn btn-primary btn-sm js-button-voir-avis-supp" data-bs-toggle="collapse" href="#collapseShowAllReviews2" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-avis-supp">
+    Voir +
+  </a>
+</p>
+
 <?php 
 
 $numberOfReviews=getNumberOfReviews($pdo);
 
 for ($i = 2; $i<$numberOfReviews;$i++) {if ($i == 10) break; ?>
-<p>
-  <a class="btn btn-primary btn-sm" data-bs-toggle="collapse" href="#collapseShowAllReviews<?= $i;?>" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-avis-supp">
-    Voir +
-  </a>
-</p>
+
 <div class="collapse" id="collapseShowAllReviews<?= $i;?>">
 <?php 
 $offset = _REVIEWS_LIMIT_ * ($i-1);
@@ -121,6 +127,13 @@ $reviews = getReviews($pdo, _REVIEWS_LIMIT_, $offset);
 foreach ($reviews as $review) {
         require __DIR__ . "/templates/_review_show.php";
     } ?>
+
+<p>
+  <a class="btn btn-primary btn-sm js-button-voir-avis-supp" data-bs-toggle="collapse" href="#collapseShowAllReviews<?= $i+1;?>" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-avis-supp">
+    Voir +
+  </a>
+</p>
+
   </div>
   <?php ;} ?>
 
@@ -129,4 +142,4 @@ foreach ($reviews as $review) {
 
 <?php require_once __DIR__ . "/templates/_footer.php"; ?>
 
-<script src="script.js"></script>
+<script src="script2.js"></script>

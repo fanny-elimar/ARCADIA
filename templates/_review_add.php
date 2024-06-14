@@ -1,10 +1,14 @@
 <?php
 $errors = [];
 $messages = [];
-if (isset($_POST['addReview'])) {
-    /*
+
+if (isset($_POST['addReview'])) {   /*
         @todo ajouter la vérification sur les champs
     */
+    ?>
+    <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+    <script> location.replace("index.php"); </script>
+    <?php 
     
     $res = addReview($pdo, $_POST['re_pseudo'], $_POST['re_review']);
     if ($res) {
@@ -12,6 +16,7 @@ if (isset($_POST['addReview'])) {
     } else {
         $errors[] = 'Une erreur s\'est produite.';
     }
+    
 }
 
 ?>
