@@ -5,7 +5,7 @@
   <div class="card-body justify-content-center">
     <h6 class="card-title"><?= ucfirst(htmlentities($animal["an_name"]))?></h5>
     <p class="card-text"><?= ucfirst(htmlentities($animal["an_species"]))?></p>
-    <a href="#" class="btn btn-primary">Voir</a>
+    <a href="animal_page.php?id=<?=$animal['an_id'];?>" class="btn btn-primary">Voir</a>
   </div>
 </div>
 
