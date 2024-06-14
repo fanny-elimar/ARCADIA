@@ -116,9 +116,12 @@ foreach ($reviews as $review) {
 
 <?php 
 
+
 $numberOfReviews=getNumberOfApprovedReviews($pdo);
 
-for ($i = 2; $i<$numberOfReviews;$i++) {if ($i == 10) break; ?>
+for ($i = 2; $i<$numberOfReviews;$i++) 
+  { ?>
+
 
 <div class="collapse" id="collapseShowAllReviews<?= $i;?>">
 <?php 
@@ -126,14 +129,22 @@ $offset = _REVIEWS_LIMIT_ * ($i-1);
 $reviews = getApprovedReviews($pdo, _REVIEWS_LIMIT_, $offset);
 foreach ($reviews as $review) {
         require __DIR__ . "/templates/_review_show.php";
-    } ?>
+    } 
 
-<p>
+    if ($i*3 >= $numberOfReviews) { 
+
+      ?>
+    <p>Il n'y a pas d'avis supplémentaire.</p>
+      
+    <?php } else {   ?>    
+      
+       <p>
   <a class="btn btn-primary btn-sm js-button-voir-avis-supp" data-bs-toggle="collapse" href="#collapseShowAllReviews<?= $i+1;?>" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-avis-supp">
     Voir +
   </a>
-</p>
-
+    </p>
+       
+    <?php } ?>
   </div>
   <?php ;} ?>
 

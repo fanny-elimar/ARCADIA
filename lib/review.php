@@ -36,13 +36,11 @@ function addReview(PDO $pdo, string $re_pseudo, string $re_review) {
 }
 
 function getNumberOfApprovedReviews(PDO $pdo) {
-    $sql = "SELECT COUNT(*) FROM arc_review WHERE re_approved = true;";
+    $sql = "SELECT COUNT(*) AS total FROM arc_review WHERE re_approved = true;";
     $query = $pdo->prepare($sql);
+    $query -> execute();
 
-    
-    $query->execute();
-    $numberOfReviews = $query->fetch();
-
-    return $numberOfReviews;
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
 
 }
