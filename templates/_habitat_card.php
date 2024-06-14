@@ -5,7 +5,7 @@
   <div class="card-body justify-content-center">
     <h6 class="card-title"><?= ucfirst(htmlentities($habitat["ha_name"]))?></h5>
     <p class="card-text"><?= substr(htmlentities($habitat["ha_description"]),0,200).'...'?></p>
-    <a href="#" class="btn btn-primary">Voir</a>
+    <a href="habitat_page.php?id=<?=$habitat['ha_id'];?>" class="btn btn-primary">Voir</a>
   </div>
 </div>
 

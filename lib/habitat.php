@@ -27,3 +27,18 @@ function getHabitats(PDO $pdo):array|bool
 
     return $habitats;
 }
+
+function getHabitatByName(PDO $pdo, string $name):array|bool
+{
+    $sql = "SELECT * FROM arc_habitat WHERE ha_name = :name";
+
+    $query = $pdo->prepare($sql);
+    
+    $query->bindValue(":name", $name, PDO::PARAM_INT);
+
+
+    $query->execute();
+    $habitat = $query->fetch(PDO::FETCH_ASSOC);
+
+    return $habitat;
+}
