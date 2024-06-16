@@ -39,6 +39,7 @@ if (isset($_GET['id'])) {
         $animals = getAnimalsByHabitat($pdo, $id); 
 
         foreach ($animals as $animal) {
+            
             require __DIR__ . "/templates/_animal_card.php";
         } ?>
   </div>

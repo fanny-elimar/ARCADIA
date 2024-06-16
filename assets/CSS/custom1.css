@@ -11993,4 +11993,12 @@ a {
 
 .carousel-item {
   height: 40vh;
-}/*# sourceMappingURL=custom5.css.map */
+}
+
+.hidden {
+  display: none;
+}
+
+.animal-card-image {
+  height: 12rem;
+}/*# sourceMappingURL=custom1.css.map */
