@@ -36,10 +36,14 @@ if (isset($_GET['id'])) {
 <div class="d-flex flex-wrap justify-content-around">
         <?php 
         
-        $animals = getAnimalsByHabitat($pdo, $id); 
+        $animals = getAnimalsByHabitat($pdo, $id, null, null); 
+
+
+$animalRank =0;
 
         foreach ($animals as $animal) {
-            
+$animalRank++;
+
             require __DIR__ . "/templates/_animal_card.php";
         } ?>
   </div>

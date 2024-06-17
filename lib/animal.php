@@ -1,18 +1,29 @@
 <?php 
-function getAnimalsByHabitat(PDO $pdo, int $id):array|bool
+function getAnimalsByHabitat(PDO $pdo, int $id, int $limit = null, int $offset = null):array|bool
 {
-    $sql = "SELECT * FROM arc_animal WHERE an_ha_id = :id ORDER BY an_species ASC";
+    $sql = "SELECT * FROM arc_animal WHERE an_ha_id = :id ORDER BY an_id ASC";
+    if ($limit && !$offset) {
+        $sql .= " LIMIT  :limit";}
+
+        if ($limit && $offset) {
+            $sql .= " LIMIT  :limit OFFSET :offset";}
+
 
     $query = $pdo->prepare($sql);
-    
     $query->bindValue(":id", $id, PDO::PARAM_INT);
+    if ($limit) {
+        $query->bindValue(":limit", $limit, PDO::PARAM_INT);
+    }
 
+    if ($offset) {
+        $query->bindValue(":offset", $offset, PDO::PARAM_INT);
+    }
 
     $query->execute();
 
     $animals = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    return $animals;
+        return $animals;
 }
 
 function getAnimalById(PDO $pdo, int $id):array|bool
@@ -32,7 +43,7 @@ function getAnimalById(PDO $pdo, int $id):array|bool
 
 function getHabitatByAnimalId(PDO $pdo, int $id)
 {
-    $sql = "SELECT ha_name FROM arc_habitat, arc_animal WHERE an_id = :id";
+    $sql = "SELECT ha_name, ha_id FROM arc_habitat, arc_animal WHERE an_id = :id";
 
     $query = $pdo->prepare($sql);
     
@@ -43,4 +54,17 @@ function getHabitatByAnimalId(PDO $pdo, int $id)
     $habitat = $query->fetch(PDO::FETCH_ASSOC);
 
     return $habitat;
+}
+
+
+
+function getNumberOfAnimalsPerHabitat(PDO $pdo, $habitat) {
+    $sql = "SELECT COUNT(*) AS total FROM arc_animal WHERE an_ha_id = :an_ha_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":an_ha_id", $habitat, PDO::PARAM_INT);
+    $query -> execute();
+
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+
 }
