@@ -1,5 +1,5 @@
 <?php 
-function getAnimalsByHabitat(PDO $pdo, int $id, int $limit = null, int $offset = null):array|bool
+function getAnimalsByHabitat(PDO $pdo, int $ha_id, int $limit = null, int $offset = null):array|bool
 {
     $sql = "SELECT * FROM arc_animal WHERE an_ha_id = :id ORDER BY an_id ASC";
     if ($limit && !$offset) {
@@ -10,7 +10,7 @@ function getAnimalsByHabitat(PDO $pdo, int $id, int $limit = null, int $offset =
 
 
     $query = $pdo->prepare($sql);
-    $query->bindValue(":id", $id, PDO::PARAM_INT);
+    $query->bindValue(":id", $ha_id, PDO::PARAM_INT);
     if ($limit) {
         $query->bindValue(":limit", $limit, PDO::PARAM_INT);
     }

@@ -8,7 +8,7 @@ require_once __DIR__ . "/lib/habitat.php";
 
 
     <?php 
-    $ha_id = isset($_GET['id']);
+    $ha_id = isset($_GET['id']) ? $_GET['id'] : 1;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $limit = 1;
     $offset = ($page - 1) * $limit;

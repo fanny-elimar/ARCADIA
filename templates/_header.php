@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . "/../lib/config.php";
+require_once __DIR__ . "/../lib/user.php";
+require_once __DIR__ . "/../lib/session.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@ require_once __DIR__ . "/../lib/config.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/CSS/custom1.css">
+    <link rel="stylesheet" href="assets/CSS/custom2.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -30,8 +33,17 @@ require_once __DIR__ . "/../lib/config.php";
                 <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
                 <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
             </picture>    
-                <div class="text-end nav-item">
-                <a href="/index.php?controller=auth&action=login" class="nav-link px-2">Connexion</a>
+                <div class="text-end nav-item d-flex">
+                    <?php if (isset($_SESSION['user'])) {
+                        if ($_SESSION['user']['us_role']==='vet') {?>
+                            <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone"><?php ;} 
+                        elseif ($_SESSION['user']['us_role']==='admin') { ?>
+                            <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone"><?php ;} 
+                        elseif ($_SESSION['user']['us_role']==='employe') { ?>
+                            <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone"><?php ;}?> 
+                    <a href="logout.php" class="nav-link px-2">Déconnexion</a> <?php ;} else { ?>
+                    <a href="login.php" class="nav-link px-2">Connexion</a> <?php ;} ?>
+
             </div>
             
                 
