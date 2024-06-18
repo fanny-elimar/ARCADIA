@@ -34,7 +34,7 @@ if (isset($_POST['addReview'])) {   /*
         </div>
         <div class="mb-3">
             <label for="re_review" class="form-label">Avis</label>
-            <input type="text" class="form-control" id="re_review" name="re_review">
+            <textarea rows="4"class="form-control" id="re_review" name="re_review"></textarea>
         </div>
 
         <input type="submit" name="addReview" class="btn btn-primary btn-sm" value="Enregistrer">

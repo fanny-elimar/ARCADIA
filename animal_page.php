@@ -3,6 +3,8 @@ require_once __DIR__ ."/templates/_header.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/animal.php";
 require_once __DIR__ . "/lib/habitat.php";
+require_once __DIR__ . "/lib/visit.php";
+require_once __DIR__ . "/lib/session.php";
 
 ?>
 
@@ -15,6 +17,7 @@ require_once __DIR__ . "/lib/habitat.php";
     $animals = getAnimalsByHabitat($pdo, $ha_id, $limit, $offset);
     $animal = $animals[0];
     $images = explode(" ",$animal["an_images"]);
+    $condition = getLastCondition($pdo, $animal['an_id']);
 
     $habitat = getHabitatById($pdo, $ha_id);
     $totalPages = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
@@ -59,7 +62,15 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
             <div class="col-md-3">
                 <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
                 <p>Habitat : <?=$habitat["ha_name"]; ?></p>
-                <p>Etat : <?="A compléter" ?></p>
+                <?php if ($condition) {?>
+                <p>Etat : <?=$condition['vi_condition'] ?></p>
+                <?php ;}?>
+                <?php if ($condition) {
+                    if (isset($_SESSION['user'])) {
+                        if ($_SESSION['user']['us_role']==='admin' || $_SESSION['user']['us_role']==='employe')?>
+                <p>Remarque : <?=$condition['vi_condition_details'] ?></p>
+                <?php ;}}?>
+                
             </div>
 
                 
@@ -71,3 +82,14 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
         </div>
         </div>
         
+<?php 
+
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['us_role']==='vet') {
+        require_once __DIR__ ."/templates/_vet_visit_add.php";
+    }
+} 
+
+require_once __DIR__ ."/templates/_footer.php";
+
+?>
