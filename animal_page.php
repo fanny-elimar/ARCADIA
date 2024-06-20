@@ -17,7 +17,9 @@ require_once __DIR__ . "/lib/session.php";
     $animals = getAnimalsByHabitat($pdo, $ha_id, $limit, $offset);
     $animal = $animals[0];
     $images = explode(" ",$animal["an_images"]);
-    $condition = getLastCondition($pdo, $animal['an_id']);
+    $condition = getLastConditionByAnimalId($pdo, $animal['an_id']);
+    $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
+    
 
     $habitat = getHabitatById($pdo, $ha_id);
     $totalPages = getNumberOfAnimalsPerHabitat($pdo, $ha_id);

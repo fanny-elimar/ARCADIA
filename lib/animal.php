@@ -68,3 +68,12 @@ function getNumberOfAnimalsPerHabitat(PDO $pdo, $habitat) {
     return $result['total'];
 
 }
+
+function getEnclosureByAnimalId($pdo, $id) {
+    $sql = "SELECT * FROM arc_enclosure INNER JOIN arc_animal on arc_animal.an_en_id = arc_enclosure.en_id WHERE an_id=:an_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":an_id", $id, PDO::PARAM_INT);
+    $query->execute();
+    $enclosure = $query->fetch(PDO::FETCH_ASSOC);
+    return $enclosure;
+}
