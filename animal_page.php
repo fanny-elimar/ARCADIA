@@ -4,6 +4,7 @@ require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/animal.php";
 require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/visit.php";
+require_once __DIR__ . "/lib/food.php";
 require_once __DIR__ . "/lib/session.php";
 
 ?>
@@ -19,6 +20,9 @@ require_once __DIR__ . "/lib/session.php";
     $images = explode(" ",$animal["an_images"]);
     $condition = getLastConditionByAnimalId($pdo, $animal['an_id']);
     $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
+    $foods =getFoods($pdo);
+    $foodInstruction = getFoodInstructionByAnimalId($pdo, $animal['an_id']);
+var_dump($foodInstruction);
     
 
     $habitat = getHabitatById($pdo, $ha_id);

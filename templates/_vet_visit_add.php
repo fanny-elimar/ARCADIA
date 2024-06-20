@@ -21,6 +21,23 @@ if ($res2) {
 
 }
 
+if (isset($_POST['addFoodInstruction'])) {   /*
+    @todo ajouter la vérification sur les champs
+*/
+?>
+<!--empecher le renvoi du formulaire à l'actualisation de la page-->
+<script> location.replace(document.referrer); </script>
+<?php 
+
+$res3 = addFoodInstruction($pdo, $animal['an_id'], $_POST['in_fo_id'], $_POST['in_quantity']);
+if ($res3) {
+    $messages[] = 'Merci pour votre avis.';
+} else {
+    $errors[] = 'Une erreur s\'est produite.';
+}
+
+}
+
 if (isset($_POST['addVisit'])) {   /*
         @todo ajouter la vérification sur les champs
     */
@@ -42,7 +59,7 @@ if (isset($_POST['addVisit'])) {   /*
 
 <div class="container container-flux">
 <h3 class="mt-3">Compte-rendu de visite</h3>
-<div class="border p-3 rounded d-block">
+<div class="border p-3 rounded">
 <h4>Enclos <?= $enclosure['en_name'];?></h4>
 <form name="addEnclosureComment" method="POST" class="row">
 
@@ -87,5 +104,45 @@ if (isset($_POST['addVisit'])) {   /*
 
     </form>
 </div>
+
+<div class="border p-3 rounded mt-3">
+<h4>Instructions d'alimentation</h4>
+<div>
+    <p><?= $foodInstruction[0]['fo_type'];?></p>
+    <p><?= $foodInstruction[0]['in_quantity'];?></p>
+</div>
+<div>
+    <p><?= $foodInstruction[1]['fo_type'];?></p>
+    <p><?= $foodInstruction[1]['in_quantity'];?></p>
+</div>
+
+<form name="addFoodInstruction" method="POST" class="row">
+
+
+
+<div class="row">           
+    <div class="col-4">
+    <select type="text" class="form-control" id="in_fo_id" name="in_fo_id">
+                <?php foreach ($foods as $food) {?>
+                <option value="<?= $food['fo_id'];?>"><?=$food['fo_type'] ?></option>
+                <?php ;}?>
+                
+ 
+            </select>
+        </div>
+            <div class="col-4">
+                <input type="text" class="form-control" id="in_quantity" name="in_quantity">
+            </div>
+            <div class="col-2"><p>g</p></div>
+            <div class="col-2">
+            <input type="submit" name="addFoodInstruction" class="btn btn-primary btn-sm" value="Modifier">
+            </div>
+</div> 
+
+        </form>
+</div>
+
+
+
 </div>
   
