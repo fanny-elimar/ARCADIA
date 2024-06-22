@@ -126,14 +126,40 @@ if ($res4) {
     $errors[] = 'Une erreur s\'est produite.';
 }
 
+} 
+
+if (isset($_POST["modifyInstruction".$foodInstruction['in_id']])) {   /*
+    @todo ajouter la vérification sur les champs
+*/
+?>
+<!--empecher le renvoi du formulaire à l'actualisation de la page-->
+<script> location.replace(document.referrer); </script>
+<?php 
+
+$res5 = modifyFoodInstruction($pdo, $foodInstruction['in_id'], $_POST['in_fo_id'], $_POST['in_quantity'] );
+if ($res5) {
+    $messages[] = 'Merci pour votre avis.';
+} else {
+    $errors[] = 'Une erreur s\'est produite.';
+}
+
 } ?> 
 
     
     <form method="POST">
-        <div class="row">
-    <div class="col-4 "><?= $foodInstruction['fo_type'];?> : <?= $foodInstruction['in_quantity'];?> g</div>
-    <div class="col-3"><a href='modif_instruction.php?id=<?=$foodInstruction['in_id'];?>'>Modifier</a> </div>
-    <div class="col-3"><input type="submit" name="<?php echo 'deleteInstruction'.$foodInstruction['in_id'];?>" class="btn btn-primary btn-sm" value="Supprimer"></div>
+        <div class="row my-1">
+    <div class="col-3 ">
+    <select type="text" class="form-control" id="in_fo_id" name="in_fo_id">
+                <?php foreach ($foods as $food) {?>
+                <option value="<?= $food['fo_id'];?>" <?php if ($food['fo_id'] == $foodInstruction['in_fo_id']){ echo ' selected="selected"'; } ?>><?=$food['fo_type'] ?></option>
+                <?php ;}?>
+                
+ 
+            </select></div>
+    <div class="col-3"><input type="text" name="in_quantity" class="form-control" value='<?= $foodInstruction['in_quantity'];?> '>    </div>
+    <div class="col-1"> <p> g <?= $foodInstruction['in_id']; ?></p></div>
+    <div class="col-2"><input type="submit" name="<?php echo 'modifyInstruction'.$foodInstruction['in_id'];?>" class="btn btn-primary btn-sm" value="Modifier"></div>
+    <div class="col-2"><input type="submit" name="<?php echo 'deleteInstruction'.$foodInstruction['in_id'];?>" class="btn btn-primary btn-sm" value="Supprimer"></div>
      </div>
 
     </form>

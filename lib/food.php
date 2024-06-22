@@ -49,9 +49,21 @@ function addFoodInstruction (PDO $pdo, $an_id, $in_fo_id, $in_quantity) {
 
 }
 
+function modifyFoodInstruction (PDO $pdo, $in_id, $in_fo_id, $in_quantity) {
+    $sql = "UPDATE arc_instruction SET in_fo_id = :in_fo_id, in_quantity = :in_quantity  WHERE in_id = :in_id;";
+    $query = $pdo->prepare($sql);
+
+    $query->bindParam(':in_id', $in_id, PDO::PARAM_INT);
+    $query->bindParam(':in_fo_id', $in_fo_id, PDO::PARAM_INT);
+    $query->bindParam(':in_quantity', $in_quantity, PDO::PARAM_INT);
+    
+    return $query->execute();
+
+}
+
 function getFoodInstructionByAnimalId(PDO $pdo, $an_id):array|bool
 {
-    $sql = "SELECT fo_type, in_quantity, in_id FROM arc_food INNER JOIN arc_instruction on arc_food.fo_id = arc_instruction.in_fo_id WHERE in_an_id=:in_an_id";
+    $sql = "SELECT fo_type, in_quantity, in_id, in_fo_id FROM arc_food INNER JOIN arc_instruction on arc_food.fo_id = arc_instruction.in_fo_id WHERE in_an_id=:in_an_id";
     
     $query = $pdo->prepare($sql);
 
