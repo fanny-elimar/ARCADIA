@@ -55,6 +55,8 @@ if (isset($_POST['addVisit'])) {   /*
     
 }
 
+
+
 ?>
 
 <div class="container container-flux">
@@ -107,14 +109,39 @@ if (isset($_POST['addVisit'])) {   /*
 
 <div class="border p-3 rounded mt-3">
 <h4>Instructions d'alimentation</h4>
-<div>
-    <p><?= $foodInstruction[0]['fo_type'];?></p>
-    <p><?= $foodInstruction[0]['in_quantity'];?></p>
+<div><?php foreach ($foodInstructions as $foodInstruction) {
+
+    if (isset($_POST["deleteInstruction".$foodInstruction['in_id']])) {   /*
+    @todo ajouter la vérification sur les champs
+*/
+?>
+<!--empecher le renvoi du formulaire à l'actualisation de la page-->
+<script> location.replace(document.referrer); </script>
+<?php 
+
+$res4 = deleteFoodInstruction($pdo, $foodInstruction['in_id']);
+if ($res4) {
+    $messages[] = 'Merci pour votre avis.';
+} else {
+    $errors[] = 'Une erreur s\'est produite.';
+}
+
+} ?> 
+
+    
+    <form method="POST">
+        <div class="row">
+    <div class="col-4 "><?= $foodInstruction['fo_type'];?> : <?= $foodInstruction['in_quantity'];?> g</div>
+    <div class="col-3"><a href='modif_instruction.php?id=<?=$foodInstruction['in_id'];?>'>Modifier</a> </div>
+    <div class="col-3"><input type="submit" name="<?php echo 'deleteInstruction'.$foodInstruction['in_id'];?>" class="btn btn-primary btn-sm" value="Supprimer"></div>
+     </div>
+
+    </form>
+   
+<?php ;}?>
+   
 </div>
-<div>
-    <p><?= $foodInstruction[1]['fo_type'];?></p>
-    <p><?= $foodInstruction[1]['in_quantity'];?></p>
-</div>
+
 
 <form name="addFoodInstruction" method="POST" class="row">
 
@@ -135,7 +162,7 @@ if (isset($_POST['addVisit'])) {   /*
             </div>
             <div class="col-2"><p>g</p></div>
             <div class="col-2">
-            <input type="submit" name="addFoodInstruction" class="btn btn-primary btn-sm" value="Modifier">
+            <input type="submit" name="addFoodInstruction" class="btn btn-primary btn-sm" value="Ajouter">
             </div>
 </div> 
 

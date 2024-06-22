@@ -21,8 +21,8 @@ require_once __DIR__ . "/lib/session.php";
     $condition = getLastConditionByAnimalId($pdo, $animal['an_id']);
     $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
     $foods =getFoods($pdo);
-    $foodInstruction = getFoodInstructionByAnimalId($pdo, $animal['an_id']);
-var_dump($foodInstruction);
+    $foodInstructions = getFoodInstructionByAnimalId($pdo, $animal['an_id']);
+
     
 
     $habitat = getHabitatById($pdo, $ha_id);

@@ -12,6 +12,31 @@ function getFoods(PDO $pdo):array|bool
         return $foods;
 }
 
+function getFoodInstructionById(PDO $pdo, int $id):array|bool
+{
+    $sql = "SELECT * FROM arc_instruction WHERE in_id=:in_id";
+    
+    $query = $pdo->prepare($sql);
+    $query->bindValue('in_id',$id,pdo::PARAM_INT);
+    
+    $query->execute();
+
+    $foodInstruction = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $foodInstruction;
+}
+
+function deleteFoodInstruction(PDO $pdo, int $id):array|bool
+{
+    $sql = "DELETE FROM arc_instruction WHERE in_id=:in_id";
+    
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':in_id',$id,pdo::PARAM_INT);
+    
+    return $query->execute();
+
+}
+
 function addFoodInstruction (PDO $pdo, $an_id, $in_fo_id, $in_quantity) {
     $sql = "INSERT INTO arc_instruction (in_an_id, in_fo_id, in_quantity) VALUES (:in_an_id, :in_fo_id, :in_quantity);";
     $query = $pdo->prepare($sql);
@@ -26,7 +51,7 @@ function addFoodInstruction (PDO $pdo, $an_id, $in_fo_id, $in_quantity) {
 
 function getFoodInstructionByAnimalId(PDO $pdo, $an_id):array|bool
 {
-    $sql = "SELECT fo_type, in_quantity FROM arc_food INNER JOIN arc_instruction on arc_food.fo_id = arc_instruction.in_fo_id WHERE in_an_id=:in_an_id";
+    $sql = "SELECT fo_type, in_quantity, in_id FROM arc_food INNER JOIN arc_instruction on arc_food.fo_id = arc_instruction.in_fo_id WHERE in_an_id=:in_an_id";
     
     $query = $pdo->prepare($sql);
 
