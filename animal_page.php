@@ -95,6 +95,11 @@ if (isset($_SESSION['user'])) {
         require_once __DIR__ ."/templates/_vet_visit_add.php";
     }
 } 
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['us_role']==='employe') {
+        require_once __DIR__ ."/templates/_food_given.php";
+    }
+} 
 
 require_once __DIR__ ."/templates/_footer.php";
 

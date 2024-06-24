@@ -84,3 +84,38 @@ function addFood(PDO $pdo, $fo_type) {
 
     return $query->execute();
 }
+
+function addFoodGiven(PDO $pdo, $an_id, $fe_fo_id, $fe_quantity,  $fe_date, $fe_time) {
+    $sql = "INSERT INTO arc_feeding (fe_an_id, fe_fo_id, fe_quantity, fe_date, fe_time) VALUES (:fe_an_id, :fe_fo_id, :fe_quantity, :fe_date, :fe_time);";
+    $query = $pdo->prepare($sql);
+
+    $query->bindParam(':fe_an_id', $an_id, PDO::PARAM_INT);
+    $query->bindParam(':fe_fo_id', $fe_fo_id, PDO::PARAM_INT);
+    $query->bindParam(':fe_quantity', $fe_quantity, PDO::PARAM_INT);
+    $query->bindParam(':fe_date', $fe_date, PDO::PARAM_STR);
+    $query->bindParam(':fe_time', $fe_time, PDO::PARAM_STR);
+
+    return $query->execute();
+}
+
+function getFoodGivenByAnimalId(PDO $pdo, $an_id, $fe_date) {
+    $sql = "SELECT fe_quantity, fe_date, fe_time, fo_type, fe_id FROM arc_feeding INNER JOIN arc_food on arc_feeding.fe_fo_id=arc_food.fo_id WHERE fe_an_id=:an_id AND fe_date = :fe_date;";
+    $query = $pdo->prepare($sql);
+
+    $query->bindParam(':an_id', $an_id, PDO::PARAM_INT);
+    $query->bindParam(':fe_date', $fe_date, PDO::PARAM_INT);
+    $query->execute();
+    $foodGiven = $query->fetchAll(pdo::FETCH_ASSOC);
+    return $foodGiven;
+}
+
+function deleteFoodGiven(PDO $pdo, int $id):array|bool
+{
+    $sql = "DELETE FROM arc_feeding WHERE fe_id=:fe_id;";
+    
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':fe_id',$id,pdo::PARAM_INT);
+    
+    return $query->execute();
+
+}
