@@ -75,3 +75,12 @@ function getFoodInstructionByAnimalId(PDO $pdo, $an_id):array|bool
 
         return $foodInstruction;
 }
+
+function addFood(PDO $pdo, $fo_type) {
+    $sql = "INSERT INTO arc_food (fo_type) VALUES (:fo_type);";
+    $query = $pdo->prepare($sql);
+
+    $query->bindValue(':fo_type', $fo_type, PDO::PARAM_INT);
+
+    return $query->execute();
+}
