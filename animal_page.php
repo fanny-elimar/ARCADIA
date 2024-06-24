@@ -69,12 +69,11 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
                 <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
                 <p>Habitat : <?=$habitat["ha_name"]; ?></p>
                 <?php if ($condition) {?>
-                <p>Etat : <?=$condition['vi_condition'] ?></p>
-                <?php ;}?>
-                <?php if ($condition) {
+                <p>Etat : <?=$condition['vi_condition'] ?>
+                <?php 
                     if (isset($_SESSION['user'])) {
-                        if ($_SESSION['user']['us_role']==='admin' || $_SESSION['user']['us_role']==='employe')?>
-                <p>Remarque : <?=$condition['vi_condition_details'] ?></p>
+                if ($condition['vi_condition_details']) {echo '('.$condition['vi_condition_details'].')' ?></p><?php ;}?>
+                <p>Enclos <?=$enclosure['en_name'].' : '.$enclosure['en_comment'] ?></p>
                 <?php ;}}?>
                 
             </div>
@@ -92,14 +91,18 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 
 if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['us_role']==='vet') {
-        require_once __DIR__ ."/templates/_vet_visit_add.php";
+        require_once __DIR__ ."/templates/_vet_visit.php";
+        require_once __DIR__ ."/templates/_food_instruction.php";
+        require_once __DIR__ ."/templates/_food_given.php";
     }
-} 
-if (isset($_SESSION['user'])) {
-    if ($_SESSION['user']['us_role']==='employe') {
+    elseif ($_SESSION['user']['us_role']==='employe') {
+        require_once __DIR__ ."/templates/_food_instruction.php";
         require_once __DIR__ ."/templates/_food_given.php";
     }
 } 
+ ?>
+</div>
+<?php
 
 require_once __DIR__ ."/templates/_footer.php";
 
