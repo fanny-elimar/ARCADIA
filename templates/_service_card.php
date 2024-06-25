@@ -5,6 +5,6 @@
   <div class="card-body justify-content-center">
     <h6 class="card-title"><?= ucfirst(htmlentities($service["se_name"]))?></h5>
     <p class="card-text"><?= substr(htmlentities($service["se_description"]),0,210).'...'?></p>
-    <a href="#" class="btn btn-primary">Voir</a>
+    <a href="service_page.php?id=<?=$service['se_id'];?>" class="btn btn-primary">Voir</a>
   </div>
 </div>
