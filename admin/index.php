@@ -7,11 +7,9 @@ if ($_SESSION['user']['us_role']!=='admin') {
 
 ?>
 
-<div class="px-4 py-5 my-5 text-left">
-  <h1 class="display-5 fw-bold text-body-emphasis">Admin Les écrits de papy</h1>
-  <div class="col-lg-12">
-    <p class="lead mb-4">Gestion du site Les écrits de papy pour administrer les articles.</p>
-  </div>
+<div class="px-4 py-5 my-5 text-left" >
+  <h1 class="display-5 ">Gestion du site Arcadia</h1>
+</div>
 </div>
 
 <?php

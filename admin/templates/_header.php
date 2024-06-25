@@ -24,24 +24,18 @@ require_once "../lib/session.php";
     <title>Arcadia</title>
 </head>
 
-<body>
-    <div class="container">
-        <header class="">
+<header class="container container-flux">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
-                <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
-                <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
+                <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
+                <img src="../<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
             </picture>    
                 <div class="text-end nav-item d-flex">
-                    <?php if (isset($_SESSION['user'])) {
-                        if ($_SESSION['user']['us_role']==='vet') {?>
-                            <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone"><?php ;} 
-                        elseif ($_SESSION['user']['us_role']==='admin') { ?>
-                            <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone"><?php ;} 
-                        elseif ($_SESSION['user']['us_role']==='employe') { ?>
-                            <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone"><?php ;}?> 
-                    <a href="logout.php" class="nav-link px-2">Déconnexion</a> <?php ;} else { ?>
-                    <a href="login.php" class="nav-link px-2">Connexion</a> <?php ;} ?>
+
+                            <img src="../<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone">
+     
+                    <a href="logout.php" class="nav-link px-2">Déconnexion</a>
+
 
             </div>
             
@@ -51,40 +45,41 @@ require_once "../lib/session.php";
 
                 
             </div>
-              
-            <div class="d-flex flex-wrap justify-content-around pb-1 pt-1 ">
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."pandas roux.webp";?>" class="header_img">    
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."flamingos-6945385_1280.webp";?>" class="header_img big">
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium">
-            </div>
 
-            <nav class="navbar navbar-expand-sm">
-            <div class="container">
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="n_bar">
-        
-                <ul class="nav justify-content-around border-bottom ">
-                <li class="nav-item">
-                    <a href="index.php" class="nav-link px-2">Accueil</a>
-                </li>                
-                <li class="nav-item">    
-                    <a href="services.php" class="nav-link px-2">Les services</a>
-                </li>
-                <li class="nav-item">    
-                    <a href="habitats.php" class="nav-link px-2">Les habitats</a>
-                </li>
-                <li class="nav-item">    
-                    <a href="contact.php" class="nav-link px-2">Contact</a>
-                </li>
 
-            </ul>
-                </div>
-            </div>
-            </nav>
+            
 
             
         </header>
+<body>
+    <div class="container d-flex">
 
-        <main>
+        <div class="d-flex flex-column flex-shrink-0 p-3 col-3" >
+            <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <span class="fs-4">Admin</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                
+                    <li class="nav-item"><a href="" class="nav-link">Gestion des utilisateurs</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Animaux</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
+                
+                    
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <strong><?= $_SESSION['user']['us_email']; ?></strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="/logout.php">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+        <main class="d-flex flex-column px-4 col-9" style="background-color:blue">
+
