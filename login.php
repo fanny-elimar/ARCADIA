@@ -26,7 +26,7 @@ if (isset($_POST['loginUser'])) {
         }
         
         else {
-            var_dump($_SESSION);
+  
             //header('location: index.php');
         }
     } else {
@@ -49,7 +49,7 @@ if (isset($_POST['loginUser'])) {
         </div>
     <?php } ?>
     <form method="POST">
-        <?php var_dump(password_hash('employe',PASSWORD_DEFAULT));?>
+
         <div class="mb-3">
         <div class="mb-3">
             <label for="us_email" class="form-label">Email</label>

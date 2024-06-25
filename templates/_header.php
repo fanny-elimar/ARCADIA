@@ -2,7 +2,6 @@
 require_once __DIR__ . "/../lib/config.php";
 require_once __DIR__ . "/../lib/user.php";
 require_once __DIR__ . "/../lib/session.php";
-
 ?>
 
 <!DOCTYPE html>

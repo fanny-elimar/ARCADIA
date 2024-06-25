@@ -6,7 +6,7 @@ require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/visit.php";
 require_once __DIR__ . "/lib/food.php";
 require_once __DIR__ . "/lib/session.php";
-
+header('Content-Type: text/html; charset=utf-8');
 ?>
 
 
