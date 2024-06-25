@@ -99,6 +99,11 @@ foreach ($services as $service) {
 ?>
 
   <?php 
+  
+  if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['us_role']==='employe') {
+        require_once __DIR__ ."/templates/_review_approve.php";}}
+
 $reviews = getApprovedReviews($pdo, _REVIEWS_LIMIT_);
 
 foreach ($reviews as $review) {

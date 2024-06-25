@@ -44,3 +44,43 @@ function getNumberOfApprovedReviews(PDO $pdo) {
     return $result['total'];
 
 }
+
+function getDraftReviews(PDO $pdo, int $limit = null, int $offset = null):array|bool
+{
+    $sql = "SELECT * FROM arc_review WHERE re_approved = false ORDER BY re_date DESC";
+    if ($limit && !$offset) {
+        $sql .= " LIMIT  :limit";}
+
+        if ($limit && $offset) {
+            $sql .= " LIMIT  :limit OFFSET :offset";}
+
+    $query = $pdo->prepare($sql);
+    if ($limit) {
+        $query->bindValue(":limit", $limit, PDO::PARAM_INT);
+    }
+
+    if ($offset) {
+        $query->bindValue(":offset", $offset, PDO::PARAM_INT);
+    }
+
+    $query->execute();
+    $draftReviews = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $draftReviews;
+}
+
+function approveReview (PDO $pdo, $id) {
+    $sql = "UPDATE arc_review SET re_approved = true WHERE re_id=:re_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':re_id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
+}
+
+function deleteReview (PDO $pdo, $id) {
+    $sql = "DELETE FROM arc_review WHERE re_id=:re_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':re_id', $id, PDO::PARAM_INT);
+
+    return $query->execute();
+}
