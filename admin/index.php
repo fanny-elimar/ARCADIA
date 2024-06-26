@@ -1,10 +1,6 @@
 <?php
 require_once __DIR__ . '\templates/_header.php';
 
-if ($_SESSION['user']['us_role']!=='admin') {
-    header("location: ../index.php");
-} else {}
-
 ?>
 
 <div class="px-4 py-5 my-5 text-left" >

@@ -2,6 +2,17 @@
 require_once "../lib/config.php";
 require_once "../lib/user.php";
 require_once "../lib/session.php";
+
+var_dump($_SESSION['user']);
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['us_role']!=='admin') {
+        header("location: ../index.php");
+    }
+}
+else {}
+
+?>
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +72,7 @@ require_once "../lib/session.php";
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 
-                    <li class="nav-item"><a href="" class="nav-link">Gestion des utilisateurs</a></li>
+                    <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
