@@ -7,7 +7,7 @@ $users=getUsers($pdo)
 ?>
 
 <div class="px-4 text-left" >
-  <h1 class="display-5 ">Gestion des utilisateurs</h1>
+  <h2 class="display-5">Gestion des utilisateurs</h2>
 </div>
 <div>
     <?php foreach ($users as $user) {
@@ -23,7 +23,7 @@ $users=getUsers($pdo)
             }
         } ?> 
         
-        <div class="row">
+        <div class="row border-top">
         <p class="col-2"><?= $user['us_fname'];?></p>
     <p class="col-3"><?= $user['us_email'];?></p>
     <p class="col-2"><?= $user['us_role'];?></p>
@@ -36,6 +36,45 @@ $users=getUsers($pdo)
  
     </div>
     <?php ;}?>
+    <div>
+        <a class="btn btn-primary btn-sm js-button-add-user col-4 mt-5" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
+        <div class="collapse mt-3" id="collapseAddUser">
+            <form method="POST">
+            <div class="mb-3 form-group row">
+                    <label for="us_fname" class="col-sm-2 col-form-label">Prénom</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="us_fname" name="us_fname">
+                    </div>
+                </div>    
+            <div class="mb-3 form-group row">
+                    <label for="us_email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="us_email" name="us_email">
+                    </div>
+                </div>
+                <div class="mb-3 form-group row">
+                    <label for="us_password" class="col-sm-3 col-form-label">Mot de passe</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="us_password" name="us_password">
+                    </div>
+                </div>
+                <div class="mb-3 form-group row">
+                    <label for="us_password_check" class="col-sm-3 col-form-label">Mot de passe</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="us_password_check" name="us_password_check">
+                    </div>
+                </div>
+                <div class="mb-3 form-group col-3">
+                    <select type="text" class="form-control col-3 text-primary" id="us_role" name="us_role">
+                    <option value="">Type de compte</option>    
+                    <option value="employe">employé</option>
+                        <option value="vet">vétérinaire</option>
+                    </select>
+                </div>
+                <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
+            </form>
+        </div>
+    </div>
 </div>
 </div>
 

@@ -3,13 +3,12 @@ require_once "../lib/config.php";
 require_once "../lib/user.php";
 require_once "../lib/session.php";
 
-var_dump($_SESSION['user']);
 if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['us_role']!=='admin') {
         header("location: ../index.php");
     }
 }
-else {}
+else {header("location: ../index.php");}
 
 ?>
 
@@ -35,7 +34,7 @@ else {}
     <title>Arcadia</title>
 </head>
 
-<header class="container container-flux">
+<header class="container container-flux border-bottom mb-5">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
                 <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
@@ -65,7 +64,7 @@ else {}
 <body>
     <div class="container d-flex">
 
-        <div class="d-flex flex-column flex-shrink-0 p-3 col-3" >
+        <div class="d-flex flex-column flex-shrink-0 p-3 col-3"  style="background-color: a4d0a4";>
             <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                 <span class="fs-4">Admin</span>
             </a>
@@ -92,5 +91,5 @@ else {}
                 </ul>
             </div>
         </div>
-        <main class="d-flex flex-column px-4 col-9" style="background-color:blue">
+        <main class="d-flex flex-column px-4 col-9" style="">
 
