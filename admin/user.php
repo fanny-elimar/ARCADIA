@@ -4,39 +4,56 @@ require_once '../lib/pdo.php';
 require_once '../lib/user.php';
 
 $users=getUsers($pdo);
+$messages =[];
+$errors =[];
+
 
 
 if (isset($_POST["addUser"])) { ?>
     <!--empecher le renvoi du formulaire à l'actualisation de la page-->
 
     <?php 
-    $messages =[];
-    $errors=[];
+
 $password=$_POST['us_password'];
 $password_check=$_POST['us_password_check'];
+$role=$_POST['us_role'];
 $userExists = verifyUserExists($pdo, $_POST['us_email']);
 if ($userExists) {
-    $errors = 'Un utilisateur existe déjà avec cette adresse mail.';
+    $errors[] = 'Un utilisateur existe déjà avec cette adresse mail.';
 } else {
-    if ($password==$password_check) {
-    $res = addUser($pdo, $_POST['us_fname'],$_POST['us_email'],$_POST['us_password'], $_POST['us_password_check'], $_POST['us_role']);
-    if ($res) {
-$messages = 'Nouvel utilisateur créé avec succès.';
+    if ($password!=$password_check) {
+        $errors[] = 'Les deux mots de passe ne correspondent pas. Vérifier votre saisie.';
     } else {
-
+        if (!$role) {
+            $errors[] = 'Veuillez sélectionner le type de compte.';
+        } else {
+            $res = addUser($pdo, $_POST['us_fname'],$_POST['us_email'],$_POST['us_password'], $_POST['us_password_check'], $_POST['us_role']);
+            if ($res) {
+            $messages[] = 'Nouvel utilisateur créé avec succès.';
+            $users=getUsers($pdo);
+        } else {
+            $errors[] = 'Une erreur s\'est produite.';
+        }
     }
-} else {
-    $errors = 'Les deux mots de passe ne correspondent pas. Vérifier votre saisie.';
-}
-
-}
-
-    ?> <div class="alert alert-primary"> <?= ($messages) ;?></div>
-<?php } ?> 
+} 
+} 
+} ?> 
 
 <div class="px-4 text-left" >
   <h2 class="display-5">Gestion des utilisateurs</h2>
 </div>
+
+<?php foreach ($messages as $message) { ?>
+        <div class="alert alert-success" role="alert">
+            <?= $message; ?>
+        </div>
+    <?php } ?>
+    <?php foreach ($errors as $error) { ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error; ?>
+        </div>
+    <?php } ?>
+
 <div>
     <?php foreach ($users as $user) {
         if (isset($_POST["deleteUser".$user['us_id']])) { ?>
