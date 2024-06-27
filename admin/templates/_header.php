@@ -43,7 +43,7 @@ else {header("location: ../index.php");}
 
                             <img src="../<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone">
      
-                    <a href="logout.php" class="nav-link px-2">Déconnexion</a>
+                    <a href="../logout.php" class="nav-link px-2">Déconnexion</a>
 
 
             </div>
@@ -71,7 +71,7 @@ else {header("location: ../index.php");}
             <ul class="nav nav-pills flex-column mb-auto">
                 
                     <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Animaux</a></li>
