@@ -3,8 +3,36 @@ require_once 'templates/_header.php';
 require_once '../lib/pdo.php';
 require_once '../lib/user.php';
 
-$users=getUsers($pdo)
-?>
+$users=getUsers($pdo);
+
+
+if (isset($_POST["addUser"])) { ?>
+    <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+
+    <?php 
+    $messages =[];
+    $errors=[];
+$password=$_POST['us_password'];
+$password_check=$_POST['us_password_check'];
+$userExists = verifyUserExists($pdo, $_POST['us_email']);
+if ($userExists) {
+    $errors = 'Un utilisateur existe déjà avec cette adresse mail.';
+} else {
+    if ($password==$password_check) {
+    $res = addUser($pdo, $_POST['us_fname'],$_POST['us_email'],$_POST['us_password'], $_POST['us_password_check'], $_POST['us_role']);
+    if ($res) {
+$messages = 'Nouvel utilisateur créé avec succès.';
+    } else {
+
+    }
+} else {
+    $errors = 'Les deux mots de passe ne correspondent pas. Vérifier votre saisie.';
+}
+
+}
+
+    ?> <div class="alert alert-primary"> <?= ($messages) ;?></div>
+<?php } ?> 
 
 <div class="px-4 text-left" >
   <h2 class="display-5">Gestion des utilisateurs</h2>
@@ -72,6 +100,7 @@ $users=getUsers($pdo)
                     </select>
                 </div>
                 <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
+
             </form>
         </div>
     </div>
