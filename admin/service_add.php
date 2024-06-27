@@ -3,8 +3,15 @@ require_once 'templates/_header.php';
 require_once '../lib/pdo.php';
 require_once '../lib/service.php';
 
-
+$messages = [];
+$errors = [];
 $error = false;
+$service = [
+  'se_name' => '',
+  'se_description' => '',
+  'se_images' => '',
+  'se_info' => ''
+];
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -14,25 +21,47 @@ if (isset($_GET['id'])) {
     if (!$service) {
         $error = true;
     }
+} 
+
+
+if (isset($_POST['addService'])) { ?>
+  <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+
+  <?php 
+$service = [
+  'se_name' => $_POST['se_name'],
+  'se_description' => $_POST['se_description'],
+  'se_images' => $_POST['se_images'],
+  'se_info' => $_POST['se_info']
+];
+
+if (isset($_GET["id"])) {
+  // Avec (int) on s'assure que la valeur stockée sera de type int
+  $id = (int)$_GET["id"];
 } else {
-    $error = true;
+  $id = null;
 }
 
 
-if (isset($_POST['modifyService'])) { ?>
-  <!--empecher le renvoi du formulaire à l'actualisation de la page-->
-  <script> location.replace(document.referrer); </script>
-  <?php 
-  $res10 = modifyService($pdo, $service['se_id'], $_POST['se_info']);
-  if ($res10) {
-      $messages[] = 'Merci pour votre avis.';
+  $res = addService($pdo, $_POST['se_name'], $_POST['se_description'], $_POST['se_images'],  $_POST['se_info'], $id);
+  if ($res) {
+      $messages[] = 'Le service a bien été sauvegardé';
   } else {
       $errors[] = 'Une erreur s\'est produite.';
   }
 } ?>
 
 
-
+<?php foreach ($messages as $message) { ?>
+    <div class="alert alert-success" role="alert">
+        <?= $message; ?>
+    </div>
+<?php } ?>
+<?php foreach ($errors as $error) { ?>
+    <div class="alert alert-danger" role="alert">
+        <?= $error; ?>
+    </div>
+<?php } ?>
 <?php if (!$error) { ?>
 
       <div >
@@ -62,6 +91,7 @@ if (isset($_POST['modifyService'])) { ?>
         </div>
         </form>
         </div>
+
           
 <?php } else { ?>
   <h1>Page introuvable</h1>
