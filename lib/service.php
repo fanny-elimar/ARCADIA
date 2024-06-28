@@ -40,7 +40,7 @@ function modifyService(PDO $pdo, $id, $info):array|bool
         return $query->execute();
 }
 
-function addService(PDO $pdo,string $se_name,string $se_description,string $se_images,string $se_info,int $id = null):array|bool
+function addService(PDO $pdo,string $se_name,string $se_description,string|null $se_images,string $se_info,int $id = null):array|bool
 {
     if ($id === null) {
         $sql1 = "INSERT INTO arc_service (se_name, se_description, se_images, se_info) VALUES (:se_name, :se_description, :se_images, :se_info);";
