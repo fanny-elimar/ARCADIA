@@ -119,24 +119,25 @@ if (isset($_POST['addService'])) {
   </div>
 <?php } 
 if ($service) { ?>
-  <div >
+  <div class="">
     <form method="POST" enctype="multipart/form-data">
+
       <div class="form-group row">
-        <label for="se_name" class="col-sm-2 col-form-label mb-3">Service</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="se_name" name="se_name" value="<?= $service['se_name'];?>">
+        <label for="se_name" class="col-sm-8 col-md-4 col-form-label">Service</label>
+        <div class="col-sm-12 col-md-8">
+          <input type="text" class="form-control mb-3" id="se_name" name="se_name" value="<?= $service['se_name'];?>">
         </div>
       </div>
       <div class="form-group row">
-        <label for="se_description" class="col-sm-2 col-form-label">Description</label>
-        <div class="col-sm-8">
-          <textarea type="text" class="form-control  mb-3" id="se_description" name="se_description" rows=7 ><?= $service['se_description'];?></textarea>
+        <label for="se_description" class="col-sm-8 col-md-4 col-form-label">Description</label>
+        <div class="col-sm-12 col-md-8">
+          <textarea type="text" class="form-control mb-3" id="se_description" name="se_description" rows=7 ><?= $service['se_description'];?></textarea>
         </div>
       </div>
       <div class="form-group row">
-        <label for="se_info" class="col-sm-2 col-form-label">Détails</label>
-        <div class="col-sm-8">
-          <textarea type="text" class="form-control  mb-3" id="se_info" name="se_info" rows=5><?= htmlentities($service['se_info']);?></textarea>
+        <label for="se_info" class="col-sm-8 col-md-4 col-form-label">Détails</label>
+        <div class="col-sm-12 col-md-8">
+          <textarea type="text" class="form-control mb-3" id="se_info" name="se_info" rows=5><?= htmlentities($service['se_info']);?></textarea>
         </div> 
       </div>
       
@@ -157,6 +158,7 @@ if ($service) { ?>
       <div class="form-group row d-flex justify-content-center">
         <input type="submit" name="addService" class="btn btn-primary btn-sm col-2 mb-3" value="Valider">
       </div>
+
     </form>
   </div>
 <?php } ?>
