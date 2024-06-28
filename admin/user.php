@@ -68,21 +68,21 @@ if ($userExists) {
             }
         } ?> 
         
-        <div class="row border-top">
-        <p class="col-2"><?= $user['us_fname'];?></p>
-    <p class="col-3"><?= $user['us_email'];?></p>
-    <p class="col-2"><?= $user['us_role'];?></p>
+        <div class="d-flex flex-wrap border-top align-items-center py-2">
+        <div class=""><?= $user['us_fname'];?></div>
+    <div class=""><?= $user['us_email'];?></div>
+    <div class=""><?= $user['us_role'];?></div>
     
-        <div class="col">
+        <div class="">
             <form method='POST'>
-            <input type="submit" name="<?php echo 'deleteUser'.$user['us_id'];?>" class="btn btn-primary btn-sm col" value="Supprimer">
+            <button type="submit" name="<?php echo 'deleteUser'.$user['us_id'];?>" class="btn btn-primary btn-sm col" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
             </form>
         </div>
  
     </div>
     <?php ;}?>
     <div>
-        <a class="btn btn-primary btn-sm js-button-add-user col-4 mt-5" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
+        <a class="btn btn-primary btn-sm js-button-add-user col mt-5" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
         <div class="collapse mt-3" id="collapseAddUser">
             <form method="POST">
             <div class="mb-3 form-group row">

@@ -33,7 +33,9 @@ else {header("location: ../index.php");}
     <title>Arcadia</title>
 </head>
 
-<header class="container container-flux border-bottom mb-5">
+
+<body >
+<header class="container border-bottom mb-5">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
                 <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
@@ -47,23 +49,12 @@ else {header("location: ../index.php");}
 
 
             </div>
-            
-                
-
-                    
-
-                
+  
             </div>
 
-
-            
-
-            
         </header>
-<body>
-    <div class="container d-flex">
-
-        <div class="d-flex flex-column flex-shrink-0 p-3 col-3"  style="background-color: a4d0a4";>
+    <div class="container container-flux justify-content-center d-flex p-1" >
+        <div class="d-flex flex-column p-md-3"  style="background-color: #a4d0a4";>
             <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                 <span class="fs-4">Admin</span>
             </a>
@@ -90,5 +81,5 @@ else {header("location: ../index.php");}
                 </ul>
             </div>
         </div>
-        <main class="d-flex flex-column px-4 col-9" style="">
+        <main class="p-1 col-7 ms-3">
 

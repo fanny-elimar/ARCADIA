@@ -119,11 +119,11 @@ if (isset($_POST['addService'])) {
   </div>
 <?php } 
 if ($service) { ?>
-  <div class="">
-    <form method="POST" enctype="multipart/form-data">
+  <div class="" >
+    <form method="POST" enctype="multipart/form-data" class="" >
 
       <div class="form-group row">
-        <label for="se_name" class="col-sm-8 col-md-4 col-form-label">Service</label>
+        <label for="se_name" class="col-md-4 col-form-label">Service</label>
         <div class="col-sm-12 col-md-8">
           <input type="text" class="form-control mb-3" id="se_name" name="se_name" value="<?= $service['se_name'];?>">
         </div>
@@ -144,19 +144,19 @@ if ($service) { ?>
       <?php if (isset($_GET['id']) && isset($service['se_images'])) { ?>
             <p>
                 <img src="<?= _SERVICES_IMAGES_FOLDER_ . $service['se_images'] ;?>" alt="image<?= $service['se_name'] ?>" width="100">
-                <label for="delete_image">Supprimer l'image</label>
+                <label for="delete_image" class="text-sm">Supprimer l'image</label>
                 <input type="checkbox" name="delete_image" id="delete_image">
                 <input type="hidden" name="se_images" value="<?= $service['se_images']; ?>">
                 
 
             </p>
         <?php } ?>
-        <p>
-            <input type="file" name="file" id="file">
+        <p class="text-truncate">
+            <input type="file" name="file" id="file" class="form-control btn-sm btn col-sm-12">
         </p>
 
       <div class="form-group row d-flex justify-content-center">
-        <input type="submit" name="addService" class="btn btn-primary btn-sm col-2 mb-3" value="Valider">
+        <input type="submit" name="addService" class="btn btn-primary btn-sm mb-3 col-sm-3" value="Valider">
       </div>
 
     </form>

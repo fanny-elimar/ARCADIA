@@ -33,22 +33,24 @@ $errors =[];
                 $errors[] = 'Une erreur s\'est produite.';
             }
         } ?>
-        <div class="row d-flex mb-0">
-            <div class="col-4">
-                <p class="" ><?= ucfirst(htmlentities($service["se_name"]))?></p>
+        <div class="row d-flex mb-3 align-items-center">
+            <div class="col-5 p-0 ps-3">
+                <?= ucfirst(htmlentities($service["se_name"]))?>
             </div>
-            <div class="col">
-                <a class="btn btn-primary btn-sm p-1" href="<?="service_add.php?id=".$service['se_id']?>">Modifier</a>
+            <div class="col d-flex justify-content-start">
+            <div class=" p-0">
+                <a class="btn btn-primary btn-sm p-1 mx-1" href="<?="service_add.php?id=".$service['se_id']?>">Modifier</a>
             </div>
-            <div class="col">
+            <div class=" p-0">
                 <form method="POST">
-                    <input type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm mb-3" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')">
+                    <button type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
                 </form>
+            </div>
             </div>
         </div>
     <?php } ?>
 </div>
-<a href="service_add.php" class="btn btn-primary btn-sm">Ajouter un service</a>
+<a href="service_add.php" class="btn btn-primary btn-sm mt-3">Ajouter un service</a>
 </div>
 
 
