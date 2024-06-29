@@ -54,7 +54,7 @@ if ($userExists) {
         </div>
     <?php } ?>
 
-<div>
+<div class="container container-flux d-flex flex-wrap justify-content-around">
     <?php foreach ($users as $user) {
         if (isset($_POST["deleteUser".$user['us_id']])) { ?>
             <!--empecher le renvoi du formulaire à l'actualisation de la page-->
@@ -68,19 +68,12 @@ if ($userExists) {
             }
         } ?> 
         
-        <div class="d-flex flex-wrap border-top align-items-center py-2">
-        <div class=""><?= $user['us_fname'];?></div>
-    <div class=""><?= $user['us_email'];?></div>
-    <div class=""><?= $user['us_role'];?></div>
-    
-        <div class="">
-            <form method='POST'>
-            <button type="submit" name="<?php echo 'deleteUser'.$user['us_id'];?>" class="btn btn-primary btn-sm col" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
-            </form>
-        </div>
+        
+<?php require 'templates/_user_card.php'; ?> 
  
-    </div>
+ 
     <?php ;}?>
+</div>
     <div>
         <a class="btn btn-primary btn-sm js-button-add-user col mt-5" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
         <div class="collapse mt-3" id="collapseAddUser">
