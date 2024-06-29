@@ -53,11 +53,18 @@ else {header("location: ../index.php");}
             </div>
 
         </header>
-    <div class="container container-flux justify-content-center d-flex p-1" >
-        <div class="d-flex flex-column p-md-3"  style="background-color: #a4d0a4";>
-            <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                <span class="fs-4">Admin</span>
-            </a>
+    
+<div class="containter">
+            <nav class="navbar d-lg-none">
+            <div class="container container-fluid" >
+        <div class="d-flex align-items-center p-md-3 w-100"  style="background-color: #a4d0a4";>
+            
+                <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar_admin" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span>Admin</span>
+                </button>
+                <div class="collapse navbar-collapse " id="n_bar_admin">
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 
@@ -72,14 +79,31 @@ else {header("location: ../index.php");}
                     
             </ul>
             <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <strong><?= $_SESSION['user']['us_email']; ?></strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="/logout.php">Déconnexion</a></li>
-                </ul>
-            </div>
         </div>
-        <main class="p-1 col-7 ms-3">
+</nav>
+
+
+<div class="container container-fluid d-flex">
+            <nav class="navbar d-none d-lg-flex col-2">
+                
+             
+            <ul class="nav nav-pills flex-column mb-auto">
+                
+                    <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Animaux</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
+                
+                    
+            </ul>
+ 
+        
+</nav>
+
+        <main class="p-1 ms-lg-5">
+
+        
 
