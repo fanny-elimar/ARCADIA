@@ -72,7 +72,7 @@ else {header("location: ../index.php");}
                     <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
+                    <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
@@ -85,7 +85,7 @@ else {header("location: ../index.php");}
 <h1 class="col-2">Admin</h1>
 </div>
 
-<div class="container container-flux d-flex p-0">
+<div class="container container-flux d-flex p-0"  >
             <nav class="navbar d-none d-md-flex col-2 p-0" style="background-color: #a4d0a4">
                 
              
@@ -94,7 +94,7 @@ else {header("location: ../index.php");}
                     <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Habitats</a></li>
+                    <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
@@ -105,7 +105,7 @@ else {header("location: ../index.php");}
         
 </nav>
 
-        <main class="p-1 ms-lg-5">
+        <main class="p-3 ms-lg-0 col-10" >
 
         
 

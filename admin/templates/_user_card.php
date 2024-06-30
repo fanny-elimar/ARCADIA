@@ -1,4 +1,4 @@
-<div class="card m-3" style="width:15rem; height:8rem;" >
+<div class="card m-1" style="width:15rem; height:8rem;" >
   
   <div class="card-body justify-content-center">
     <h6 class="card-title"><?= ucfirst(htmlentities($user["us_fname"]))?></h5>

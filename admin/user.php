@@ -54,28 +54,8 @@ if ($userExists) {
         </div>
     <?php } ?>
 
-<div class="container container-flux d-flex flex-wrap justify-content-around">
-    <?php foreach ($users as $user) {
-        if (isset($_POST["deleteUser".$user['us_id']])) { ?>
-            <!--empecher le renvoi du formulaire à l'actualisation de la page-->
-            <script> location.replace(document.referrer); </script>
-            <?php 
-            $res5 = deleteUser($pdo, $user['us_id']);
-            if ($res5) {
-                $messages[] = 'Merci pour votre avis.';
-            } else {
-                $errors[] = 'Une erreur s\'est produite.';
-            }
-        } ?> 
-        
-        
-<?php require 'templates/_user_card.php'; ?> 
- 
- 
-    <?php ;}?>
-</div>
-    <div>
-        <a class="btn btn-primary btn-sm js-button-add-user col mt-5" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
+    <div class="container container-flux my-3 ms-3 p-1">
+        <a class="btn btn-primary btn-sm js-button-add-user" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
         <div class="collapse mt-3" id="collapseAddUser">
             <form method="POST">
             <div class="mb-3 form-group row">
@@ -114,6 +94,28 @@ if ($userExists) {
             </form>
         </div>
     </div>
+
+<div class="container container-flux d-flex flex-wrap justify-content-around">
+    <?php foreach ($users as $user) {
+        if (isset($_POST["deleteUser".$user['us_id']])) { ?>
+            <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+            <script> location.replace(document.referrer); </script>
+            <?php 
+            $res5 = deleteUser($pdo, $user['us_id']);
+            if ($res5) {
+                $messages[] = 'Merci pour votre avis.';
+            } else {
+                $errors[] = 'Une erreur s\'est produite.';
+            }
+        } ?> 
+        
+        
+<?php require 'templates/_user_card.php'; ?> 
+ 
+ 
+    <?php ;}?>
+</div>
+    
 </div>
 </div>
 
