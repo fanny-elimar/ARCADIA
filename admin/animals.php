@@ -49,8 +49,21 @@ $habitats = getHabitats($pdo);
         </div>
  
 <?php       if (isset($_GET['ha'])) {
+    if (isset($_GET['page'])) {
+        $page = (int)$_GET['page'];
+      } else {
+        $page = 1;
+      }
     $ha_id=$_GET['ha'];
-    $animals=getAnimalsByHabitat($pdo, $ha_id);?>
+
+    $offset=($page-1)*10;
+    
+    $animals=getAnimalsByHabitat($pdo, $ha_id, 10, $offset);
+    $total = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
+    $totalPages = ceil($total/10);
+    
+    var_dump($totalPages)
+    ?>
 
 
 
@@ -75,12 +88,30 @@ $habitats = getHabitats($pdo);
     <?php ;}?>
 </div>
     
-</div>
-</div>
 
 
+
+
+
+<nav aria-label="Page navigation ">
+  <ul class="pagination">
+    <?php if ($totalPages > 1) { ?>
+      <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
+        <li class="page-item">
+          <a class="page-link <?php if ($i == $page) { echo " active";} ?>" href="?ha=<?=$ha_id; ?>&page=<?php echo $i; ?>" >
+            <?php echo $i; ?>
+          </a>
+        </li>
+      <?php } ?>
+    <?php } ?>
+  </ul>
+</nav>
+</div>
+</div>
 </div>
 <?php ;}?>
+
+
 <?php
 require_once '../templates/_footer.php'
 ?>
