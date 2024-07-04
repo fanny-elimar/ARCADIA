@@ -30,7 +30,7 @@ if (isset($_POST['addFood'])) { ?>
     <div class="border p-3 rounded mt-3">
         <h4>Instructions d'alimentation</h4>
         <div>
-            <?php if ($_SESSION['user']['us_role']==='employe') {
+            <?php if ($_SESSION['user']['us_role']==='employe'||$_SESSION['user']['us_role']==='admin') {
                 foreach ($foodInstructions as $foodInstruction) {?>
                     <div><?= $foodInstruction['fo_type'].' : '.$foodInstruction['in_quantity'].' g ';?></div>
                 <?php ;} ?> </div><?php ;}
