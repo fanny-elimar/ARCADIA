@@ -1,5 +1,6 @@
 <?php
 $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
+$images = getImagesByAnimalId($pdo, $animal['an_id']);
 ?>
 
 <div class="card m-1" style="width:15rem; height:10rem;" >

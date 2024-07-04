@@ -41,6 +41,15 @@ function getAnimalById(PDO $pdo, int $id):array|bool
     return $animal;
 }
 
+function getImagesByAnimalId (PDO $pdo, int $id) {
+    $sql = "SELECT * FROM arc_image_animal WHERE im_an_an_id = :id;";
+    $query=$pdo->prepare ($sql);
+    $query->bindValue(":id", $id, PDO::PARAM_INT);
+    $query->execute();
+    $images = $query -> fetchAll(PDO::FETCH_ASSOC);
+    return $images; 
+}
+
 function getHabitatByAnimalId(PDO $pdo, int $id)
 {
     $sql = "SELECT ha_name, ha_id FROM arc_habitat, arc_animal WHERE an_id = :id";
@@ -102,5 +111,26 @@ function deleteAnimal (PDO $pdo, int $id) {
     $query = $pdo->prepare("DELETE FROM arc_animal WHERE an_id=:an_id;");
     $query->bindValue(':an_id', $id, PDO::PARAM_INT);
     
+    return $query->execute();
+}
+
+function addImage(PDO $pdo,string $im_an_filename,int $im_an_an_id = null):array|bool
+{
+   
+        $sql1 = "INSERT INTO arc_image_animal (im_an_filename, im_an_an_id) VALUES (:im_an_filename, :im_an_an_id);";
+        $query=$pdo->prepare($sql1);
+   
+
+    $query->bindParam(':im_an_filename', $im_an_filename, PDO::PARAM_STR);
+    $query->bindParam(':im_an_an_id', $im_an_an_id, PDO::PARAM_INT);
+    
+    
+        return $query->execute();
+}
+
+function deleteImage (PDO $pdo,string $im_an_id) {
+    $sql = "DELETE FROM arc_image_animal WHERE im_an_id=:im_an_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':im_an_id', $im_an_id, PDO::PARAM_STR);
     return $query->execute();
 }

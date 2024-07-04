@@ -18,11 +18,14 @@ $animal = [
 ];
 
 
+
 $habitats = getHabitats($pdo);
 
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $animal = getAnimalById($pdo, $id);
+  $extraImages = getImagesByAnimalId($pdo, $animal['an_id']);
+
   if (!$animal) {
     $errors[] = 'Cet animal n\'existe pas';
   }
@@ -75,13 +78,6 @@ if (isset($_POST['addAnimal'])) {
   */
 
 
-
-
-
-
-
-
-
   $animal = [
   'an_name' => $_POST['an_name'],
   'an_species' => $_POST['an_species'],
@@ -113,8 +109,59 @@ if (isset($_POST['addAnimal'])) {
     } else {
       $errors[] = 'Une erreur s\'est produite.';
     }
+
   }
-} ?>
+} 
+
+if (isset($_POST['addImage'])) { ?>
+  <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+              <script> location.replace(document.referrer); </script>
+              <?php
+
+  $extraFileName = null;
+  // Si un fichier est envoyé
+  if (isset($_FILES["extraFile"]["tmp_name"]) && $_FILES["extraFile"]["tmp_name"] != '') {
+      $checkImage = getimagesize($_FILES["extraFile"]["tmp_name"]);
+      if ($checkImage !== false) {
+          $extraFileName = slugify(basename($_FILES["extraFile"]["name"]));
+          $extraFileName = uniqid() . '-' . $extraFileName;
+
+
+
+          /* On déplace le fichier uploadé dans notre dossier upload, dirname(__DIR__) 
+              permet de cibler le dossier parent car on se trouve dans admin
+          */
+          if (move_uploaded_file($_FILES["extraFile"]["tmp_name"], _ANIMALS_IMAGES_FOLDER_ .$extraFileName)) {
+              echo 'Bravo';
+          } else {
+              $errors[] = 'Le fichier n\'a pas été uploadé';
+          }
+      } else {
+          $errors[] = 'Le fichier doit être une image';
+      }
+  } 
+  /* On stocke toutes les données envoyés dans un tableau pour pouvoir afficher
+     les informations dans les champs. C'est utile pas exemple si on upload un mauvais
+     fichier et qu'on ne souhaite pas perdre les données qu'on avait saisit.
+  */
+
+
+  
+    // Si il n'y a pas d'erreur on peut faire la sauvegarde
+
+  if (!$errors) {
+    if (isset($_GET["id"])) {
+      $id = (int)$_GET["id"];
+    } else {
+      $id = null;
+    }
+
+    $res2 = addImage ($pdo, $extraFileName, $id);
+
+    
+  }}
+
+?>
 
 <h3><?= $pageTitle ?></h3>
 <?php foreach ($messages as $message) { ?>
@@ -176,13 +223,53 @@ if ($animal) { ?>
             <input type="file" name="file" id="file" class="form-control btn-sm btn col-sm-12">
         </p>
 
-      <div class="form-group row d-flex justify-content-center">
-      <input type="submit" name="addAnimal" class="btn btn-primary btn-sm col-4" value="Valider">      </div>
-
+        <div class="form-group row d-flex justify-content-center">
+  <input type="submit" name="addAnimal" class="btn btn-primary btn-sm col-4" value="Valider"></div>
     </form>
+      
+        <?php if ($extraImages) {
+          foreach ($extraImages as $extraImage) {
+            if (isset($_POST["deleteImage".$extraImage['im_an_id']])) { ?>
+              <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+              <script> location.replace(document.referrer); </script>
+              <?php 
+              $res5 = deleteImage($pdo, $extraImage['im_an_id']);
+              if ($res5) {
+                  $messages[] = 'Merci pour votre avis.';
+              } else {
+                  $errors[] = 'Une erreur s\'est produite.';
+              }
+          } ?> 
+            
+            
+            <img src="<?= _ANIMALS_IMAGES_FOLDER_ . $extraImage['im_an_filename'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
+            <form method='POST'>
+            <button type="submit" name= "<?php echo 'deleteImage'.$extraImage['im_an_id'];?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette image <?= $extraImage['im_an_filename']?>?')"><img src="../assets/icones/delete.png" height="15"></button>
+            </form></div>
+          <?php }
+        } ?>
+
+  <a class="btn btn-primary btn-sm js-button-ajouter-images" data-bs-toggle="collapse" href="#collapseAddImages" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-ajouter-image">
+    Ajouter des photos
+  </a>
+  <div class="collapse" id="collapseAddImages">
+    <form method="POST" enctype="multipart/form-data">
+        <p class="text-truncate">
+            <input type="file" name="extraFile" id="extraFile" class="form-control btn-sm btn col-sm-12">
+        </p>
+      <input type="submit" name="addImage" class="btn btn-primary btn-sm col-4" value="Ajouter"></div>
+    </form>
+    
+
+
   </div>
-<?php } ?>
+  
+    <p>
+
+</p>
+  </div>
 
 
-<?php
+
+<?php }
 require_once "templates/_footer.php";
