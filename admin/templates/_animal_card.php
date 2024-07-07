@@ -22,9 +22,12 @@ $images = getImagesByAnimalId($pdo, $animal['an_id']);
     <div class="col-4 p-0">
                 <a class="btn btn-primary btn-sm p-1 mx-1" href="<?="animal_add.php?id=".$animal['an_id']?>">Modifier</a>
             </div>
-            <div class="col">
+            <div class="col-3">
               <form method='POST'>
             <button type="submit" name="<?php echo 'deleteAnimal'.$animal['an_id'];?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')"><img src="../assets/icones/delete.png" height="15"></button>
             </form></div>
+            <div class="col-4 p-0">
+                <a class="btn btn-primary btn-sm py-1 px-1" href="<?="animal_info.php?id=".$animal['an_id']?>">+ d'info</a>
+            </div>
   </div></div>
 </div>
