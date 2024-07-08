@@ -52,7 +52,32 @@ if (isset($_POST['addAnimal'])) {
     } else {
       $errors[] = 'Le fichier doit être une image';
     }
+    $checkImage = getimagesize($_FILES["file"]["tmp_name"]);
+    if ($checkImage !== false) {
+      $fileName = slugify(basename($_FILES["file"]["name"]));
+      $fileName = uniqid() . '-' . $fileName;
+      /* On déplace le fichier uploadé dans notre dossier upload */
+      if (move_uploaded_file($_FILES["file"]["tmp_name"], _ANIMALS_IMAGES_FOLDER_ .$fileName)) {
+        if (isset($_POST['an_images'])) {
+        // On supprime l'ancienne image si on a posté une nouvelle
+        unlink(_ANIMALS_IMAGES_FOLDER_ . $_POST['an_images']);
+        }
+      } else {
+        $errors[] = 'Le fichier n\'a pas été téléchargé';
+      }
+    } else {
+      $errors[] = 'Le fichier doit être une image';
+    }
   } else {
+    // Si aucun fichier n'a été envoyé
+    if (isset($_GET['id'])) {
+      if (isset($_POST['delete_image'])) {
+        // Si on a coché la case de suppression d'image, on supprime l'image
+        unlink(_ANIMALS_IMAGES_FOLDER_.$_POST['an_images']);
+      } else {
+        $fileName = $_POST['an_images'];
+      }
+    }
     // Si aucun fichier n'a été envoyé
     if (isset($_GET['id'])) {
       if (isset($_POST['delete_image'])) {
