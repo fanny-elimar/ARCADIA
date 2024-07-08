@@ -12,16 +12,17 @@ $animal = [
   'an_species' => '',
   'an_images' => '',
   'an_ha_id' => '',
-  'an_en_id' =>''
+  'an_en_name' =>''
 ];
 
 $habitats = getHabitats($pdo);
+
 
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $animal = getAnimalById($pdo, $id);
   if ($animal) {$extraImages = getImagesByAnimalId($pdo, $animal['an_id']);}
-  
+  $enclosure=getEnclosureByAnimalId($pdo, $id);
 
   if (!$animal) {
     $errors[] = 'Cet animal n\'existe pas';
@@ -71,7 +72,7 @@ if (isset($_POST['addAnimal'])) {
   'an_species' => $_POST['an_species'],
   'an_images' => $fileName,
   'an_ha_id' => $_POST['an_ha_id'],
-  'an_en_id' => $_POST['an_en_id']
+  'an_en_name' => $_POST['an_en_name']
   ];
   // Si il n'y a pas d'erreur on peut faire la sauvegarde
   if (!$errors) {
@@ -80,7 +81,12 @@ if (isset($_POST['addAnimal'])) {
     } else {
       $id = null;
     }
-  $res = addAnimal($pdo, $_POST['an_name'], $_POST['an_species'], $fileName,  $_POST['an_ha_id'],  $_POST['an_en_id'], $id);
+  // on vérifie que l'enclos existe, sinon on le crée.
+  $res1=verifyEnclosureExists($pdo, $_POST ['an_en_name']);
+  if (!$res1) {
+    $res2=addEnclosure($pdo, $_POST ['an_en_name']);
+  } 
+  $res = addAnimal($pdo, $_POST['an_name'], $_POST['an_species'], $fileName,  $_POST['an_ha_id'],  $_POST['an_en_name'], $id);
     if ($res) {
       $messages[] = 'L\'animal a bien été sauvegardé';
       if (!isset($_GET["id"])) {
@@ -89,7 +95,7 @@ if (isset($_POST['addAnimal'])) {
         'an_species' => '',
         'an_images' => '',
         'an_ha_id' => '',
-        'an_en_id' => ''
+        'an_en_name' => ''
         ];
       }
     } else {
@@ -126,9 +132,9 @@ if ($animal) { ?>
           </div>
       </div>
       <div class="mb-3 form-group row">
-        <label for="an_en_id" class="col-sm-3 col-form-label">Enclos</label>
+        <label for="an_en_name" class="col-sm-3 col-form-label">Enclos</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="an_en_id" name="an_en_id" value="<?= $animal['an_en_id'];?>">
+          <input type="text" class="form-control" id="an_en_name" name="an_en_name" value="<?= $animal['an_en_name'];?>">
         </div>
       </div>
       <div class="mb-3 form-group col-3">
