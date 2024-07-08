@@ -79,7 +79,7 @@ function getNumberOfAnimalsPerHabitat(PDO $pdo, $habitat) {
 }
 
 function getEnclosureByAnimalId($pdo, $id) {
-    $sql = "SELECT * FROM arc_enclosure INNER JOIN arc_animal on arc_animal.an_en_id = arc_enclosure.en_id WHERE an_id=:an_id;";
+    $sql = "SELECT * FROM arc_enclosure INNER JOIN arc_animal on arc_animal.an_en_name = arc_enclosure.en_name WHERE an_id=:an_id;";
     $query = $pdo->prepare($sql);
     $query->bindValue(":an_id", $id, PDO::PARAM_INT);
     $query->execute();
@@ -87,13 +87,13 @@ function getEnclosureByAnimalId($pdo, $id) {
     return $enclosure;
 }
 
-function addAnimal(PDO $pdo,string $an_name,string $an_species,string|null $an_images,int $an_ha_id,int $an_en_id, int $id = null):array|bool
+function addAnimal(PDO $pdo,string $an_name,string $an_species,string|null $an_images,int $an_ha_id,string $an_en_name, int $id = null):array|bool
 {
     if ($id === null) {
-        $sql1 = "INSERT INTO arc_animal (an_name, an_species, an_images, an_ha_id, an_en_id) VALUES (:an_name, :an_species, :an_images, :an_ha_id, :an_en_id);";
+        $sql1 = "INSERT INTO arc_animal (an_name, an_species, an_images, an_ha_id, an_en_name) VALUES (:an_name, :an_species, :an_images, :an_ha_id, :an_en_name);";
         $query=$pdo->prepare($sql1);
     } else {
-        $sql2 = "UPDATE arc_animal SET an_name = :an_name, an_species = :an_species, an_images = :an_images, an_ha_id = :an_ha_id, an_en_id=:an_en_id WHERE an_id=:an_id;";
+        $sql2 = "UPDATE arc_animal SET an_name = :an_name, an_species = :an_species, an_images = :an_images, an_ha_id = :an_ha_id, an_en_name=:an_en_name WHERE an_id=:an_id;";
         $query=$pdo->prepare($sql2);
         $query->bindParam(':an_id', $id, PDO::PARAM_INT);
     }
@@ -102,7 +102,7 @@ function addAnimal(PDO $pdo,string $an_name,string $an_species,string|null $an_i
     $query->bindParam(':an_species', $an_species, PDO::PARAM_STR);
     $query->bindParam(':an_images', $an_images, PDO::PARAM_STR);
     $query->bindParam(':an_ha_id', $an_ha_id, PDO::PARAM_INT);
-    $query->bindParam(':an_en_id', $an_en_id, PDO::PARAM_INT);
+    $query->bindParam(':an_en_name', $an_en_name, PDO::PARAM_STR);
     
         return $query->execute();
 }
@@ -132,5 +132,21 @@ function deleteImage (PDO $pdo,string $im_an_id) {
     $sql = "DELETE FROM arc_image_animal WHERE im_an_id=:im_an_id;";
     $query = $pdo->prepare($sql);
     $query->bindValue(':im_an_id', $im_an_id, PDO::PARAM_STR);
+    return $query->execute();
+}
+
+function verifyEnclosureExists (PDO $pdo, string $en_name) {
+    $sql = "SELECT * FROM arc_enclosure WHERE en_name=:en_name;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':en_name', $en_name, PDO::PARAM_STR);
+    $query->execute();
+    $enclosureExists = $query->fetch(PDO::FETCH_ASSOC);
+    return $enclosureExists;
+}
+
+function addEnclosure (PDO $pdo, string $en_name) {
+    $sql = "INSERT INTO arc_enclosure (en_name) VALUES (:en_name);";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':en_name', $en_name, PDO::PARAM_STR);
     return $query->execute();
 }
