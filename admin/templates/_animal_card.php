@@ -9,7 +9,7 @@ $images = getImagesByAnimalId($pdo, $animal['an_id']);
     <div class="col" >
     <h6 class="card-title"><?= ucfirst(htmlentities($animal["an_name"]))?></h6>
     <p class="card-text"><?= ucfirst(htmlentities($animal["an_species"]))?></p>
-    <p class="card-text">Enclos <?= ucfirst(htmlentities($enclosure["en_id"]))?></p>
+    <p class="card-text">Enclos <?= ucfirst(htmlentities($animal["an_en_name"]))?></p>
 </div>
 <div class="col">
   <img src="<?= _ANIMALS_IMAGES_FOLDER_ . $animal['an_images'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
