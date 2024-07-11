@@ -11860,6 +11860,10 @@ textarea.form-control-lg {
   --bs-pagination-active-border-color: var(--primary);
 }
 
+.info {
+  background-color: var(--info);
+}
+
 .btn-primary {
   --bs-btn-color: var(--primary);
   --bs-btn-bg: var(--secondary);
@@ -11915,11 +11919,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   width: 100%;
   object-fit: cover;
   object-position: 50% 0%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -11982,13 +11981,16 @@ a {
   max-height: 50px;
 }
 
+.img-icone {
+  max-height: 30px;
+}
+
 .nav-item {
   font-size: x-large;
 }
 
 .nav {
   width: 100%;
-  background-color: #dc3545;
 }
 
 .carousel-item {
@@ -11997,4 +11999,8 @@ a {
 
 .hidden {
   display: none;
+}
+
+.animal-card-image {
+  height: 12rem;
 }/*# sourceMappingURL=custom7.css.map */

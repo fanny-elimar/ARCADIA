@@ -11861,7 +11861,7 @@ textarea.form-control-lg {
 }
 
 .bg-secondary {
-  --bs-btn-color: var(--secondary);
+  background-color: var(--secondary);
 }
 
 .btn-primary {
@@ -12003,4 +12003,4 @@ a {
 
 .animal-card-image {
   height: 12rem;
-}/*# sourceMappingURL=custom5.css.map */
+}/*# sourceMappingURL=custom6.css.map */

@@ -71,7 +71,7 @@ else {header("location: ../index.php");}
                 
                     <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
+                    <li class="nav-item"><a href="horaires.php" class="nav-link">Horaires</a></li>
                     <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>
@@ -93,7 +93,7 @@ else {header("location: ../index.php");}
                 
                     <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Horaires</a></li>
+                    <li class="nav-item"><a href="horaires.php" class="nav-link">Horaires</a></li>
                     <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Comptes-rendus du vétérinaire</a></li>

@@ -35,7 +35,9 @@ $container-max-widths: (
 }
 
 
-
+.info {
+    background-color: var(--info);
+}
 .btn-primary {
     --bs-btn-color: var(--primary);
     --bs-btn-bg: var(--secondary);
