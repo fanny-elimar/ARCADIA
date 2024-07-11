@@ -3,6 +3,10 @@ require_once 'templates/_header.php';
 require_once '../lib/pdo.php';
 require_once '../lib/user.php';
 
+// Start with PHPMailer class
+use PHPMailer\PHPMailer\PHPMailer;
+require_once '..\vendor/autoload.php';
+
 $users=getUsers($pdo);
 $messages =[];
 $errors =[];
@@ -31,7 +35,42 @@ if ($userExists) {
             if ($res) {
             $messages[] = 'Nouvel utilisateur créé avec succès.';
             $users=getUsers($pdo);
-        } else {
+
+
+// create a new object
+
+$phpmailer = new PHPMailer();
+$phpmailer->isSMTP();
+$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+$phpmailer->SMTPAuth = true;
+$phpmailer->Port = 2525;
+$phpmailer->CharSet = 'UTF-8';
+$phpmailer->Encoding = 'base64';
+$phpmailer->Username = 'b172bd7e94b535';
+$phpmailer->Password = '51262edda19843';
+
+
+
+    $phpmailer->setFrom('admin@arcadia.fr','José');
+$phpmailer->addAddress($_POST['us_email'], $_POST['us_email']);
+$phpmailer->Subject = 'Création de compte';
+// Set HTML 
+$phpmailer->isHTML(TRUE);
+$phpmailer->Body = '<h4>Votre compte a été créé.</h1><p>Pour vous connecter, utilisez votre adresse mail : '.$_POST['us_email'].'.</p><p>Pour connaitre votre mot de passe, rapprochez-vous de José.</p>';
+$phpmailer->AltBody = 'Votre compte a été créé. Pour vous connecter, utilisez votre adresse mail. Pour connaitre votre mot de passe, rapprochez-vous de José.';
+
+
+// send the message
+if($phpmailer->send()){
+    $messages[]= 'Un email a été envoyé au nouvel utilisateur.';
+} else {
+    
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $phpmailer->ErrorInfo;
+}
+}
+
+        else {
             $errors[] = 'Une erreur s\'est produite.';
         }
     }
