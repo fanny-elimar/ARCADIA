@@ -24,7 +24,7 @@ $phpmailer->Subject = $_POST['contact_title'];
 // Set HTML 
 $phpmailer->isHTML(TRUE);
 $phpmailer->Body = htmlentities($_POST['contact_text']);
-$phpmailer->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
+$phpmailer->AltBody = $_POST['contact_text'];
 
 
 // send the message
@@ -44,6 +44,7 @@ if($phpmailer->send()){
 
 <div class="container container-flux">
 <h3 class="mt-3">Formulaire de contact</h3>
+<p>Une question ? Une remarque ? Laissez-nous un message, nous y répondrons dans les plus brefs délais.</p>
 <div class="border p-3 rounded">
 
 <form name="contact" method="POST" class="row">
@@ -65,13 +66,13 @@ if($phpmailer->send()){
         <div class="mb-3 form-group row">
             <label for="contact_text" class="col-sm-2 col-form-label">Message</label>
             <div class="col-sm-8">
-            <textarea class="form-control date" id="contact_text" name="contact_text"></textarea>
+            <textarea class="form-control date" id="contact_text" name="contact_text" required></textarea>
         </div>
         </div>
         <div class="mb-3 form-group row">
             <label for="contact_mail" class="col-sm-2 col-form-label">Adresse mail</label>
             <div class="col-sm-8">
-            <input type="email" class="form-control" rows="4" id="contact_mail" name="contact_mail">
+            <input type="email" class="form-control" rows="4" id="contact_mail" name="contact_mail" required>
         </div>
         </div>
 
