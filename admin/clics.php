@@ -9,6 +9,12 @@ $messages =[];
 $errors =[];
 echo extension_loaded("mongodb") ? "loaded\n" : "not loaded\n";
 
+$client = new MongoDB\Client("mongodb://localhost:8090");
+$db = $client->arcadia->animal;
+$result2 = $db->find()->toArray();
+    
+    print_r($result2);
+
     use MongoDB\Client as Mongo;
 
     $user = "utilisateur";

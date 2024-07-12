@@ -10,7 +10,7 @@
             $extraFileName = slugify(basename($_FILES["extraFile"]["name"]));
             $extraFileName = uniqid() . '-' . $extraFileName;
             /* On déplace le fichier uploadé dans notre dossier upload */
-            if (move_uploaded_file($_FILES["extraFile"]["tmp_name"], _ANIMALS_IMAGES_FOLDER_ .$extraFileName)) {
+            if (move_uploaded_file($_FILES["extraFile"]["tmp_name"], _ANIMALS_IMAGES_FOLDER_ADMIN_ .$extraFileName)) {
                 echo 'Bravo';
             } else {
             $errors[] = 'Le fichier n\'a pas été uploadé';
@@ -49,7 +49,7 @@
                 } 
             } ?> 
             <div class="col-2">
-                <img src="<?= _ANIMALS_IMAGES_FOLDER_ . $extraImage['im_an_filename'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
+                <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $extraImage['im_an_filename'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
                 <form method='POST'>
                     <button type="submit" name= "<?php echo 'deleteImage'.$extraImage['im_an_id'];?>" class="btn btn-primary btn-sm my-1" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette image <?= $extraImage['im_an_filename']?>?')"><img src="../assets/icones/delete.png" height="15">
                     </button>

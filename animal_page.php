@@ -16,7 +16,8 @@ require_once __DIR__ . "/lib/session.php";
     $offset = ($page - 1) * $limit;
     $animals = getAnimalsByHabitat($pdo, $ha_id, $limit, $offset);
     $animal = $animals[0];
-    $images = explode(" ",$animal["an_images"]);
+    $image = $animal["an_images"];
+    $extraImages= getExtraImagesByAnimalId($pdo, $animal['an_id']);
     $condition = getLastConditionByAnimalId($pdo, $animal['an_id']);
     $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
     $foods =getFoods($pdo);
@@ -42,7 +43,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 
     
     ?>
-    <div class="container d-flex justify-content-end">
+    <div class="container d-flex justify-content-end mb-5">
  
     <a href="habitat_page.php?id=<?=$ha_id;?>" class="btn btn-primary btn-sm mx-1"><?=ucfirst(($habitat["ha_name"]));?></a>
 
@@ -56,13 +57,13 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
                    </div>
 
                             
-<div class="container">
+<div class="container light pt-3">
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <h1 class="mb-3"><?=ucfirst(htmlentities($animal["an_name"])); ?></h1>
-        </div>
-            <div class="col-md-3">
-                <img class="card-img-top animal-card-image" src="<?=_ASSETS_IMAGES_FOLDER_.$images[0];?>" alt="Image <?= $animal["an_name"]?>">
+            </div>
+            <div class="col-md-6 mb-3">
+                <img class="img-fluid" src="<?=_ANIMALS_IMAGES_FOLDER_.$image;?>" alt="Image <?= $animal["an_name"]?>" >
             </div>
             <div class="col-md-3">
                 <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
@@ -76,15 +77,8 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
                 <?php ;}}?>
                 
             </div>
-
-                
-                
-                              
-                
-            </div>
-            
         </div>
-        </div>
+</div>        
         
 <?php 
 
@@ -100,7 +94,17 @@ if (isset($_SESSION['user'])) {
     }
 } 
  ?>
-</div>
+
+<?php if ($extraImages) {?>
+<div class="container mt-5">
+    <h4>Quelques photos de <?=$animal['an_name']?> en plus...</h4>
+<div class="row">
+    <?php foreach ($extraImages as $extraImage) {?>
+        <div class="d-flex  col-sm-11 col-md-5 col-lg-4 mb-3 " >
+        <img src="<?= _ANIMALS_IMAGES_FOLDER_.$extraImage['im_an_filename'];?>" class="img-fluid rounded"></div>
+    <?php ; }?>
+</div>  </div>
+<?php } ?>
 <?php
 
 require_once __DIR__ ."/templates/_footer.php";

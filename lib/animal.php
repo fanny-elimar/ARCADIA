@@ -150,3 +150,12 @@ function addEnclosure (PDO $pdo, string $en_name) {
     $query->bindValue(':en_name', $en_name, PDO::PARAM_STR);
     return $query->execute();
 }
+
+function getExtraImagesByAnimalId($pdo, $id) {
+    $sql = "SELECT im_an_an_id, im_an_filename, an_id FROM arc_image_animal INNER JOIN arc_animal on arc_animal.an_id = arc_image_animal.im_an_an_id WHERE an_id=:an_id;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":an_id", $id, PDO::PARAM_INT);
+    $query->execute();
+    $extraImages = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $extraImages;
+}

@@ -53,12 +53,12 @@ require_once __DIR__ . "/../lib/session.php";
             </div>
               
             <div class="d-flex flex-wrap justify-content-around pb-1 pt-1 ">
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."pandas roux.webp";?>" class="header_img">    
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."flamingos-6945385_1280.webp";?>" class="header_img big">
-            <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium">
+            <img src="<?=_ASSETS_IMAGES_FOLDER_."pandas roux.webp";?>" class="header_img img-fluid">    
+            <img src="<?=_ASSETS_IMAGES_FOLDER_."flamingos-6945385_1280.webp";?>" class="header_img big img-fluid">
+            <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium img-fluid">
             </div>
 
-            <nav class="navbar navbar-expand-sm">
+            <nav class="navbar navbar-expand-md">
             <div class="container">
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

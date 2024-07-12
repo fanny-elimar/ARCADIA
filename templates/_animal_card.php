@@ -1,8 +1,8 @@
 <div class="card m-3" style="width: 18rem;">
   <?php 
-  $images=explode(" ",$animal["an_images"]);
+  $image=$animal["an_images"];
   ?>
-<img class="card-img-top animal-card-image" src="<?=_ASSETS_IMAGES_FOLDER_.$images[0];?>" alt="Image <?= $animal["an_name"]?>">
+<img class="card-img-top animal-card-image" src="<?=_ANIMALS_IMAGES_FOLDER_.$image;?>" alt="Image <?= $animal["an_name"]?>">
    
 
   <div class="card-body justify-content-center">
