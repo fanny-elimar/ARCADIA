@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:7.0.8
+    restart: always
+    ports:
+      - 8090:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=utilisateur
+      - MONGO_INITDB_ROOT_PASSWORD=motdepasse

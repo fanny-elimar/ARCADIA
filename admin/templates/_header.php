@@ -75,7 +75,7 @@ else {header("location: ../index.php");}
                     <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="cr_veto.php" class="nav-link">Comptes-rendus du vétérinaire</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
+                    <li class="nav-item"><a href="clics.php" class="nav-link">Suivi des clics</a></li>
                 
                     
             </ul>
@@ -97,7 +97,7 @@ else {header("location: ../index.php");}
                     <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
                     <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
                     <li class="nav-item"><a href="cr_veto.php" class="nav-link">Comptes-rendus du vétérinaire</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Suivi des clics</a></li>
+                    <li class="nav-item"><a href="clics.php" class="nav-link">Suivi des clics</a></li>
                 
                     
             </ul>
