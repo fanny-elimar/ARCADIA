@@ -25,7 +25,7 @@ echo extension_loaded("mongodb") ? "loaded\n" : "not loaded\n";
 ?>
 
 
-<h3 class="display-5">Suivi des clics</h3>
+<h1>Suivi des clics</h1>
 <div class="row">
 <div class="col-md-3 col-sm-6 md-mb-1 mb-3">
 <input type="text" class="form-control" id="search-by-name" placeholder="Nom...">

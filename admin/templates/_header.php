@@ -25,7 +25,7 @@ else {header("location: ../index.php");}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/CSS/custom8.css">
+    <link rel="stylesheet" href="../assets/CSS/custom3.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@ else {header("location: ../index.php");}
 
 
 <body>
-<header class="container container-flux border-bottom mb-5">
+<header class="container container-flux  mb-1">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
                 <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
@@ -55,6 +55,7 @@ else {header("location: ../index.php");}
         </header>
     
 <div class="container container-flux p-0"> 
+    <p class="d-flex justify-content-end light px-1">Gestion du site</p>
     <div class="menu_admin row m-0" style="background-color: #a4d0a4";>
     
             <nav class="navbar d-md-none col-10">
@@ -82,7 +83,7 @@ else {header("location: ../index.php");}
 
         </div>
 </nav>
-<h1 class="d-flex">Gestion du site</h1>
+
 </div>
 
 <div class="container container-flux d-flex p-0"  >

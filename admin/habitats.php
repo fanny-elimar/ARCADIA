@@ -8,7 +8,7 @@ $messages =[];
 $errors =[];
 ?>
 
-<h3 class="display-5">Gestion des habitats</h3>
+<h1>Gestion des habitats</h1>
 
 <?php foreach ($messages as $message) { ?>
     <div class="alert alert-success" role="alert">

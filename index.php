@@ -158,4 +158,4 @@ foreach ($reviews as $review) {
 
 <?php require_once __DIR__ . "/templates/_footer.php"; ?>
 
-<script src="script2.js"></script>
+<script src="script4.js"></script>

@@ -37,11 +37,12 @@ console.log(crs);
       for (let element of crsfiltered) {
       
         let newDiv = document.createElement('div');
-        newDiv.classList.add("col-md-3", "border", "rounded", "m-1");
+        newDiv.classList.add("col-md-3", "col", "border", "rounded", "m-3", "light", "cr-card");
         results.prepend(newDiv);
-        let newP1 = document.createElement('p');
+        let newP1 = document.createElement('h5');
         newDiv.prepend(newP1);
-        newP1.innerHTML="Nom : ".concat(element['an_name']);
+        newP1.classList.add("d-flex", "justify-content-center","my-3");
+        newP1.innerHTML=element['an_name'];
         let newP2 = document.createElement('p');
         newDiv.append(newP2);
         newP2.innerHTML="Espèce : ".concat(element['an_species']);

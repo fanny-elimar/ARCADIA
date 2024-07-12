@@ -7,30 +7,13 @@ require_once '../lib/habitat.php';
 $messages =[];
 $errors =[];
 $habitats = getHabitats($pdo);
-
-
-
-
-
+if (isset($_GET['ha'])) {
+  $activePage = $_GET['ha'];
+}
 
 
 
 ?>
-
-
-
-
-<div class="px-4 text-left" >
-  <h2 class="display-5">Gestion des animaux</h2>
-</div>
-<div class="d-flex">
-<?php foreach ($habitats as $habitat) { ?>
-
-    <a href="animals.php?ha=<?=$habitat['ha_id'];?>" class="btn btn-primary btn-sm m-3" ><?= $habitat['ha_name'];?></a>
-
-<?php ;}?>
-
-</div>
 
 
 <?php foreach ($messages as $message) { ?>
@@ -44,9 +27,28 @@ $habitats = getHabitats($pdo);
         </div>
     <?php } ?>
 
+<div class="px text-center" >
+  <h1>Gestion des animaux</h1>
+</div>
+<div class="row">
+<div class="d-flex col-md-8 justify-content-center justify-content-md-start">
+<?php foreach ($habitats as $habitat) { ?>
+
+    <a href="animals.php?ha=<?=$habitat['ha_id'];?>" class="btn btn-primary btn-sm m-3 <?php if (isset($_GET['ha'])) {if($activePage==$habitat['ha_id']) {?>active<?php ;}}?>"><?= $habitat['ha_name'];?></a>
+
+<?php ;}?>
+</div>
+<div class="d-flex col-md-4 justify-content-center justify-content-md-end align-item-center">
+<a href="animal_add.php" class="btn btn-primary btn-sm my-3">Ajouter un animal</a>
+</div>
+</div>
+
+
+
+
     <div class="container container-flux my-3 ms-3 p-1">
-    <a href="animal_add.php" class="btn btn-primary btn-sm mt-3">Ajouter un animal</a>
-        </div>
+    
+
  
 <?php       if (isset($_GET['ha'])) {
     if (isset($_GET['page'])) {
@@ -61,8 +63,7 @@ $habitats = getHabitats($pdo);
     $animals=getAnimalsByHabitat($pdo, $ha_id, 10, $offset);
     $total = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
     $totalPages = ceil($total/10);
-    
-    var_dump($totalPages)
+
     ?>
 
 
@@ -110,7 +111,8 @@ $habitats = getHabitats($pdo);
 </div>
 </div>
 <?php ;}?>
-
+      </div>
+      </div>
 
 <?php
 require_once '../templates/_footer.php'

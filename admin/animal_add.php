@@ -164,9 +164,9 @@ if ($animal) { ?>
       </div>
       <div class="mb-3 form-group col-3">
         <label for="an_ha_id" class="col-sm-3 col-form-label">Habitat</label>
-        <select type="text" class="form-control col-3 text-primary" id="an_ha_id" name="an_ha_id">
+        <select type="text" class="form-control col-3 primary" id="an_ha_id" name="an_ha_id">
           <?php foreach ($habitats as $habitat) {?>
-            <option value="<?=$habitat['ha_id'];?>" <?php if ($habitat['ha_id'] == $animal['an_ha_id']) {echo 'selected="selected"';} ?>><?= $habitat['ha_name'] ?>
+            <option value="<?=$habitat['ha_id'];?>" <?php if ($habitat['ha_id'] == $animal['an_ha_id']) {echo 'selected="selected"';} ?> class="primary"><?= $habitat['ha_name'] ?>
             </option> 
           <?php }; ?>
         </select>

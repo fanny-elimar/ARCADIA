@@ -79,7 +79,7 @@ if($phpmailer->send()){
 } ?> 
 
 <div class="px-4 text-left" >
-  <h1 class="admin_title">Gestion des utilisateurs</h1>
+  <h1 >Gestion des utilisateurs</h1>
 </div>
 
 <?php foreach ($messages as $message) { ?>

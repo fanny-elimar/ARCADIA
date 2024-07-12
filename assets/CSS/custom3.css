@@ -11861,7 +11861,7 @@ textarea.form-control-lg {
 }
 
 .border {
-  border-color: var(--secondary);
+  --bs-border-color: var(--secondary);
 }
 
 .info {
@@ -11880,8 +11880,8 @@ textarea.form-control-lg {
   --bs-btn-hover-bg: var(--primary);
   --bs-btn-hover-border-color: var(--primary);
   --bs-btn-focus-shadow-rgb: 49,132,253;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #17a2b8;
+  --bs-btn-active-color:var(--secondary);
+  --bs-btn-active-bg: var(--primary);
   --bs-btn-active-border-color: var(--secondary);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
@@ -11921,6 +11921,14 @@ textarea.form-control-lg {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   color: var(--primary);
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.cr-card {
+  min-width: 200px;
 }
 
 .card-img-top {
@@ -12015,4 +12023,4 @@ h2, .h2 {
 
 .animal-card-image {
   height: 12rem;
-}/*# sourceMappingURL=custom8.css.map */
+}/*# sourceMappingURL=custom3.css.map */

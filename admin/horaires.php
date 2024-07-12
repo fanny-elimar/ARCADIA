@@ -44,7 +44,7 @@ if (isset($_POST['addHoraire'])) {
 
 ?>
 
-<h3 class="display-5">Horaires d'ouverture</h3>
+<h1>Horaires d'ouverture</h1>
 
 <?php foreach ($messages as $message) { ?>
     <div class="alert alert-success" role="alert">
@@ -137,12 +137,6 @@ if (isset($_POST['deleteHoraire'.$horaire['ho_id']])) {
         </div>
                             </form> 
                         </div>
-
-    <?php foreach ($horaires as $horaire) { ?>
-        <p>Du <?= date('d-m-Y',strtotime($horaire['ho_periode_start']));?> au <?= date('d-m-Y',strtotime($horaire['ho_periode_end']));?></p>
-        <p><?= $horaire['ho_days'];?> de <?= $horaire['ho_time_start'];?> à <?= $horaire['ho_time_end'];?>.</p>
-        
-        <?php ;} ?> 
 
 
    <?php }} ?>
