@@ -72,9 +72,11 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
                 <p>Etat : <?=$condition['vi_condition'] ?>
                 <?php 
                     if (isset($_SESSION['user'])) {
-                if ($condition['vi_condition_details']) {echo '('.$condition['vi_condition_details'].')' ?></p><?php ;}?>
-                <p>Enclos <?=$enclosure['en_name'].' : '.$enclosure['en_comment'] ?></p>
-                <?php ;}}?>
+                if ($condition['vi_condition_details']) {echo '('.$condition['vi_condition_details'].')' ?></p><?php ;}
+                if ($enclosure['en_comment']) {?> <p>Enclos <?=$enclosure['en_name'].' : '.$enclosure['en_comment'] ?></p> 
+                <?php } else {?> <p>Enclos <?=$enclosure['en_name']?></p>  
+                
+                <?php ;}}}?>
                 
             </div>
         </div>

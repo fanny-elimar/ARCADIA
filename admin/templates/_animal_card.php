@@ -12,7 +12,7 @@ $images = getImagesByAnimalId($pdo, $animal['an_id']);
     <p class="card-text">Enclos <?= ucfirst(htmlentities($animal["an_en_name"]))?></p>
 </div>
 <div class="col">
-  <img src="<?= _ANIMALS_IMAGES_FOLDER_ . $animal['an_images'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
+  <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $animal['an_images'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
 </div>
     <div class="row">  
 

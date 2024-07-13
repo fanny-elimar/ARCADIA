@@ -39,10 +39,10 @@ if (isset($_POST['addHabitat'])) {
           /* On déplace le fichier uploadé dans notre dossier upload, dirname(__DIR__) 
               permet de cibler le dossier parent car on se trouve dans admin
           */
-          if (move_uploaded_file($_FILES["file"]["tmp_name"], _HABITATS_IMAGES_FOLDER_ .$fileName)) {
+          if (move_uploaded_file($_FILES["file"]["tmp_name"], _HABITATS_IMAGES_FOLDER_ADMIN_ .$fileName)) {
               if (isset($_POST['se_images'])) {
                   // On supprime l'ancienne image si on a posté une nouvelle
-                  unlink(_HABITATS_IMAGES_FOLDER_ . $_POST['se_images']);
+                  unlink(_HABITATS_IMAGES_FOLDER_ADMIN_ . $_POST['se_images']);
               }
           } else {
               $errors[] = 'Le fichier n\'a pas été uploadé';
@@ -55,7 +55,7 @@ if (isset($_POST['addHabitat'])) {
       if (isset($_GET['id'])) {
           if (isset($_POST['delete_image'])) {
               // Si on a coché la case de suppression d'image, on supprime l'image
-              unlink(_HABITATS_IMAGES_FOLDER_.$_POST['ha_images']);
+              unlink(_HABITATS_IMAGES_FOLDER_ADMIN_.$_POST['ha_images']);
           } else {
               $fileName = $_POST['ha_images'];
           }
@@ -126,7 +126,7 @@ if ($habitat) { ?>
       
       <?php if (isset($_GET['id']) && isset($habitat['ha_images'])) { ?>
             <p>
-                <img src="<?= _HABITATS_IMAGES_FOLDER_ . $habitat['ha_images'] ;?>" alt="image <?= $habitat['ha_name'] ?>" width="100">
+                <img src="<?= _HABITATS_IMAGES_FOLDER_ADMIN_ . $habitat['ha_images'] ;?>" alt="image <?= $habitat['ha_name'] ?>" width="100">
                 <label for="delete_image" class="text-sm">Supprimer l'image</label>
                 <input type="checkbox" name="delete_image" id="delete_image">
                 <input type="hidden" name="ha_images" value="<?= $habitat['ha_images']; ?>">

@@ -1,5 +1,5 @@
 <div class="card m-3" style="width: 18rem;">
-<img class="card-img-top" src="<?=_ASSETS_IMAGES_FOLDER_.$habitat["ha_images"];?>" alt="Image <?= $habitat["ha_name"]?>">
+<img class="card-img-top" src="<?=_HABITATS_IMAGES_FOLDER_.$habitat["ha_images"];?>" alt="Image <?= $habitat["ha_name"]?>">
    
 
   <div class="card-body justify-content-center">

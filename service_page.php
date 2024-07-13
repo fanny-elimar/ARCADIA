@@ -38,7 +38,7 @@ if (isset($_POST['modifyService'])) { ?>
             <p><?=nl2br(htmlentities($service["se_description"])); ?></p>
         </div>
 <div class="d-flex justify-content-center">
-    <img src="<?=_ASSETS_IMAGES_FOLDER_.$service['se_images'];?>">
+    <img src="<?=_SERVICES_IMAGES_FOLDER_.$service['se_images'];?>">
 </div>
 
 

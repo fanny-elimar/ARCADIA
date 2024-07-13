@@ -27,12 +27,12 @@ foreach ($services as $service) {
 </div>
 
 <h1>Les horaires</h1>
-<div class="row">
+<div class="row d-flex justify-content-center">
 <?php 
 $horaires=getHoraires($pdo);
 if ($horaires) {
 foreach ($horaires as $horaire) { ?>
-        <div class="col-sm-12 col-md-5 border rounded info m-1">
+        <div class="col-sm-12 col-md-5 border rounded light m-1">
         <p>Du <?= date('d m Y',strtotime($horaire['ho_periode_start']));?> au <?= date('d m Y',strtotime($horaire['ho_periode_end']));?> : </p>
         <p> <?= ucfirst($horaire['ho_days']);?> de <?= date('H:i',strtotime($horaire['ho_time_start']));?> à <?= date('H:i',strtotime($horaire['ho_time_end']));?>.</p>
         </div>

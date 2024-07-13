@@ -1,4 +1,4 @@
-<div class="card m-3" style="width: 18rem;">
+<div class="card m-3">
   <?php 
   $image=$animal["an_images"];
   ?>

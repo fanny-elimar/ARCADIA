@@ -32,6 +32,37 @@ foreach ($habitats as $habitat) {
     </p>
 </div>
 
+<?php  $list = opendir(_ANIMALS_IMAGES_FOLDER_);
+  
+  $tabfile = array();
+  
+  while ($fichier = readdir($list)) 
+  {
+  ($fichier != "." && $fichier != ".." && $fichier != ".htaccess")? $tabfile[] = $fichier : '' ;
+  }
+  closedir($list);
+
+//mélange du tableau
+  shuffle($tabfile);
+  echo '1 : ';
+  var_dump($tabfile);
+  $carouselImage1=array_shift($tabfile);
+
+  echo '2 : ';
+  var_dump($tabfile);
+  $carouselImage2=array_shift($tabfile);
+  $carouselImage3=array_shift($tabfile);
+  $carouselImage4=array_shift($tabfile);
+  $carouselImage5=array_shift($tabfile);
+  $carouselImage6=array_shift($tabfile);
+  $carouselImage7=array_shift($tabfile);
+  $carouselImage8=array_shift($tabfile);
+  $carouselImage9=array_shift($tabfile);
+
+?>
+// premier élément du tableau
+
+
 <div class="container">
       <h1>Nos animaux</h1>
       <div id="demo" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -41,23 +72,30 @@ foreach ($habitats as $habitat) {
         <div class="carousel-inner mb-5">
           <div class="carousel-item active" data-interval="4000">
             <div class="row">
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'jungle_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+
+                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage1;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+
+                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage2;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+                
+                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage3;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
             </div>
           </div>
           <div class="carousel-item" data-interval="2000">
           <div class="row">
-          <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+          <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage4;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+
+                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage5;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+                
+                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage6;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
             </div>
           </div>
           <div class="carousel-item" data-interval="1000">
           <div class="row">
-          <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 1" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'marais_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
-                <div class="col"><img src="<?=_ASSETS_IMAGES_FOLDER_.'savane_carre.webp';?>" alt="Carrousel slide 2" class="d-block"></div>
+          <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage7;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+
+<div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage8;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+
+<div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage9;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
             </div>
           </div>
         </div>
