@@ -32,6 +32,7 @@ foreach ($habitats as $habitat) {
     </p>
 </div>
 
+<!--Carousel des animaux-->
 <?php  $list = opendir(_ANIMALS_IMAGES_FOLDER_);
   
   $tabfile = array();
@@ -44,12 +45,7 @@ foreach ($habitats as $habitat) {
 
 //mélange du tableau
   shuffle($tabfile);
-  echo '1 : ';
-  var_dump($tabfile);
   $carouselImage1=array_shift($tabfile);
-
-  echo '2 : ';
-  var_dump($tabfile);
   $carouselImage2=array_shift($tabfile);
   $carouselImage3=array_shift($tabfile);
   $carouselImage4=array_shift($tabfile);
@@ -60,57 +56,145 @@ foreach ($habitats as $habitat) {
   $carouselImage9=array_shift($tabfile);
 
 ?>
-// premier élément du tableau
+
 
 
 <div class="container">
       <h1>Nos animaux</h1>
-      <div id="demo" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        
-
-        <!-- Carrousel -->
-        <div class="carousel-inner mb-5">
-          <div class="carousel-item active" data-interval="4000">
-            <div class="row">
-
-                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage1;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
-
-                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage2;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+      <!-- Carrousel pour écrans larges-->
+      <div id="carousel-animal-lg" class="carousel slide carousel-fade d-none d-lg-flex" data-bs-ride="carousel">
                 
-                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage3;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="4000">
+            <div class="row d-flex justify-content-around align-item-center">
+
+                <div class="col-11 col-md-6 col-lg-4"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage1;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+
+                <div class="d-none d-md-flex col-md-6 col-lg-4"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage2;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
+                
+                <div class="col-lg-4 d-lg-flex d-none"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage3;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
             </div>
           </div>
           <div class="carousel-item" data-interval="2000">
-          <div class="row">
-          <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage4;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+          <div class="row d-flex justify-content-around">
+          <div class="col-11 col-md-6 col-lg-4"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage4;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
 
-                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage5;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+                <div class="col-md-6 col-lg-4 d-none d-md-flex"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage5;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
                 
-                <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage6;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+                <div class="col-lg-4 d-none d-lg-flex"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage6;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
             </div>
           </div>
-          <div class="carousel-item" data-interval="1000">
-          <div class="row">
-          <div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage7;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+          <div class="carousel-item" data-interval="2000">
+          <div class="row d-flex justify-content-around">
+          <div class="col-11 col-md-6 col-lg-4 "><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage7;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
 
-<div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage8;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+<div class="col-md-6 col-lg-4 d-none d-md-flex"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage8;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
 
-<div class="col"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage9;?>" alt="Carrousel slide 1" class="d-block img-fluid" style="height:20vw;"></div>
+<div class="col-lg-4 d-none d-lg-flex"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage9;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
             </div>
           </div>
-        </div>
-        
-
-        <a class="carousel-control-prev" href="#demo" role="button" data-bs-slide="prev">
+           </div>
+                <a class="carousel-control-prev" href="#carousel-animal-lg" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
         </a>
-        <a class="carousel-control-next" href="#demo" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#carousel-animal-lg" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
         </a>
       </div>
     </div>
+
+    <!-- Carrousel pour écrans medium-->
+    <div id="carousel-animal-md" class="carousel slide carousel-fade d-none d-md-flex d-lg-none" data-bs-ride="carousel">
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="4000">
+            <div class="row d-flex justify-content-around align-item-center">
+
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage1;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage2;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
+            </div>
+          </div>
+            <div class="carousel-item" data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage3;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage4;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
+                </div>
+                </div>
+                 <div class="carousel-item" data-interval="2000">
+                 <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage5;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage6;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
+                </div>
+          </div>
+          <div class="carousel-item" data-interval="2000">
+                 <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage7;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+                <div class="col-6"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage8;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100"></div>
+                </div>
+          </div>
+           </div>
+                <a class="carousel-control-prev" href="#carousel-animal-md" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-animal-md" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <!-- Carrousel pour écrans small-->
+      <div id="carousel-animal-sm" class="carousel slide carousel-fade d-md-none" data-bs-ride="carousel">
+              
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="4000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage1;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage2;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage3;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage4;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage5;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage6;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage7;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage8;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            <div class="carousel-item " data-interval="2000">
+            <div class="row d-flex justify-content-around align-item-center">
+                <div class="col-11"><img src="<?=_ANIMALS_IMAGES_FOLDER_. $carouselImage9;?>" alt="Carrousel slide 1" class="d-block img-fluid w-100 h-100" ></div>
+            </div></div>
+            
+
+           </div>
+                <a class="carousel-control-prev" href="#carousel-animal-sm" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-animal-sm" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+
+    </div></div></div>
+
 <!--Affichage de la section services-->
     <div>
     <p>
