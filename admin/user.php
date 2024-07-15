@@ -17,11 +17,15 @@ if (isset($_POST["addUser"])) { ?>
     <!--empecher le renvoi du formulaire à l'actualisation de la page-->
 
     <?php 
-
+$email=$_POST['us_email'];
+$emailVerified=filter_var($email, FILTER_VALIDATE_EMAIL);
 $password=$_POST['us_password'];
 $password_check=$_POST['us_password_check'];
 $role=$_POST['us_role'];
 $userExists = verifyUserExists($pdo, $_POST['us_email']);
+if (!$emailVerified) {
+    $errors[] = 'Veuillez saisir une adresse mail valide.';
+} else {
 if ($userExists) {
     $errors[] = 'Un utilisateur existe déjà avec cette adresse mail.';
 } else {
@@ -76,7 +80,7 @@ if($phpmailer->send()){
     }
 } 
 } 
-} ?> 
+}} ?> 
 
 <div class="px-4 text-left" >
   <h1 >Gestion des utilisateurs</h1>
