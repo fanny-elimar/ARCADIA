@@ -101,7 +101,7 @@ foreach ($habitats as $habitat) {
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
       </div>
-    </div>
+
 
     <!-- Carrousel pour écrans medium-->
     <div id="carousel-animal-md" class="carousel slide carousel-fade d-none d-md-flex d-lg-none" data-bs-ride="carousel">
@@ -193,7 +193,7 @@ foreach ($habitats as $habitat) {
         </a>
       </div>
 
-    </div></div></div>
+    </div>
 
 <!--Affichage de la section services-->
     <div>

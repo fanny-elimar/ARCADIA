@@ -25,7 +25,7 @@ require_once __DIR__ . "/../lib/session.php";
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-lg">
         <header class="">
             <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
             <picture class="d-flex">
