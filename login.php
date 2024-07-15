@@ -60,7 +60,7 @@ if (isset($_POST['loginUser'])) {
             <input type="password" class="form-control" id="us_password" name="us_password">
         </div>
 
-        <input type="submit" name="loginUser" class="btn btn-primary" value="Enregistrer">
+        <input type="submit" name="loginUser" class="btn btn-primary" value="Se connecter">
 
     </form>
 

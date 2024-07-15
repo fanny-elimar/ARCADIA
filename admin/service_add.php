@@ -14,7 +14,7 @@ $service = [
 ];
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+  $id = htmlentities($_GET['id']);
   $service = getServiceById($pdo, $id);
   if (!$service) {
     $errors[] = 'Ce service n\'existe pas';
@@ -85,7 +85,7 @@ if (isset($_POST['addService'])) {
 
   if (!$errors) {
     if (isset($_GET["id"])) {
-      $id = (int)$_GET["id"];
+      $id = (int)htmlentities($_GET["id"]);
     } else {
       $id = null;
     }
@@ -125,13 +125,13 @@ if ($service) { ?>
       <div class="form-group row">
         <label for="se_name" class="col-md-4 col-form-label">Service</label>
         <div class="col-sm-12 col-md-8">
-          <input type="text" class="form-control mb-3" id="se_name" name="se_name" value="<?= $service['se_name'];?>">
+          <input type="text" class="form-control mb-3" id="se_name" name="se_name" value="<?= htmlentities($service['se_name']);?>">
         </div>
       </div>
       <div class="form-group row">
         <label for="se_description" class="col-sm-8 col-md-4 col-form-label">Description</label>
         <div class="col-sm-12 col-md-8">
-          <textarea type="text" class="form-control mb-3" id="se_description" name="se_description" rows=7 ><?= $service['se_description'];?></textarea>
+          <textarea type="text" class="form-control mb-3" id="se_description" name="se_description" rows=7 ><?= htmlentities($service['se_description']);?></textarea>
         </div>
       </div>
       <div class="form-group row">
@@ -143,10 +143,10 @@ if ($service) { ?>
       
       <?php if (isset($_GET['id']) && isset($service['se_images'])) { ?>
             <p>
-                <img src="<?= _SERVICES_IMAGES_FOLDER_ . $service['se_images'] ;?>" alt="image<?= $service['se_name'] ?>" width="100">
+                <img src="<?= _SERVICES_IMAGES_FOLDER_ . $service['se_images'] ;?>" alt="image<?= htmlentities($service['se_name']) ?>" width="100">
                 <label for="delete_image" class="text-sm">Supprimer l'image</label>
                 <input type="checkbox" name="delete_image" id="delete_image">
-                <input type="hidden" name="se_images" value="<?= $service['se_images']; ?>">
+                <input type="hidden" name="se_images" value="<?= htmlentities($service['se_images']); ?>">
                 
 
             </p>

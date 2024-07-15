@@ -10,8 +10,8 @@ require_once  "../lib/session.php";
 
 
     <?php 
-    $ha_id = isset($_GET['id']) ? $_GET['id'] : 1;
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $ha_id = isset($_GET['id']) ? htmlentities($_GET['id']) : 1;
+    $page = isset($_GET['page']) ? htmlentities($_GET['page']) : 1;
     $limit = 1;
     $offset = ($page - 1) * $limit;
     $animals = getAnimalsByHabitat($pdo, $ha_id, $limit, $offset);
@@ -44,7 +44,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     ?>
     <div class="container d-flex justify-content-end">
  
-    <a href="habitat_page.php?id=<?=$ha_id;?>" class="btn btn-primary btn-sm mx-1"><?=ucfirst(($habitat["ha_name"]));?></a>
+    <a href="habitat_page.php?id=<?=$ha_id;?>" class="btn btn-primary btn-sm mx-1"><?=ucfirst(htmlentities(($habitat["ha_name"])));?></a>
 
                                <?php if ($page > 1) {?>
                                 <a href="?id=<?=$ha_id?>&page=<?=($page-1);?>" class="btn btn-primary btn-sm mx-1">Animal précédent</a> 
@@ -62,17 +62,17 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
                 <h1 class="mb-3"><?=ucfirst(htmlentities($animal["an_name"])); ?></h1>
         </div>
             <div class="col-md-3">
-                <img class="card-img-top animal-card-image" src="<?=_ASSETS_IMAGES_FOLDER_.$images[0];?>" alt="Image <?= $animal["an_name"]?>">
+                <img class="card-img-top animal-card-image" src="<?=_ASSETS_IMAGES_FOLDER_.$images[0];?>" alt="Image <?= htmlentities($animal["an_name"])?>">
             </div>
             <div class="col-md-3">
                 <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
-                <p>Habitat : <?=$habitat["ha_name"]; ?></p>
+                <p>Habitat : <?=nl2br(htmlentities($habitat["ha_name"])); ?></p>
                 <?php if ($condition) {?>
-                <p>Etat : <?=$condition['vi_condition'] ?>
+                <p>Etat : <?=htmlentities($condition['vi_condition']) ?>
                 <?php 
                     if (isset($_SESSION['user'])) {
-                if ($condition['vi_condition_details']) {echo '('.$condition['vi_condition_details'].')' ?></p><?php ;}?>
-                <p>Enclos <?=$enclosure['en_name'].' : '.$enclosure['en_comment'] ?></p>
+                if ($condition['vi_condition_details']) {echo '('.htmlentities($condition['vi_condition_details']).')' ?></p><?php ;}?>
+                <p>Enclos <?=htmlentities($enclosure['en_name']).' : '.htmlentities($enclosure['en_comment']) ?></p>
                 <?php ;}}?>
                 
             </div>

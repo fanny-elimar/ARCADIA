@@ -7,7 +7,7 @@ require_once __DIR__ . "/lib/animal.php";
 
 $error = false;
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = htmlentities($_GET['id']);
 
     $habitat = getHabitatById($pdo, $id);
 

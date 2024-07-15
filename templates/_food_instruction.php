@@ -32,7 +32,7 @@ if (isset($_POST['addFood'])) { ?>
         <div>
             <?php if ($_SESSION['user']['us_role']==='employe'||$_SESSION['user']['us_role']==='admin') {
                 foreach ($foodInstructions as $foodInstruction) {?>
-                    <div><?= $foodInstruction['fo_type'].' : '.$foodInstruction['in_quantity'].' g ';?></div>
+                    <div><?= htmlentities($foodInstruction['fo_type']).' : '.htmlentities($foodInstruction['in_quantity']).' g ';?></div>
                 <?php ;} ?> </div><?php ;}
             elseif ($_SESSION['user']['us_role']==='vet') {
                 foreach ($foodInstructions as $foodInstruction) {
@@ -64,12 +64,12 @@ if (isset($_POST['addFood'])) { ?>
                             <div class="col-sm-5">
                                 <select type="text" class="form-control" id="in_fo_id" name="in_fo_id">
                                     <?php foreach ($foods as $food) {?>
-                                    <option value="<?=$food['fo_id'];?>" <?php if ($food['fo_id'] == $foodInstruction['in_fo_id']){ echo ' selected="selected"'; } ?>><?=$food['fo_type'] ?></option>
+                                    <option value="<?=$food['fo_id'];?>" <?php if ($food['fo_id'] == $foodInstruction['in_fo_id']){ echo ' selected="selected"'; } ?>><?=htmlentities($food['fo_type']) ?></option>
                                     <?php ;}?>
                                 </select>
                             </div>
                             <div class="col-2">
-                                <input type="text" name="in_quantity" class="form-control" value='<?= $foodInstruction['in_quantity'];?> '>    
+                                <input type="text" name="in_quantity" class="form-control" value='<?= htmlentities($foodInstruction['in_quantity']);?> '>    
                             </div>
                             <div class="col-1"> <p> g </p>
                             </div>
@@ -93,7 +93,7 @@ if (isset($_POST['addFood'])) { ?>
                                     <div class="col-sm-5">
                                         <select type="text" class="form-control" id="in_fo_id" name="in_fo_id">
                                             <?php foreach ($foods as $food) {?>
-                                                <option value="<?= $food['fo_id'];?>"><?=$food['fo_type'] ?></option>
+                                                <option value="<?= $food['fo_id'];?>"><?=htmlentities($food['fo_type']) ?></option>
                                             <?php ;}?>
                                         </select>
                                     </div>

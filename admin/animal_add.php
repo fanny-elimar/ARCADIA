@@ -19,7 +19,7 @@ $habitats = getHabitats($pdo);
 
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+  $id = htmlentities($_GET['id']);
   $animal = getAnimalById($pdo, $id);
   if ($animal) {$extraImages = getImagesByAnimalId($pdo, $animal['an_id']);}
   $enclosure=getEnclosureByAnimalId($pdo, $id);
@@ -86,7 +86,7 @@ if (isset($_POST['addAnimal'])) {
   // Si il n'y a pas d'erreur on peut faire la sauvegarde
   if (!$errors) {
     if (isset($_GET["id"])) {
-      $id = (int)$_GET["id"];
+      $id = (int)htmlentities($_GET["id"]);
     } else {
       $id = null;
     }
@@ -131,36 +131,36 @@ if ($animal) { ?>
       <div class="mb-3 form-group row">
         <label for="an_name" class="col-sm-2 col-form-label">Nom</label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="an_name" name="an_name" value="<?= $animal['an_name'];?>">
+          <input type="text" class="form-control" id="an_name" name="an_name" value="<?= htmlentities($animal['an_name']);?>">
         </div>
       </div>    
       <div class="mb-3 form-group row">
         <label for="an_species" class="col-sm-2 col-form-label">Espèce</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="an_species" name="an_species" value="<?= $animal['an_species'];?>">
+            <input type="text" class="form-control" id="an_species" name="an_species" value="<?= htmlentities($animal['an_species']);?>">
           </div>
       </div>
       <div class="mb-3 form-group row">
         <label for="an_en_name" class="col-sm-3 col-form-label">Enclos</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="an_en_name" name="an_en_name" value="<?= $animal['an_en_name'];?>">
+          <input type="text" class="form-control" id="an_en_name" name="an_en_name" value="<?= htmlentities($animal['an_en_name']);?>">
         </div>
       </div>
       <div class="mb-3 form-group col-3">
         <label for="an_ha_id" class="col-sm-3 col-form-label">Habitat</label>
         <select type="text" class="form-control col-3 primary" id="an_ha_id" name="an_ha_id">
           <?php foreach ($habitats as $habitat) {?>
-            <option value="<?=$habitat['ha_id'];?>" <?php if ($habitat['ha_id'] == $animal['an_ha_id']) {echo 'selected="selected"';} ?> class="primary"><?= $habitat['ha_name'] ?>
+            <option value="<?=htmlentities($habitat['ha_id']);?>" <?php if ($habitat['ha_id'] == $animal['an_ha_id']) {echo 'selected="selected"';} ?> class="primary"><?= htmlentities($habitat['ha_name']) ?>
             </option> 
           <?php }; ?>
         </select>
       </div>
       <div>
         <?php if (isset($_GET['id']) && isset($animal['an_images'])) {?>
-          <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $animal['an_images'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
+          <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $animal['an_images'] ;?>" alt="image<?=htmlentities($animal['an_name']) ?>" width="100">
           <label for="delete_image" class="text-sm">Supprimer l'image</label>
           <input type="checkbox" name="delete_image" id="delete_image">
-          <input type="hidden" name="an_images" value="<?= $animal['an_images']; ?>">
+          <input type="hidden" name="an_images" value="<?= htmlentities($animal['an_images']); ?>">
         <?php } ?>
         <p class="text-truncate">
           <input type="file" name="file" id="file" class="form-control btn-sm btn col-sm-12">

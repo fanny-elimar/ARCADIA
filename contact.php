@@ -18,13 +18,13 @@ $phpmailer->Password = '51262edda19843';
 
 
 if (isset($_POST['contact'])) {
-    $phpmailer->setFrom($_POST['contact_mail'],$_POST['contact_name'] );
+    $phpmailer->setFrom(htmlentities($_POST['contact_mail']),htmlentities($_POST['contact_name']) );
 $phpmailer->addAddress('fanny.thenault@gmail.com', 'Me');
-$phpmailer->Subject = $_POST['contact_title'];
+$phpmailer->Subject = htmlentities($_POST['contact_title']);
 // Set HTML 
 $phpmailer->isHTML(TRUE);
 $phpmailer->Body = htmlentities($_POST['contact_text']);
-$phpmailer->AltBody = $_POST['contact_text'];
+$phpmailer->AltBody = htmlentities($_POST['contact_text']);
 
 
 // send the message

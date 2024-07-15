@@ -34,7 +34,7 @@ if (isset($_GET['ha'])) {
 <div class="d-flex col-md-8 justify-content-center justify-content-md-start">
 <?php foreach ($habitats as $habitat) { ?>
 
-    <a href="animals.php?ha=<?=$habitat['ha_id'];?>" class="btn btn-primary btn-sm m-3 <?php if (isset($_GET['ha'])) {if($activePage==$habitat['ha_id']) {?>active<?php ;}}?>"><?= $habitat['ha_name'];?></a>
+    <a href="animals.php?ha=<?=htmlentities($habitat['ha_id']);?>" class="btn btn-primary btn-sm m-3 <?php if (isset($_GET['ha'])) {if($activePage==$habitat['ha_id']) {?>active<?php ;}}?>"><?=htmlentities($habitat['ha_name']);?></a>
 
 <?php ;}?>
 </div>
@@ -56,7 +56,7 @@ if (isset($_GET['ha'])) {
       } else {
         $page = 1;
       }
-    $ha_id=$_GET['ha'];
+    $ha_id=htmlentities($_GET['ha']);
 
     $offset=($page-1)*10;
     

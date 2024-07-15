@@ -30,7 +30,7 @@ if (isset($_POST['addFoodGiven'])) { ?>
                     <div class="col-sm-5">
                         <select type="text" class="form-control" id="fe_fo_id" name="fe_fo_id">
                             <?php foreach ($foods as $food) {?>
-                                <option value="<?=$food['fo_id'];?>"><?= $food['fo_type'] ?>
+                                <option value="<?=$food['fo_id'];?>"><?= htmlentities($food['fo_type']) ?>
                                 </option> 
                             <?php }; ?>
                         </select>
@@ -66,11 +66,11 @@ if (isset($_POST['addFoodGiven'])) { ?>
             } ?>
             <div>
                 <div class="row border-top pt-1">
-                    <div class="col-3"><p><?= $foodGivenItem['fo_type']; ?></p>
+                    <div class="col-3"><p><?= htmlentities($foodGivenItem['fo_type']); ?></p>
                 </div>
-                <div class="col-2"><p><?= $foodGivenItem['fe_quantity']; ?> g</p>
+                <div class="col-2"><p><?= htmlentities($foodGivenItem['fe_quantity']); ?> g</p>
                 </div>
-                <div class="col"><p><?= date('d/m/y',strtotime($foodGivenItem['fe_date'])); ?>   <?= date('H:i',strtotime($foodGivenItem['fe_time'])); ?></p>
+                <div class="col"><p><?= date('d/m/y',strtotime(htmlentities($foodGivenItem['fe_date']))); ?>   <?= date('H:i',strtotime(htmlentities($foodGivenItem['fe_time']))); ?></p>
                 </div>
                 <?php if ($_SESSION['user']['us_role']==='employe') {?>
                 <div class="col">

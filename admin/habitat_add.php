@@ -13,7 +13,7 @@ $habitat = [
 ];
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+  $id = htmlentities($_GET['id']);
   $habitat = getHabitatById($pdo, $id);
   if (!$habitat) {
     $errors[] = 'Cet habitat n\'existe pas';
@@ -75,7 +75,7 @@ if (isset($_POST['addHabitat'])) {
 
   if (!$errors) {
     if (isset($_GET["id"])) {
-      $id = (int)$_GET["id"];
+      $id = (int)htmlentities($_GET["id"]);
     } else {
       $id = null;
     }
@@ -114,22 +114,22 @@ if ($habitat) { ?>
       <div class="form-group row">
         <label for="ha_name" class="col-md-2 col-form-label">Habitat</label>
         <div class="col-sm-12 col-md-8">
-          <input type="text" class="form-control mb-3" id="ha_name" name="ha_name" value="<?= $habitat['ha_name'];?>">
+          <input type="text" class="form-control mb-3" id="ha_name" name="ha_name" value="<?= htmlentities($habitat['ha_name']);?>">
         </div>
       </div>
       <div class="form-group row">
         <label for="ha_description" class="col-sm-8 col-md-2 col-form-label">Description</label>
         <div class="col-sm-12 col-md-8">
-          <textarea type="text" class="form-control mb-3" id="ha_description" name="ha_description" rows=7 ><?= $habitat['ha_description'];?></textarea>
+          <textarea type="text" class="form-control mb-3" id="ha_description" name="ha_description" rows=7 ><?= htmlentities($habitat['ha_description']);?></textarea>
         </div>
       </div>
       
       <?php if (isset($_GET['id']) && isset($habitat['ha_images'])) { ?>
             <p>
-                <img src="<?= _HABITATS_IMAGES_FOLDER_ADMIN_ . $habitat['ha_images'] ;?>" alt="image <?= $habitat['ha_name'] ?>" width="100">
+                <img src="<?= _HABITATS_IMAGES_FOLDER_ADMIN_ . $habitat['ha_images'] ;?>" alt="image <?= htmlentities($habitat['ha_name'] )?>" width="100">
                 <label for="delete_image" class="text-sm">Supprimer l'image</label>
                 <input type="checkbox" name="delete_image" id="delete_image">
-                <input type="hidden" name="ha_images" value="<?= $habitat['ha_images']; ?>">
+                <input type="hidden" name="ha_images" value="<?= htmlentities($habitat['ha_images']); ?>">
                 
 
             </p>

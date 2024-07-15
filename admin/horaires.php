@@ -94,18 +94,18 @@ if (isset($_POST['deleteHoraire'.$horaire['ho_id']])) {
     <div class="mb-3 p-3 border">
         <div class="form-group row mb-3">
         <p class="col-sm-12 col-md-1 mb-1"> Du </p>    
-        <input type="date" class="form-control col mb-3" name="ho_periode_start" value="<?= $horaire['ho_periode_start'];?>">
+        <input type="date" class="form-control col mb-3" name="ho_periode_start" value="<?=htmlentities( $horaire['ho_periode_start']);?>">
         <p class="col-sm-12 col-md-1 mb-1"> au </p>    
-        <input type="date" class="form-control col mb-3" name="ho_periode_end" value="<?= $horaire['ho_periode_end'];?>">
+        <input type="date" class="form-control col mb-3" name="ho_periode_end" value="<?= htmlentities($horaire['ho_periode_end']);?>">
         </div>
         <div class="form-group row  mb-3">   
-        <input type="text" class="form-control col mb-3" name="ho_days" value="<?= $horaire['ho_days'];?>">
+        <input type="text" class="form-control col mb-3" name="ho_days" value="<?= htmlentities($horaire['ho_days']);?>">
         </div>
         <div class="form-group row  mb-3">
         <p class="col-sm-12 col-md-1 mb-1"> De </p>    
-        <input type="time" class="form-control col mb-3"  name="ho_time_start" value="<?= $horaire['ho_time_start'];?>">
+        <input type="time" class="form-control col mb-3"  name="ho_time_start" value="<?= htmlentities($horaire['ho_time_start']);?>">
         <p class="col-sm-12 col-md-1 mb-1"> à </p>    
-        <input type="time" class="form-control col mb-3"  name="ho_time_end" value="<?= $horaire['ho_time_end'];?>">
+        <input type="time" class="form-control col mb-3"  name="ho_time_end" value="<?= htmlentities($horaire['ho_time_end']);?>">
         </div>
         <input type="submit" class="btn btn-sm btn-primary" name="updateHoraire<?=$horaire['ho_id'];?>" value="Modifier">
         <input type="submit" class="btn btn-sm btn-primary" name="deleteHoraire<?=$horaire['ho_id'];?>" value="Supprimer">

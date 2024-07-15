@@ -22,7 +22,7 @@
     // Si il n'y a pas d'erreur on peut faire la sauvegarde
     if (!$errors) {
         if (isset($_GET["id"])) {
-            $id = (int)$_GET["id"];
+            $id = (int)htmlentities($_GET["id"]);
         } else {
             $id = null;
         }
@@ -49,7 +49,7 @@
                 } 
             } ?> 
             <div class="col-2">
-                <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $extraImage['im_an_filename'] ;?>" alt="image<?= $animal['an_name'] ?>" width="100">
+                <img src="<?= _ANIMALS_IMAGES_FOLDER_ADMIN_ . $extraImage['im_an_filename'] ;?>" alt="image<?=htmlentities($animal['an_name']) ?>" width="100">
                 <form method='POST'>
                     <button type="submit" name= "<?php echo 'deleteImage'.$extraImage['im_an_id'];?>" class="btn btn-primary btn-sm my-1" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette image <?= $extraImage['im_an_filename']?>?')"><img src="../assets/icones/delete.png" height="15">
                     </button>

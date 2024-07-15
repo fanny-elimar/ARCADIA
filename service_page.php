@@ -6,7 +6,7 @@ require_once __DIR__ . "/lib/service.php";
 
 $error = false;
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = htmlentities($_GET['id']);
 
     $service = getServiceById($pdo, $id);
 
@@ -52,7 +52,7 @@ if (isset($_POST['modifyService'])) { ?>
   </a>
   <div class="collapse" id="collapseModifyService">
     <form method="POST">
-        <textarea rows="4" class="form-control mb-3" name="se_info"><?= $service['se_info'];?></textarea>
+        <textarea rows="4" class="form-control mb-3" name="se_info"><?= htmlentities($service['se_info']);?></textarea>
         <input type="submit" value="Valider" name="modifyService" class="btn btn-primary btn-sm">
     </form>
   </div>

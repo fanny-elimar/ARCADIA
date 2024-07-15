@@ -42,11 +42,11 @@ if (isset($_POST['addVisit'])) {   /*
 <div class="container container-flux">
 <h3 class="mt-3">Compte-rendu de visite</h3>
 <div class="border p-3 rounded">
-<h4>Enclos <?= $enclosure['en_name'];?></h4>
+<h4>Enclos <?= htmlentities($enclosure['en_name']);?></h4>
 <form name="addEnclosureComment" method="POST" class="row">
 
     <div class="col-6">
-<input type="text" class="form-control" id="en_comment" name="en_comment" value="<?=$enclosure['en_comment'];?>" placeholder="Remarque...">
+<input type="text" class="form-control" id="en_comment" name="en_comment" value="<?=htmlentities($enclosure['en_comment']);?>" placeholder="Remarque...">
 </div>
 <div class="col-3">
     <input type="submit" name="addEnclosureComment" class="btn btn-primary btn-sm" value="Modifier">
