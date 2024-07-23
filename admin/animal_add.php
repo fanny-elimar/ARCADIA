@@ -100,6 +100,11 @@ if (isset($_POST['addAnimal'])) {
   $res1=verifyEnclosureExists($pdo, $_POST ['an_en_name']);
   if (!$res1) {
     $res2=addEnclosure($pdo, $_POST ['an_en_name']);
+    if ($res2) {
+      $messages[] = 'L\'enclos a été créé';
+    } else {
+      $errors[] = 'Une erreur s\'est produite lors de la création de l\'enclos.';
+    }
   } 
   $res = addAnimal($pdo, $_POST['an_name'], $_POST['an_species'], $fileName,  $_POST['an_ha_id'],  $_POST['an_en_name'], $id);
     if ($res) {
@@ -133,7 +138,7 @@ if (isset($_POST['addAnimal'])) {
 
 if ($animal) { ?>
   <div class="" >
-    <form method="POST" enctype="multipart/form-data" class="" >
+    <form method="POST" enctype="multipart/form-data" >
       <div class="mb-3 form-group row">
         <label for="an_name" class="col-sm-2 col-form-label">Nom</label>
         <div class="col-sm-5">
