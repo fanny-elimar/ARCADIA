@@ -197,6 +197,7 @@ foreach ($habitats as $habitat) {
 
 <!--Affichage de la section services-->
     <div>
+    <h1>Nos services</h1>
     <p>
     Lors de votre venue, profitez également de nos <a href="services.php" class="link-text">services</a> : restauration, visite guidée des habitats, visite du zoo en petit train.
     </p>
