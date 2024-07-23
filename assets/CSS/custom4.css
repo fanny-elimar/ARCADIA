@@ -11973,11 +11973,6 @@ a {
   display: none;
 }
 
-@media (min-width: 760px) {
-  .bandeau-habitats {
-    display: flex;
-  }
-}
 @media (min-width: 600px) {
   .big, .medium {
     display: flex;

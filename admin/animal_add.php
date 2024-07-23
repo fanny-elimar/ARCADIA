@@ -37,7 +37,11 @@ if (isset($_POST['addAnimal'])) {
   // Si un fichier est envoyé
   if (isset($_FILES["file"]["tmp_name"]) && $_FILES["file"]["tmp_name"] != '') {
     $checkImage = getimagesize($_FILES["file"]["tmp_name"]);
-    if ($checkImage !== false) {
+    list($width, $height) = $checkImage;
+    if ($width < $height) {
+      $errors[] = 'Veuillez choisir une image en mode paysage';
+    } else {
+      if ($checkImage !== false) {
       $fileName = slugify(basename($_FILES["file"]["name"]));
       $fileName = uniqid() . '-' . $fileName;
       /* On déplace le fichier uploadé dans notre dossier upload */
@@ -52,6 +56,8 @@ if (isset($_POST['addAnimal'])) {
     } else {
       $errors[] = 'Le fichier doit être une image';
     }
+    }
+    
   } else {
     // Si aucun fichier n'a été envoyé
     if (isset($_GET['id'])) {
