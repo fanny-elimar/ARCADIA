@@ -21,7 +21,7 @@ $errors =[];
     </div>
 <?php } ?>
 
-<div class="">
+<div>
     <?php foreach ($services as $service) {
         if (isset($_POST['deleteService'.$service['se_id']])) {?>
             <script> location.replace(document.referrer); </script>
@@ -38,21 +38,20 @@ $errors =[];
                 <?= ucfirst(htmlentities($service["se_name"]))?>
             </div>
             <div class="col d-flex justify-content-start">
-            <div class=" p-0">
-                <a class="btn btn-primary btn-sm p-1 mx-1" href="<?="service_add.php?id=".$service['se_id']?>">Modifier</a>
-            </div>
-            <div class=" p-0">
-                <form method="POST">
-                    <button type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
-                </form>
-            </div>
+                <div class=" p-0">
+                    <a class="btn btn-primary btn-sm p-1 mx-1" href="<?="service_add.php?id=".$service['se_id']?>">Modifier</a>
+                </div>
+                <div class=" p-0">
+                    <form method="POST">
+                        <button type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
+                    </form>
+                </div>
             </div>
         </div>
     <?php } ?>
 </div>
 <a href="service_add.php" class="btn btn-primary btn-sm mt-3">Ajouter un service</a>
 </div>
-
 
 <?php
 require_once '../templates/_footer.php'
