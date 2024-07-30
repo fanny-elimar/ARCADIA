@@ -13,12 +13,12 @@ if (isset($_POST['loginUser'])) {
         session_regenerate_id(true);
         $_SESSION['user'] = $user;
         if ($user['us_role'] === 'admin') {
-            header('location: admin/index.php');
+            echo "<script>document.location.replace('admin/index.php');</script>";
         } elseif ($user['us_role'] === 'vet') {
-            header('location: index.php');
+            echo "<script>document.location.replace('index.php');</script>";
         }
         elseif ($user['us_role'] === 'employe') {
-            header('location: index.php');
+            echo "<script>document.location.replace('index.php');</script>";
         }
         else {
             //header('location: index.php');
@@ -53,4 +53,6 @@ if (isset($_POST['loginUser'])) {
     </div>
 </form>
 
-<?php require_once 'templates/_footer.php';?>
+<?php 
+require_once 'templates/_footer.php';
+?>
