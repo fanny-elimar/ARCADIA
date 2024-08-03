@@ -18,6 +18,9 @@ if (isset($_POST['addFoodGiven'])) { ?>
 <div class="container">
     <div class="border p-3 rounded mt-3">
         <h4>Alimentation fournie</h4>
+        <?php if (!$foodGiven) {
+                    echo 'Cet animal n\'a pas encore reçu de nourriture aujourd\'hui.';
+                }; ?>
         <?php if ($_SESSION['user']['us_role']==='employe') {?>
             <div>
                 <form method="POST">

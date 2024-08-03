@@ -30,7 +30,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 ?>
 
 <div class="container d-flex justify-content-end">
-    <a href="habitat_page.php?id=<?=$ha_id;?>" class="btn btn-primary btn-sm mx-1"><?=ucfirst(htmlentities(($habitat["ha_name"])));?></a>
+    <a href="animals.php" class="btn btn-primary btn-sm mx-1">Retour aux animaux</a>
     <?php if ($page > 1) {?>
         <a href="?id=<?=$ha_id?>&page=<?=($page-1);?>" class="btn btn-primary btn-sm mx-1">Animal précédent</a> 
     <?php } ?> 
@@ -40,11 +40,11 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
             <h1 class="mb-3"><?=ucfirst(htmlentities($animal["an_name"])); ?></h1>
         </div>
         <div class="col-md-3">
-            <img class="card-img-top animal-card-image" src="<?=_ASSETS_IMAGES_FOLDER_.$images[0];?>" alt="Image <?= htmlentities($animal["an_name"])?>">
+            <img class="card-img-top" src="<?=_ANIMALS_IMAGES_FOLDER_ADMIN_ . $animal['an_images'];?>" alt="Image <?= htmlentities($animal["an_name"])?>">
         </div>
         <div class="col-md-3">
             <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
