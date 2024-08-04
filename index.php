@@ -24,19 +24,18 @@ require_once __DIR__ . "/lib/review.php";
 <div>
   <p>En venant à Arcadia, vous aurez le plaisir de rencontrer de nombreux animaux : girafes,  éléphants,  hippopotames,  singes,  serpents,  tortues et bien d'autres encore.</p>
 </div>
+
+<h1>Nos animaux</h1>
 <div class="container">
-  <h1>Nos animaux</h1>
   <?php require __DIR__ . "/templates/_carousel_animaux.php";?>
 </div>
 
 <!--Affichage de la section services-->
-<div class="container">
-  <div class="justify-content-center">
-    <h1>Nos services</h1>
-    <p>Lors de votre venue, profitez également de nos <a href="services.php" class="link-text">services</a> : restauration, visite guidée des habitats, visite du zoo en petit train.</p>
-  </div>
 
-  <div class="d-flex justify-content-center">
+<h1>Nos services</h1>
+<p>Lors de votre venue, profitez également de nos <a href="services.php" class="link-text">services</a> : restauration, visite guidée des habitats, visite du zoo en petit train.</p>
+<div class="container">
+  <div class="d-md-flex justify-content-center">
     <?php $services = getServices($pdo);
     foreach ($services as $service) {
       require __DIR__ . "/templates/_service_card.php";
@@ -45,7 +44,7 @@ require_once __DIR__ . "/lib/review.php";
 </div>
 
 <!--Affichage de la section avis-->
-<div class="border-top mt-3 pt-3">
+<div class="container border-top mt-3 pt-3">
   <h2>Ils sont venus nous voir</h2>
   <?php require __DIR__ . "/templates/_review_add.php";
   if (isset($_SESSION['user'])) {

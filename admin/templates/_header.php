@@ -10,6 +10,8 @@ if (isset($_SESSION['user'])) {
 }
 else {header("location: ../index.php");}
 
+$url_array = explode('/',$_SERVER['PHP_SELF']);
+$url = end($url_array);
 ?>
 
 
@@ -52,13 +54,13 @@ else {header("location: ../index.php");}
                     </button>
                     <div class="collapse navbar-collapse " id="n_bar_admin">
                         <ul class="nav nav-pills flex-column ">
-                            <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
-                            <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                            <li class="nav-item"><a href="horaires.php" class="nav-link">Horaires</a></li>
-                            <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
-                            <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
-                            <li class="nav-item"><a href="cr_veto.php" class="nav-link">Comptes-rendus du vétérinaire</a></li>
-                            <li class="nav-item"><a href="clics.php" class="nav-link">Suivi des clics</a></li>
+                            <li class="nav-item"><a href="user.php" class="nav-link <?php if($url=='user.php'){?>active <?php } ?>">Gestion des utilisateurs</a></li>
+                            <li class="nav-item"><a href="services.php" class="nav-link <?php if($url=='services.php'){?>active <?php } ?>">Services</a></li>
+                            <li class="nav-item"><a href="horaires.php" class="nav-link <?php if($url=='horaires.php'){?>active <?php } ?>">Horaires</a></li>
+                            <li class="nav-item"><a href="habitats.php" class="nav-link <?php if($url=='habitats.php'){?>active <?php } ?>">Habitats</a></li>
+                            <li class="nav-item"><a href="animals.php" class="nav-link <?php if($url=='animals.php'){?>active <?php } ?>">Animaux</a></li>
+                            <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if($url=='cr_veto.php'){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
+                            <li class="nav-item"><a href="clics.php" class="nav-link <?php if($url=='clics.php'){?>active <?php } ?>">Suivi des clics</a></li>
                         </ul>
                     </div>
                 </div>
@@ -67,13 +69,13 @@ else {header("location: ../index.php");}
         <div class="container d-flex p-0"  >
             <nav class="navbar d-none d-md-flex col-2 p-0" style="background-color: #a4d0a4">
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item"><a href="user.php" class="nav-link">Gestion des utilisateurs</a></li>
-                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="horaires.php" class="nav-link">Horaires</a></li>
-                    <li class="nav-item"><a href="habitats.php" class="nav-link">Habitats</a></li>
-                    <li class="nav-item"><a href="animals.php" class="nav-link">Animaux</a></li>
-                    <li class="nav-item"><a href="cr_veto.php" class="nav-link">Comptes-rendus du vétérinaire</a></li>
-                    <li class="nav-item"><a href="clics.php" class="nav-link">Suivi des clics</a></li>
+                    <li class="nav-item"><a href="user.php" class="nav-link <?php if($url=='user.php'){?>active <?php } ?>">Gestion des utilisateurs</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link <?php if($url=='services.php'){?>active <?php } ?>">Services</a></li>
+                    <li class="nav-item"><a href="horaires.php" class="nav-link <?php if($url=='horaires.php'){?>active <?php } ?>">Horaires</a></li>
+                    <li class="nav-item"><a href="habitats.php" class="nav-link <?php if($url=='habitats.php'){?>active <?php } ?>">Habitats</a></li>
+                    <li class="nav-item"><a href="animals.php" class="nav-link <?php if($url=='animals.php'){?>active <?php } ?>">Animaux</a></li>
+                    <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if($url=='cr_veto.php'){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
+                    <li class="nav-item"><a href="clics.php" class="nav-link <?php if($url=='clics.php'){?>active <?php } ?>">Suivi des clics</a></li>
                 </ul>
             </nav>
             <main class="p-3 ms-lg-0 col-10" >

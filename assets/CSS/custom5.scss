@@ -41,6 +41,11 @@ $container-max-widths: (
     background-color: var(--info);
 }
 
+.active {
+    text-decoration : underline;
+
+}
+
 .light {
     background-color: var(--light);
 }

@@ -2,6 +2,9 @@
 require_once __DIR__ . "/../lib/config.php";
 require_once __DIR__ . "/../lib/user.php";
 require_once __DIR__ . "/../lib/session.php";
+
+$url_array = explode('/',$_SERVER['PHP_SELF']);
+$url = end($url_array);
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@ require_once __DIR__ . "/../lib/session.php";
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="assets/CSS/custom4.css">
+            <link rel="stylesheet" href="assets/CSS/custom5.css">
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
             <title>Arcadia</title>
@@ -55,16 +58,16 @@ require_once __DIR__ . "/../lib/session.php";
                             <div class="collapse navbar-collapse justify-content-center" id="n_bar">
                                 <ul class="nav justify-content-around border-bottom ">
                                     <li class="nav-item">
-                                        <a href="index.php" class="nav-link px-2">Accueil</a>
+                                        <a href="index.php"  class="nav-link px-2 <?php if(str_contains($url,'index')){?>active <?php } ?>">Accueil</a>
                                     </li>                
                                     <li class="nav-item">    
-                                        <a href="services.php" class="nav-link px-2">Services & horaires</a>
+                                        <a href="services.php" class="nav-link px-2 <?php if(str_contains($url,'service')){?>active <?php } ?>">Services & horaires</a>
                                     </li>
                                     <li class="nav-item">    
-                                        <a href="habitats.php" class="nav-link px-2">Les habitats</a>
+                                        <a href="habitats.php" class="nav-link px-2 <?php if(str_contains($url,'habitat') || str_contains($url,'animal')){?>active <?php } ?>">Les habitats</a>
                                     </li>
                                     <li class="nav-item">    
-                                        <a href="contact.php" class="nav-link px-2">Contact</a>
+                                        <a href="contact.php" class="nav-link px-2 <?php if(str_contains($url,'contact')){?>active <?php } ?>">Contact</a>
                                     </li>
                                 </ul>
                             </div>

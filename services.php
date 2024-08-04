@@ -10,8 +10,8 @@ require_once __DIR__ . "/lib/horaire.php";
 <h1>Les services</h1>
 <p>Pour rendre votre visite encore plus agréable, des services supplémentaires sont disponibles.</p>
 
-<div d-inline>
-  <div class="bandeau-habitats justify-content-center">
+<div class="container">
+  <div class="d-md-flex justify-content-center">
     <?php $services = getServices($pdo);
     foreach ($services as $service) {
       require __DIR__ . "/templates/_service_card.php";

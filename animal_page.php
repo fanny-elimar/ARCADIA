@@ -49,17 +49,21 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
         <div class="col-md-3">
             <p>Espèce : <?=nl2br(htmlentities($animal["an_species"])); ?></p>
             <p>Habitat : <?=htmlentities($habitat["ha_name"]); ?></p>
-            <?php if ($condition) {?>
+            <?php if (!$condition) {?>
+                <p>Etat : non renseigné </p>
+            <?php } else {?>    
                 <p>Etat : <?=htmlentities($condition['vi_condition']) ?>
                 <?php if (isset($_SESSION['user'])) {
                     if ($condition['vi_condition_details']) {echo '('.htmlentities($condition['vi_condition_details']).')' ?></p>
                     <?php ;}
-                    if ($enclosure['en_comment']) {?> 
-                        <p>Enclos <?=htmlentities($enclosure['en_name']).' : '.htmlentities($enclosure['en_comment']) ?></p> 
-                    <?php } else {?> 
-                        <p>Enclos <?=htmlentities($enclosure['en_name'])?></p>  
-                    <?php ;}
                 }
+            }
+            if (isset($_SESSION['user'])) {
+                if ($enclosure['en_comment']) {?> 
+                    <p>Enclos <?=htmlentities($enclosure['en_name']).' : '.htmlentities($enclosure['en_comment']) ?></p> 
+                <?php } else {?> 
+                    <p>Enclos <?=htmlentities($enclosure['en_name'])?></p>  
+                <?php ;}
             }?>
         </div>
     </div>

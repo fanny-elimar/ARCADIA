@@ -8,8 +8,8 @@ require_once __DIR__ . "/lib/habitat.php";
 
 <h1>Les habitats</h1>
 <p>Cliquez sur un habitat pour voir les animaux qui s'y trouvent.</p>
-<div d-inline>
-  <div class="bandeau-habitats justify-content-center">
+<div class="container">
+  <div class="d-md-flex justify-content-center">
     <?php 
     $habitats = getHabitats($pdo);
     foreach ($habitats as $habitat) {

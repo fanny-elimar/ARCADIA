@@ -5,7 +5,7 @@ $messages = [];
 if (isset($_POST['addEnclosureComment'])) { ?>
     <!--empecher le renvoi du formulaire à l'actualisation de la page-->
     <script> location.replace(document.referrer); </script>
-    <?php $res = addEnclosureComment($pdo, $_POST['en_comment'], $enclosure['en_id']);
+    <?php $res = addEnclosureComment($pdo, $_POST['en_comment'], $enclosure['en_name']);
     if ($res) {
         $messages[] = 'Merci pour votre avis.';
     } else {
