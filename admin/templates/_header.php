@@ -25,7 +25,7 @@ $url = end($url_array);
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="../assets/CSS/custom4.css">
+            <link rel="stylesheet" href="../assets/CSS/custom6.css">
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
             <title>Arcadia</title>
@@ -54,13 +54,13 @@ $url = end($url_array);
                     </button>
                     <div class="collapse navbar-collapse " id="n_bar_admin">
                         <ul class="nav nav-pills flex-column ">
-                            <li class="nav-item"><a href="user.php" class="nav-link <?php if($url=='user.php'){?>active <?php } ?>">Gestion des utilisateurs</a></li>
-                            <li class="nav-item"><a href="services.php" class="nav-link <?php if($url=='services.php'){?>active <?php } ?>">Services</a></li>
-                            <li class="nav-item"><a href="horaires.php" class="nav-link <?php if($url=='horaires.php'){?>active <?php } ?>">Horaires</a></li>
-                            <li class="nav-item"><a href="habitats.php" class="nav-link <?php if($url=='habitats.php'){?>active <?php } ?>">Habitats</a></li>
-                            <li class="nav-item"><a href="animals.php" class="nav-link <?php if($url=='animals.php'){?>active <?php } ?>">Animaux</a></li>
-                            <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if($url=='cr_veto.php'){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
-                            <li class="nav-item"><a href="clics.php" class="nav-link <?php if($url=='clics.php'){?>active <?php } ?>">Suivi des clics</a></li>
+                            <li class="nav-item"><a href="user.php" class="nav-link <?php if(str_contains($url,'user')){?>active <?php } ?>">Gestion des utilisateurs</a></li>
+                            <li class="nav-item"><a href="services.php" class="nav-link <?php if(str_contains($url,'service')){?>active <?php } ?>">Services</a></li>
+                            <li class="nav-item"><a href="horaires.php" class="nav-link <?php if(str_contains($url,'horaire')){?>active <?php } ?>">Horaires</a></li>
+                            <li class="nav-item"><a href="habitats.php" class="nav-link <?php if(str_contains($url,'habitat')){?>active <?php } ?>">Habitats</a></li>
+                            <li class="nav-item"><a href="animals.php" class="nav-link <?php if(str_contains($url,'animal')){?>active <?php } ?>">Animaux</a></li>
+                            <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if(str_contains($url,'cr_veto')){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
+                            <li class="nav-item"><a href="clics.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,13 +69,13 @@ $url = end($url_array);
         <div class="container d-flex p-0"  >
             <nav class="navbar d-none d-md-flex col-2 p-0" style="background-color: #a4d0a4">
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item"><a href="user.php" class="nav-link <?php if($url=='user.php'){?>active <?php } ?>">Gestion des utilisateurs</a></li>
-                    <li class="nav-item"><a href="services.php" class="nav-link <?php if($url=='services.php'){?>active <?php } ?>">Services</a></li>
-                    <li class="nav-item"><a href="horaires.php" class="nav-link <?php if($url=='horaires.php'){?>active <?php } ?>">Horaires</a></li>
-                    <li class="nav-item"><a href="habitats.php" class="nav-link <?php if($url=='habitats.php'){?>active <?php } ?>">Habitats</a></li>
-                    <li class="nav-item"><a href="animals.php" class="nav-link <?php if($url=='animals.php'){?>active <?php } ?>">Animaux</a></li>
-                    <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if($url=='cr_veto.php'){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
-                    <li class="nav-item"><a href="clics.php" class="nav-link <?php if($url=='clics.php'){?>active <?php } ?>">Suivi des clics</a></li>
+                    <li class="nav-item"><a href="user.php" class="nav-link <?php if(str_contains($url,'user')){?>active <?php } ?>">Gestion des utilisateurs</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link <?php if(str_contains($url,'service')){?>active <?php } ?>">Services</a></li>
+                    <li class="nav-item"><a href="horaires.php" class="nav-link <?php if(str_contains($url,'horaire')){?>active <?php } ?>">Horaires</a></li>
+                    <li class="nav-item"><a href="habitats.php" class="nav-link <?php if(str_contains($url,'habitat')){?>active <?php } ?>">Habitats</a></li>
+                    <li class="nav-item"><a href="animals.php" class="nav-link <?php if(str_contains($url,'animal')){?>active <?php } ?>">Animaux</a></li>
+                    <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if(str_contains($url,'cr_veto')){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
+                    <li class="nav-item"><a href="clics.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
                 </ul>
             </nav>
             <main class="p-3 ms-lg-0 col-10" >

@@ -7,52 +7,32 @@ require_once '../vendor/autoload.php';
 
 $messages =[];
 $errors =[];
-echo extension_loaded("mongodb") ? "loaded\n" : "not loaded\n";
+//echo extension_loaded("mongodb") ? "loaded\n" : "not loaded\n";
 
-$client = new MongoDB\Client("mongodb://localhost:8090");
-$db = $client->arcadia->animal;
-$result2 = $db->find()->toArray();
+//$client = new MongoDB\Client("mongodb://localhost:8090");
+//$db = $client->arcadia->animal;
+//$result2 = $db->find()->toArray();
     
-    print_r($result2);
+    //print_r($result2);
 
-    use MongoDB\Client as Mongo;
+   // use MongoDB\Client as Mongo;
 
-    $user = "utilisateur";
-    $pwd = 'motdepasse';
+   // $user = "utilisateur";
+  //  $pwd = 'motdepasse';
     
-    $mongo = new Mongo("mongodb://$user:$pwd@127.0.0.1:8090");
-    $collection = $mongo->arcadia->animals;
-    $result = $collection->find()->toArray();
+  //  $mongo = new Mongo("mongodb://$user:$pwd@127.0.0.1:8090");
+  //  $collection = $mongo->arcadia->animals;
+//$result = $collection->find()->toArray();
     
-    print_r($result);
+  //  print_r($result);
     
     ?>
 
-?>
+
 
 
 <h1>Suivi des clics</h1>
-<div class="row">
-<div class="col-md-3 col-sm-6 md-mb-1 mb-3">
-<input type="text" class="form-control" id="search-by-name" placeholder="Nom...">
-</div>
-<div class="col-md-2 col-sm-5 md-mb-1 mb-3 align-items-center d-flex">
-<button type="button" class="btn btn-sm btn-primary"  onclick="filterByName();">Chercher</button>
-</div>
-<div class="col-md-3 col-sm-6 md-mb-1 mb-3 md-ms-5">
-<input type="date" class="form-control" id="search-by-date" placeholder="Date...">
-</div>
-<div class="col-md-2 col-sm-5 md-mb-1 mb-3 align-items-center d-flex">
-<button type="button" class="btn btn-sm btn-primary"  onclick="filterByDate();">Chercher</button>
-</div>
-</div>
-<div class="col-md-2 col-sm-5 md-mb-1 mb-3 align-items-center d-flex">
-<button type="button" class="btn btn-sm btn-primary"  onclick="showAll();">Tout afficher</button>
-</div>
-<div class="row" id="results">
-    
-</div>
-
+<p> Page en cours de construction </p>
 </div>
 
 <?php

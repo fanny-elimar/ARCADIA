@@ -11855,7 +11855,7 @@ textarea.form-control-lg {
   --dark: #343a40;
   --bs-nav-link-color: var(--primary);
   --bs-link-color: var(--primary);
-  --bs-link-hover-color: var(--secondary);
+  --bs-link-hover-color: var(--info);
   --bs-pagination-active-bg: var(--primary);
   --bs-pagination-active-border-color: var(--primary);
 }
@@ -11866,6 +11866,10 @@ textarea.form-control-lg {
 
 .info {
   background-color: var(--info);
+}
+
+.active {
+  text-decoration: underline;
 }
 
 .light {
@@ -11957,10 +11961,6 @@ a {
   font-weight: 800;
 }
 
-.container-flux {
-  max-width: 1000px;
-}
-
 .header_img {
   width: 98%;
 }
@@ -12023,4 +12023,4 @@ h2, .h2 {
 
 .card {
   width: 18rem;
-}/*# sourceMappingURL=custom4.css.map */
+}/*# sourceMappingURL=custom6.css.map */
