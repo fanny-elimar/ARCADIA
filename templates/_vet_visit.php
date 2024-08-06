@@ -29,7 +29,7 @@ if (isset($_POST['addVisit'])) { ?>
     <div class="border p-3 rounded">
         <h4>Enclos <?= htmlentities($enclosure['en_name']);?></h4>
         <form name="addEnclosureComment" method="POST" class="row">
-            <div class="col-6">
+            <div class="col-sm-8 col-6">
                 <input type="text" class="form-control" id="en_comment" name="en_comment" value="<?=htmlentities($enclosure['en_comment']);?>" placeholder="Remarque...">
             </div>
             <div class="col-3">
@@ -41,24 +41,24 @@ if (isset($_POST['addVisit'])) { ?>
         <h4>Animal</h4>
         <form name="addVisit" method="POST">
             <div class="mb-3 form-group row">
-                <label for="vi_condition" class="col-sm-2 col-form-label">Etat</label>
+                <label for="vi_condition" class="col-sm-3 col-form-label">Etat</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="vi_condition" name="vi_condition">
                 </div>
             </div>
             <div class="mb-3 form-group row">
-                <label for="vi_date" class="col-sm-2 col-form-label">Date</label>
+                <label for="vi_date" class="col-sm-3 col-form-label">Date</label>
                 <div class="col-sm-8">
                     <input type="date" class="form-control date" id="vi_date" name="vi_date" value="<?php echo date('Y-m-d') ;?>">
                 </div>
             </div>
             <div class="mb-3 form-group row">
-                <label for="vi_condition_details" class="col-sm-2 col-form-label">Remarque</label>
+                <label for="vi_condition_details" class="col-sm-3 col-form-label">Remarque</label>
                 <div class="col-sm-8">
                     <textarea class="form-control" rows="4" id="vi_condition_details" name="vi_condition_details"></textarea>
                 </div>
             </div>
-            <input type="submit" name="addVisit" class="btn btn-primary btn-sm col-2" value="Enregistrer">
+            <input type="submit" name="addVisit" class="btn btn-primary btn-sm col-sm-4 col-md-2" value="Enregistrer">
         </form>
     </div>
 </div>
