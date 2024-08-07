@@ -28,7 +28,7 @@ foreach ($draftReviews as $draftReview) {
 
 <div class="comment border p-1 my-3">
     <p class="m-1"><?=htmlentities($draftReview["re_review"]);?></p>
-    <p class="m-1"><?= htmlentities($draftReview["re_pseudo"]).' le '.date('d/m/y',strtotime(htmlentities($draftReview["re_date"])));?></p>
+    <p class="m-1"><?= $draftReview["re_pseudo"].' le '.date('d/m/y',strtotime(htmlentities($draftReview["re_date"])));?></p>
     <div class="row">
     <form method="POST">
         <input type="submit" name="<?php echo 'approveReview'.$draftReview['re_id'];?>" class="btn btn-primary btn-sm" value="Valider">

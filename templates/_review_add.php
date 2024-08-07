@@ -10,7 +10,7 @@ if (isset($_POST['addReview'])) {   /*
     <script> location.replace("index.php"); </script>
     <?php 
     
-    $res = addReview($pdo, $_POST['re_pseudo'], $_POST['re_review']);
+    $res = addReview($pdo, htmlspecialchars($_POST['re_pseudo']), $_POST['re_review']);
     if ($res) {
         $messages[] = 'Merci pour votre avis.';
     } else {
