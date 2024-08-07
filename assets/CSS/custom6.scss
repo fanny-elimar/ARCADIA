@@ -29,7 +29,7 @@ $container-max-widths: (
     --dark: #343a40;
     --bs-nav-link-color: var(--primary);
     --bs-link-color: var(--primary);
-    --bs-link-hover-color: var(--secondary);
+    --bs-link-hover-color: var(--info);
     --bs-pagination-active-bg: var(--primary);
     --bs-pagination-active-border-color: var(--primary);
 }
@@ -39,6 +39,11 @@ $container-max-widths: (
 
 .info {
     background-color: var(--info);
+}
+
+.active {
+    text-decoration : underline;
+
 }
 
 .light {
@@ -129,9 +134,7 @@ a {
     color: var(--primary);
     font-weight: 800;
 }
-.container-flux {
-    max-width: 1000px;
-}
+
 
 .header_img {
     width: 98%;
@@ -143,12 +146,6 @@ a {
 
 .medium {
     display: none;
-}
-
-@media (min-width : 760px) {
-    .bandeau-habitats {
-        display: flex;
-    }
 }
 
 

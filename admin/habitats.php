@@ -53,7 +53,6 @@ $errors =[];
 <a href="habitat_add.php" class="btn btn-primary btn-sm mt-3">Ajouter un habitat</a>
 </div>
 
-
 <?php
 require_once '../templates/_footer.php'
 ?>

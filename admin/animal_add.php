@@ -37,7 +37,11 @@ if (isset($_POST['addAnimal'])) {
   // Si un fichier est envoyé
   if (isset($_FILES["file"]["tmp_name"]) && $_FILES["file"]["tmp_name"] != '') {
     $checkImage = getimagesize($_FILES["file"]["tmp_name"]);
-    if ($checkImage !== false) {
+    list($width, $height) = $checkImage;
+    if ($width < $height) {
+      $errors[] = 'Veuillez choisir une image en mode paysage';
+    } else {
+      if ($checkImage !== false) {
       $fileName = slugify(basename($_FILES["file"]["name"]));
       $fileName = uniqid() . '-' . $fileName;
       /* On déplace le fichier uploadé dans notre dossier upload */
@@ -52,6 +56,8 @@ if (isset($_POST['addAnimal'])) {
     } else {
       $errors[] = 'Le fichier doit être une image';
     }
+    }
+    
   } else {
     // Si aucun fichier n'a été envoyé
     if (isset($_GET['id'])) {
@@ -94,6 +100,11 @@ if (isset($_POST['addAnimal'])) {
   $res1=verifyEnclosureExists($pdo, $_POST ['an_en_name']);
   if (!$res1) {
     $res2=addEnclosure($pdo, $_POST ['an_en_name']);
+    if ($res2) {
+      $messages[] = 'L\'enclos a été créé';
+    } else {
+      $errors[] = 'Une erreur s\'est produite lors de la création de l\'enclos.';
+    }
   } 
   $res = addAnimal($pdo, $_POST['an_name'], $_POST['an_species'], $fileName,  $_POST['an_ha_id'],  $_POST['an_en_name'], $id);
     if ($res) {
@@ -127,7 +138,7 @@ if (isset($_POST['addAnimal'])) {
 
 if ($animal) { ?>
   <div class="" >
-    <form method="POST" enctype="multipart/form-data" class="" >
+    <form method="POST" enctype="multipart/form-data" >
       <div class="mb-3 form-group row">
         <label for="an_name" class="col-sm-2 col-form-label">Nom</label>
         <div class="col-sm-5">

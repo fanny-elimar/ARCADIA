@@ -26,8 +26,8 @@
         } else {
             $id = null;
         }
-        $res2 = addImage ($pdo, $extraFileName, $id);
-        if ($res2) {
+        $res = addImage ($pdo, $extraFileName, $id);
+        if ($res) {
             $messages[] = 'L\'image a bien été sauvegardée';
         } else {
         $errors[] = 'Une erreur s\'est produite.';
@@ -56,11 +56,11 @@
                 </form>
             </div>
         <?php }
-    } else {echo 'pas d\'image';} ?>
+    } else {
+        echo 'pas d\'image';
+    } ?>
 </div>
-<a class="btn btn-primary btn-sm js-button-ajouter-images my-3" data-bs-toggle="collapse" href="#collapseAddImages" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-ajouter-image">
-    Ajouter d'autres photos
-</a>
+<a class="btn btn-primary btn-sm js-button-ajouter-images my-3" data-bs-toggle="collapse" href="#collapseAddImages" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-ajouter-image">Ajouter d'autres photos</a>
 <div class="collapse" id="collapseAddImages">
     <form method="POST" enctype="multipart/form-data">
         <p class="text-truncate">

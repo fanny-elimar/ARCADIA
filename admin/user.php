@@ -11,11 +11,8 @@ $users=getUsers($pdo);
 $messages =[];
 $errors =[];
 
-
-
 if (isset($_POST["addUser"])) { ?>
     <!--empecher le renvoi du formulaire à l'actualisation de la page-->
-
     <?php 
     $email=$_POST['us_email'];
     $emailVerified=filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -82,7 +79,7 @@ if (isset($_POST["addUser"])) { ?>
 } ?> 
 
 <div class="px-4 text-left" >
-  <h1 >Gestion des utilisateurs</h1>
+    <h1 >Gestion des utilisateurs</h1>
 </div>
 
 <?php foreach ($messages as $message) { ?>
@@ -132,37 +129,29 @@ if (isset($_POST["addUser"])) { ?>
                         <option value="vet">vétérinaire</option>
                     </select>
                 </div>
-                <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
-
-            </form>
-        </div>
+              </div>
+            <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
+        </form>
     </div>
+</div>
 
-<div class="container container-flux d-flex flex-wrap justify-content-around">
+<div class="container d-flex flex-wrap justify-content-around">
     <?php foreach ($users as $user) {
         if (isset($_POST["deleteUser".$user['us_id']])) { ?>
             <!--empecher le renvoi du formulaire à l'actualisation de la page-->
             <script> location.replace(document.referrer); </script>
             <?php 
-            $res5 = deleteUser($pdo, $user['us_id']);
-            if ($res5) {
+            $res = deleteUser($pdo, $user['us_id']);
+            if ($res) {
                 $messages[] = 'Merci pour votre avis.';
             } else {
                 $errors[] = 'Une erreur s\'est produite.';
             }
         } ?> 
-        
-        
-<?php require 'templates/_user_card.php'; ?> 
- 
- 
+        <?php require 'templates/_user_card.php'; ?> 
     <?php ;}?>
 </div>
     
-</div>
-</div>
-
-
 </div>
 
 

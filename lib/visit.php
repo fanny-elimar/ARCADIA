@@ -24,14 +24,12 @@ function getLastConditionByAnimalId(PDO $pdo, int $an_id) {
     return $condition; 
 }
 
-function addEnclosureComment(PDO $pdo, string $en_comment, int $en_id) {
-    $sql = "UPDATE arc_enclosure SET en_comment = :en_comment WHERE en_id= :en_id;";
+function addEnclosureComment(PDO $pdo, string $en_comment, string $en_name) {
+    $sql = "UPDATE arc_enclosure SET en_comment = :en_comment WHERE en_name= :en_name;";
     $query = $pdo->prepare($sql);
 
     $query->bindParam(':en_comment', $en_comment, PDO::PARAM_STR);
-    $query->bindParam(':en_id', $en_id, PDO::PARAM_INT);
- 
-
+    $query->bindParam(':en_name', $en_name, PDO::PARAM_STR);
     
     return $query->execute(); 
 }
