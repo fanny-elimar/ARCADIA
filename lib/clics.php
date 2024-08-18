@@ -29,7 +29,7 @@ function getNamesByClics($client, $clics):array|bool
 function addClic($client, $name)
 {
     $collection = $client->arcadia->animal;
-    $filter = ['name' => $name];
+    $filter = ['nom' => $name];
     $update = ['$inc' => ['clic' => 1]];
     $collection->updateOne($filter, $update);
 

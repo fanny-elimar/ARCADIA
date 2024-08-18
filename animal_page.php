@@ -6,8 +6,11 @@ require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/visit.php";
 require_once __DIR__ . "/lib/food.php";
 require_once __DIR__ . "/lib/session.php";
-require_once '/lib/mongo.php';
-require_once '/lib/clics.php';
+require_once __DIR__. "/lib/mongo.php";
+require_once __DIR__ . "/lib/clics.php";
+
+
+
 
 $ha_id = isset($_GET['id']) ? htmlentities($_GET['id']) : 1;
 $page = isset($_GET['page']) ? htmlentities($_GET['page']) : 1;
@@ -23,6 +26,8 @@ $foods =getFoods($pdo);
 $foodInstructions = getFoodInstructionByAnimalId($pdo, $animal['an_id']);
 $habitat = getHabitatById($pdo, $ha_id);
 $totalPages = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
+$numberOfClic = getClicsByNames($client, $animal["an_name"])[0]['clic'];
+var_dump($numberOfClic);
 
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){

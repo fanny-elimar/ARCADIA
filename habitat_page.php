@@ -3,6 +3,8 @@ require_once __DIR__ ."/templates/_header.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/animal.php";
+require_once __DIR__. "/lib/mongo.php";
+require_once __DIR__ . "/lib/clics.php";
 
 $error = false;
 if (isset($_GET['id'])) {
@@ -29,6 +31,17 @@ if (!$error) { ?>
             $animalRank =0;
             foreach ($animals as $animal) {
                 $animalRank++;
+                if (isset($_POST["updateClic".$animal['an_name']])) { ?>
+                    <!--empecher le renvoi du formulaire à l'actualisation de la page-->
+                    <script> location.replace(document.referrer); </script>
+                    <?php 
+                    $res = addClic($client, $animal['an_name']);
+                    if ($res) {
+                        $messages[] = 'ok';
+                    } else {
+                        $errors[] = 'Une erreur s\'est produite.';
+                    }
+                  }
                 require __DIR__ . "/templates/_animal_card.php";
             } ?>
         </div>
@@ -36,3 +49,5 @@ if (!$error) { ?>
 <?php } else { ?>
     <h1>Page introuvable</h1>
 <?php } ?>
+
+

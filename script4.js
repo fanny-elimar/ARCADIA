@@ -1,18 +1,19 @@
 const boutons = document.querySelectorAll('.js-button-voir-avis-supp')
+const animals = document.querySelectorAll('.js-clic')
 
 boutons.forEach(function (bouton) {
     bouton.addEventListener('click', function(e) {
       this.classList.add('hidden');
       e.stopPropagation();
     });
-    
-    
   });
 
 
   const searchByName = document.getElementById("search-by-name");
   const searchByDate = document.querySelector('#search-by-date');
 console.log(crs);
+console.log(animals);
+
   
   function filterByName() {
     let results = document.getElementById("results");
@@ -74,6 +75,7 @@ console.log(crs);
     return cr.an_name ==searchByName.value
   });
 }*/
+
 
 
 
