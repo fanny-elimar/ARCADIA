@@ -17,10 +17,9 @@ if ($numberOfClics) {
   <div class="card-body justify-content-center">
     <h6 class="card-title"><?= ucfirst(htmlentities($animal["an_name"]))?></h5>
     <p class="card-text"><?= ucfirst(htmlentities($animal["an_species"]))?></p>
-    
-    <form method='POST'>
-          <button type="submit" name="<?php echo 'updateClic'.$animal['an_name'];?>" class="btn btn-primary btn-sm"><a href="animal_page.php?id=<?=$id;?>&page=<?=$animalRank;?>" class="btn btn-sm">Voir</button>
-        </form></a>
+    <form method='POST' id="myForm">
+      <button type="submit" name="<?php echo 'updateClic'.$animal['an_name'];?>" class="btn btn-primary btn-sm">Voir</button>
+    </form>
   </div>
 </div>
 

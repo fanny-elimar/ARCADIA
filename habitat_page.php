@@ -33,7 +33,7 @@ if (!$error) { ?>
                 $animalRank++;
                 if (isset($_POST["updateClic".$animal['an_name']])) { ?>
                     <!--empecher le renvoi du formulaire à l'actualisation de la page-->
-                    <script> location.replace(document.referrer); </script>
+                    <script> window.location.href = 'animal_page.php?id=<?=$id;?>&page=<?=$animalRank;?>'; </script>
                     <?php 
                     $res = addClic($client, $animal['an_name']);
                     if ($res) {
