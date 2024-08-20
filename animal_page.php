@@ -26,8 +26,6 @@ $foods =getFoods($pdo);
 $foodInstructions = getFoodInstructionByAnimalId($pdo, $animal['an_id']);
 $habitat = getHabitatById($pdo, $ha_id);
 $totalPages = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
-$numberOfClic = getClicsByNames($client, $animal["an_name"])[0]['clic'];
-var_dump($numberOfClic);
 
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){

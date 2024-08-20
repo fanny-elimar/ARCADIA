@@ -3,7 +3,7 @@
 function getAll($client):array|bool
 {
     $collection = $client->arcadia->animal;
-    $result = $collection->find()->toArray();
+    $result = $collection->find([],['sort' => ['clic' => -1]])->toArray();
 
     return $result;
 }
