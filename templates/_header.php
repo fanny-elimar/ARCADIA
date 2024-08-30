@@ -46,8 +46,8 @@ $url = end($url_array);
                         </div>
                     </div>
                     <div class="<?php if (isset($_SESSION['user']) && $_SESSION['user']['us_role']==='vet') {echo 'd-none d-md-flex';} else {echo 'd-flex';}?> flex-wrap justify-content-around pb-1 pt-1 ">
-                        <img src="<?=_ASSETS_IMAGES_FOLDER_."pandas roux.webp";?>" class="header_img img-fluid">    
-                        <img src="<?=_ASSETS_IMAGES_FOLDER_."flamingos-6945385_1280.webp";?>" class="header_img big img-fluid">
+                        <img src="<?=_ASSETS_IMAGES_FOLDER_."jo1.webp";?>" class="header_img img-fluid">    
+                        <img src="<?=_ASSETS_IMAGES_FOLDER_."spatule blanche 2.webp";?>" class="header_img big img-fluid">
                         <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium img-fluid">
                     </div>
                     <nav class="navbar navbar-expand-md">
