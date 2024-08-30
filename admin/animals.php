@@ -51,7 +51,10 @@ if (isset($_GET['ha'])) {
       $totalPages = ceil($total/10);
       ?>
         <div class="container d-flex flex-wrap justify-content-around">
-          <?php foreach ($animals as $animal) {
+          <?php 
+          $animalRank =0;
+          foreach ($animals as $animal) {
+            $animalRank++;
             if (isset($_POST["deleteAnimal".$animal['an_id']])) { ?>
               <!--empecher le renvoi du formulaire à l'actualisation de la page-->
               <script> location.replace(document.referrer); </script>

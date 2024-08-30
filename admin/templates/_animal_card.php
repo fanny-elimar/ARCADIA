@@ -23,7 +23,7 @@ $images = getImagesByAnimalId($pdo, $animal['an_id']);
         </form>
       </div>
       <div class="col-4 p-0">
-        <a class="btn btn-primary btn-sm py-1 px-1" href="<?="animal_info.php?id=".$animal['an_id']?>">+ d'info</a>
+        <a class="btn btn-primary btn-sm py-1 px-1" href="animal_info.php?id=<?=$ha_id;?>&page=<?=$animalRank;?>">+ d'info</a>
       </div>
     </div>
   </div>
