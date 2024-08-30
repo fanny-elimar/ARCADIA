@@ -39,10 +39,10 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     <?php } ?> 
 </div>
 <div class="container light pt-3">
+    <div class="col-5 col-md-2">
+        <h1 class="mb-3"><?=ucfirst(htmlentities($animal["an_name"])); ?></h1>
+    </div>
     <div class="row">
-        <div class="col-5 col-md-2">
-            <h1 class="mb-3"><?=ucfirst(htmlentities($animal["an_name"])); ?></h1>
-        </div>
         <div class="<?php if (isset($_SESSION['user']) && $_SESSION['user']['us_role']==='vet') {echo 'col-4 col-sm-3';} ?> col-md-6 mb-3">
             <img class="img-fluid" src="<?=_ANIMALS_IMAGES_FOLDER_.$image;?>" alt="Image <?=htmlentities($animal["an_name"])?>" >
         </div>
