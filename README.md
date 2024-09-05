@@ -22,7 +22,7 @@ Créer une base de données vide, nommée arcadiadb.
 #### Avec pgAdmin  
 - clic droit sur la base données
 - restore...
-- Sélectionner le fichier "ARCADIA\Projet\BACKUP\backup_arcadiadb_20240730_1145.sql"
+- Sélectionner le fichier "ARCADIA\Projet\BASE_DE_DONNEES\arcadiadb.sql"
 
 ## Auteur
 

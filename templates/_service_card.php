@@ -1,10 +1,9 @@
-<div class="card m-3" style="width: 18rem;">
-<img class="card-img-top" src="<?=_ASSETS_IMAGES_FOLDER_.'jungle.webp';?>" alt="Card image cap">
-   
-
+<div class="m-3 card">
+  <img class="card-img-top" src="<?=_SERVICES_IMAGES_FOLDER_.$service["se_images"];?>" alt="Image <?= htmlentities($service["se_name"])?>">
   <div class="card-body justify-content-center">
-    <h6 class="card-title">Service titre</h5>
-    <p class="card-text">Service description</p>
-    <a href="#" class="btn btn-primary">Voir</a>
+    <h6 class="card-title"><?= ucfirst(htmlentities($service["se_name"]))?></h6>
+    <p class="card-text"><?= substr(htmlentities($service["se_description"]),0,200).'...'?></p>
+    <a href="service_page.php?id=<?=htmlentities($service['se_id']);?>" class="btn btn-primary">Voir</a>
   </div>
 </div>
+
