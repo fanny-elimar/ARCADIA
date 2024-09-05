@@ -1,10 +1,21 @@
 <?php
-
+if (getenv('alwaysdata') !== false) {
+   
+    $hostname = 'postgresql-fannyelimar.alwaysdata.net';
+    $username = 'fannyelimar';
+    $password = '';
+    $database = 'fannyelimar_arcadiadb';
+} else {
+    $hostname = 'localhost';
+    $username = 'user';
+    $password = 'arcadiamdp';
+    $database = 'arcadiadb';
+}
 define("_DOMAIN_", "localhost");
-define("_DB_SERVER_", "localhost");
-define("_DB_NAME_", "arcadiadb");
-define("_DB_USER_", "user");
-define("_DB_PASSWORD_", "arcadiamdp");
+define("_DB_SERVER_", $hostname);
+define("_DB_NAME_", $database);
+define("_DB_USER_", $username);
+define("_DB_PASSWORD_", $password);
 define("_ASSETS_IMAGES_FOLDER_", "assets/images/");
 define("_ASSETS_IMAGES_FOLDER_ADM", "../assets/images/");
 define("_ASSETS_ICONES_FOLDER_", "assets/icones/");
