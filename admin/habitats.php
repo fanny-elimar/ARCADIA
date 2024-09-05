@@ -34,7 +34,7 @@ $errors =[];
             }
         } ?>
         <div class="row d-flex mb-3 align-items-center">
-            <div class="col-3 p-0 ps-3">
+            <div class="col-sm-6 col-md-3 p-0 ps-3">
                 <?= ucfirst(htmlentities($habitat["ha_name"]))?>
             </div>
             <div class="col d-flex justify-content-start">

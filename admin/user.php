@@ -76,9 +76,10 @@ if (isset($_POST["addUser"])) { ?>
             } 
         } 
     }
-} ?> 
+} 
+?> 
 
-<div class="px-4 text-left" >
+<div class="px-0 text-left" >
     <h1 >Gestion des utilisateurs</h1>
 </div>
 
@@ -93,47 +94,47 @@ if (isset($_POST["addUser"])) { ?>
         </div>
     <?php } ?>
 
-    <div class="container container-flux my-3 ms-3 p-1">
+    <div class="my-3 ms-0 p-1">
         <a class="btn btn-primary btn-sm js-button-add-user" data-bs-toggle="collapse" href="#collapseAddUser" role="button" aria-expanded="false" aria-controls="collapseExample" id="bouton-addUser">Créer un compte</a>
         <div class="collapse mt-3" id="collapseAddUser">
             <form method="POST">
             <div class="mb-3 form-group row">
-                    <label for="us_fname" class="col-sm-2 col-form-label">Prénom</label>
-                    <div class="col-sm-5">
+                    <label for="us_fname" class="col-sm-12 col-md-3 col-form-label">Prénom</label>
+                    <div class=" col-md-5">
                         <input type="text" class="form-control" id="us_fname" name="us_fname" required>
                     </div>
                 </div>    
             <div class="mb-3 form-group row">
-                    <label for="us_email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-5">
+                    <label for="us_email" class="col-sm-12 col-md-3 col-form-label">Email</label>
+                    <div class="col-md-5">
                         <input type="email" class="form-control" id="us_email" name="us_email" required>
                     </div>
                 </div>
-                <div class="mb-3 form-group row">
-                    <label for="us_password" class="col-sm-3 col-form-label">Mot de passe</label>
-                    <div class="col-sm-3">
+                <div class="mb-3 form-group row d-flex align-items-center">
+                    <label for="us_password" class="col-sm-12 col-md-3 col-form-label">Mot de passe</label>
+                    <div class="col-md-5">
                         <input type="password" class="form-control " onfocus="document.getElementById('info-mdp').classList.remove('d-none')" onblur="document.getElementById('info-mdp').classList.add('d-none')" id="us_password" name="us_password" required minlength="12">  
                     </div>
                         <p id="info-mdp" class="text-info d-none small">Le mot de passe doit contenir au moins 12 caractères, dont au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial.</p>
                 </div>
                 <div class="mb-3 form-group row">
-                    <label for="us_password_check" class="col-sm-3 col-form-label">Mot de passe</label>
-                    <div class="col-sm-3">
+                    <label for="us_password_check" class="col-sm-12 col-md-3 col-form-label">Retaper le mot de passe</label>
+                    <div class="col-md-5">
                         <input type="password" class="form-control" id="us_password_check" name="us_password_check" required minlength="12">
                     </div>
                 </div>
-                <div class="mb-3 form-group col-3">
-                    <select type="text" class="form-control col-3 text-primary" id="us_role" name="us_role" required>
-                        <option value="">Type de compte</option>    
-                        <option value="employe">employé</option>
-                        <option value="vet">vétérinaire</option>
+                <div class="mb-3 form-group col-10">
+                    <select type="text" class="form-control primary" id="us_role" name="us_role" required>
+                        <option value="" class="primary">Type de compte ▾</option>    
+                        <option value="employe" class="primary" >employé</option>
+                        <option value="vet" class="primary">vétérinaire</option>
                     </select>
                 </div>
-              </div>
-            <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
+                <input type="submit" name="addUser" class="btn btn-primary btn-sm col" value="Créer">
+            </div>
         </form>
     </div>
-</div>
+
 
 <div class="container d-flex flex-wrap justify-content-around">
     <?php foreach ($users as $user) {
@@ -151,7 +152,7 @@ if (isset($_POST["addUser"])) { ?>
         <?php require 'templates/_user_card.php'; ?> 
     <?php ;}?>
 </div>
-    
+    </div>
 </div>
 
 

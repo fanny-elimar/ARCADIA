@@ -53,7 +53,7 @@ $url = end($url_array);
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse " id="n_bar_admin">
-                        <ul class="nav nav-pills flex-column ">
+                        <ul class="nav nav-pills flex-column ms-1">
                             <li class="nav-item"><a href="user.php" class="nav-link <?php if(str_contains($url,'user')){?>active <?php } ?>">Gestion des utilisateurs</a></li>
                             <li class="nav-item"><a href="services.php" class="nav-link <?php if(str_contains($url,'service')){?>active <?php } ?>">Services</a></li>
                             <li class="nav-item"><a href="horaires.php" class="nav-link <?php if(str_contains($url,'horaire')){?>active <?php } ?>">Horaires</a></li>
@@ -67,7 +67,7 @@ $url = end($url_array);
             </nav>
         </div>
         <div class="container d-flex p-0"  >
-            <nav class="navbar d-none d-md-flex col-2 p-0" style="background-color: #a4d0a4">
+            <nav class="navbar d-none d-md-flex col-lg-2 col-md-3 p-0" style="background-color: #a4d0a4">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item"><a href="user.php" class="nav-link <?php if(str_contains($url,'user')){?>active <?php } ?>">Gestion des utilisateurs</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link <?php if(str_contains($url,'service')){?>active <?php } ?>">Services</a></li>
@@ -78,4 +78,4 @@ $url = end($url_array);
                     <li class="nav-item"><a href="clics_js.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
                 </ul>
             </nav>
-            <main class="p-3 ms-lg-0 col-10" >
+            <main class="p-md-3 ms-lg-0 col-md-9 col-lg-10 col-sm-12" >

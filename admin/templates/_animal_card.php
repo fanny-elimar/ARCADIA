@@ -3,7 +3,7 @@ $enclosure = getEnclosureByAnimalId($pdo, $animal['an_id']);
 $images = getImagesByAnimalId($pdo, $animal['an_id']);
 ?>
 
-<div class="card m-1 light" style="width:15rem; height:10rem;" >
+<div class="card m-1 light" style="width:16rem; height:10rem;" >
   <div class="card-body justify-content-center row">
     <div class="col" >
       <h6 class="card-title"><?= ucfirst(htmlentities($animal["an_name"]))?></h6>

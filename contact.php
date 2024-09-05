@@ -28,31 +28,31 @@ if (isset($_POST['contact'])) {
     }
 } ?>
 
-<div class="container container-flux">
+<div class="">
     <h3 class="mt-3">Formulaire de contact</h3>
     <p>Une question ? Une remarque ? Laissez-nous un message, nous y répondrons dans les plus brefs délais.</p>
     <div class="border p-3 rounded">
         <form name="contact" method="POST" class="row">
             <div class="mb-3 form-group row">
-                <label for="contact_name" class="col-sm-2 col-form-label">Votre nom</label>
+                <label for="contact_name" class="col-sm-3 col-md-2 col-form-label">Votre nom</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="contact_name" name="contact_name">
                 </div>
             </div>        
             <div class="mb-3 form-group row">
-                <label for="contact_title" class="col-sm-2 col-form-label">Sujet</label>
+                <label for="contact_title" class="col-sm-3 col-md-2 col-form-label">Sujet</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="contact_title" name="contact_title">
                 </div>
             </div>
             <div class="mb-3 form-group row">
-                <label for="contact_text" class="col-sm-2 col-form-label">Message</label>
+                <label for="contact_text" class="col-sm-3 col-md-2 col-form-label">Message</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control date" id="contact_text" name="contact_text" required></textarea>
+                    <textarea class="form-control date" rows="10" id="contact_text" name="contact_text" required></textarea>
                 </div>
             </div>
             <div class="mb-3 form-group row">
-                <label for="contact_mail" class="col-sm-2 col-form-label">Adresse mail</label>
+                <label for="contact_mail" class="col-sm-3 col-md-2 col-form-label">Adresse mail</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" rows="4" id="contact_mail" name="contact_mail" required>
                 </div>

@@ -20,7 +20,7 @@ require_once __DIR__ . "/lib/horaire.php";
 </div>
 
 <h1>Les horaires</h1>
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center mx-1">
   <?php $horaires=getHoraires($pdo);
   if ($horaires) {
     foreach ($horaires as $horaire) { ?>

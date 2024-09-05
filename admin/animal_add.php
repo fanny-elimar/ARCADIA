@@ -125,8 +125,7 @@ if (isset($_POST['addAnimal'])) {
 } 
 ?>
 
-<h3><?= $pageTitle ?></h3>
-
+<h3 class="mt-3"><?= $pageTitle ?></h3>
 <?php foreach ($messages as $message) { ?>
   <div class="alert alert-success" role="alert"><?= $message; ?>
   </div>
@@ -140,26 +139,26 @@ if ($animal) { ?>
   <div class="" >
     <form method="POST" enctype="multipart/form-data" >
       <div class="mb-3 form-group row">
-        <label for="an_name" class="col-sm-2 col-form-label">Nom</label>
-        <div class="col-sm-5">
+        <label for="an_name" class="col-sm-3 col-md-2 col-form-label">Nom</label>
+        <div class="col-sm-9 col-md-5">
           <input type="text" class="form-control" id="an_name" name="an_name" value="<?= htmlentities($animal['an_name']);?>">
         </div>
       </div>    
       <div class="mb-3 form-group row">
-        <label for="an_species" class="col-sm-2 col-form-label">Espèce</label>
-          <div class="col-sm-5">
+        <label for="an_species" class="col-sm-3 col-md-2 col-form-label">Espèce</label>
+          <div class="col-sm-9 col-md-5">
             <input type="text" class="form-control" id="an_species" name="an_species" value="<?= htmlentities($animal['an_species']);?>">
           </div>
       </div>
       <div class="mb-3 form-group row">
-        <label for="an_en_name" class="col-sm-3 col-form-label">Enclos</label>
-        <div class="col-sm-3">
+        <label for="an_en_name" class="col-sm-3 col-md-2 col-form-label">Enclos</label>
+        <div class="col-sm-9 col-md-5">
           <input type="text" class="form-control" id="an_en_name" name="an_en_name" value="<?= htmlentities($animal['an_en_name']);?>">
         </div>
       </div>
-      <div class="mb-3 form-group col-3">
-        <label for="an_ha_id" class="col-sm-3 col-form-label">Habitat</label>
-        <select type="text" class="form-control col-3 primary" id="an_ha_id" name="an_ha_id">
+      <div class="mb-3 form-group row">
+        <label for="an_ha_id" class="col-sm-3 col-md-2 col-form-label">Habitat</label>
+        <select type="text" class="col-sm-8 col-md-4 mx-3 primary border rounded" id="an_ha_id" name="an_ha_id">
           <?php foreach ($habitats as $habitat) {?>
             <option value="<?=htmlentities($habitat['ha_id']);?>" <?php if ($habitat['ha_id'] == $animal['an_ha_id']) {echo 'selected="selected"';} ?> class="primary"><?= htmlentities($habitat['ha_name']) ?>
             </option> 

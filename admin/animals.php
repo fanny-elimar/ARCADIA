@@ -37,7 +37,7 @@ if (isset($_GET['ha'])) {
       <a href="animal_add.php" class="btn btn-primary btn-sm my-3">Ajouter un animal</a>
     </div>
   </div>
-  <div class="container my-3 ms-3 p-1">
+  <div class="container my-3 p-1">
     <?php if (isset($_GET['ha'])) {
       if (isset($_GET['page'])) {
         $page = (int)$_GET['page'];

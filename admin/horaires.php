@@ -48,7 +48,7 @@ if (isset($_POST['addHoraire'])) {
   </div>
 <?php } ?>
 
-<div class="container my-3 ms-3 p-1">
+<div class="container my-3  p-1">
   <?php if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['us_role']==='admin') {
       foreach ($horaires as $horaire) {

@@ -35,4 +35,4 @@ $errors =[];
 <?php
 require_once '../templates/_footer.php'
 ?>
-<script src="../script4.js"></script>
+<script src="../script_cr_veto.js"></script>
