@@ -60,7 +60,7 @@ $url = end($url_array);
                             <li class="nav-item"><a href="habitats.php" class="nav-link <?php if(str_contains($url,'habitat')){?>active <?php } ?>">Habitats</a></li>
                             <li class="nav-item"><a href="animals.php" class="nav-link <?php if(str_contains($url,'animal')){?>active <?php } ?>">Animaux</a></li>
                             <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if(str_contains($url,'cr_veto')){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
-                            <li class="nav-item"><a href="clics.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
+                            <li class="nav-item"><a href="clics_js.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ $url = end($url_array);
                     <li class="nav-item"><a href="habitats.php" class="nav-link <?php if(str_contains($url,'habitat')){?>active <?php } ?>">Habitats</a></li>
                     <li class="nav-item"><a href="animals.php" class="nav-link <?php if(str_contains($url,'animal')){?>active <?php } ?>">Animaux</a></li>
                     <li class="nav-item"><a href="cr_veto.php" class="nav-link <?php if(str_contains($url,'cr_veto')){?>active <?php } ?>">Comptes-rendus du vétérinaire</a></li>
-                    <li class="nav-item"><a href="clics.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
+                    <li class="nav-item"><a href="clics_js.php" class="nav-link <?php if(str_contains($url,'clic')){?>active <?php } ?>">Suivi des clics</a></li>
                 </ul>
             </nav>
             <main class="p-3 ms-lg-0 col-10" >

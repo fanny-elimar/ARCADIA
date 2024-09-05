@@ -6,6 +6,11 @@ require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/visit.php";
 require_once __DIR__ . "/lib/food.php";
 require_once __DIR__ . "/lib/session.php";
+require_once __DIR__. "/lib/mongo.php";
+require_once __DIR__ . "/lib/clics.php";
+
+
+
 
 $ha_id = isset($_GET['id']) ? htmlentities($_GET['id']) : 1;
 $page = isset($_GET['page']) ? htmlentities($_GET['page']) : 1;
