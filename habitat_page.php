@@ -3,8 +3,8 @@ require_once __DIR__ ."/templates/_header.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/habitat.php";
 require_once __DIR__ . "/lib/animal.php";
-//require_once __DIR__ . "/lib/mongo.php";
-//require_once __DIR__ . "/lib/clics.php";
+require_once __DIR__ . "/lib/mongo.php";
+require_once __DIR__ . "/lib/clics.php";
 
 $error = false;
 if (isset($_GET['id'])) {
