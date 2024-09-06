@@ -4,8 +4,6 @@ require_once '../lib/pdo.php';
 require_once '../lib/visit.php';
 require_once '../lib/mongo.php';
 require_once '../lib/clics.php';
-require_once '../jpgraph/src/jpgraph.php';
-require_once '../jpgraph/src/jpgraph_bar.php';
 
 $messages =[];
 $errors =[];
