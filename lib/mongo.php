@@ -1,8 +1,8 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT']."/ARCADIA/vendor/autoload.php";
-
+//require_once $_SERVER['DOCUMENT_ROOT']."/ARCADIA/vendor/autoload.php";
+require_once "./vendor/autoload.php";
 if (getenv('MONGODB_URI') !== false) {
-    $client = new MongoDB\Client("mongodb+srv://fannyelimar:elimarmdpatlas@cluster1.lqawy.mongodb.net/arcadia");
+    $client = new MongoDB\Client("mongodb+srv://fannyelimar:elimarmdpatlas@cluster1.lqawy.mongodb.net/");
 } else {
     $client = new MongoDB\Client("mongodb://localhost:27017");
 }
