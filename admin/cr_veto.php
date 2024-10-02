@@ -10,7 +10,18 @@ $errors =[];
 ?>
 
 <script> var crs = JSON.parse('<?=$crs_json?>');</script>
+<script> 
+const url = '../api/visits.php';
+function fetchData() {
+fetch(url)
+            .then((res)=>res.json())
+            .then(function(data) {console.log(data)})
+        }
+        </script>
 <h1>Comptes-rendus du vétérinaire</h1>
+<div class="col-md-2 col-sm-5 md-mb-1 mb-3 align-items-center d-flex">
+            <button type="button" class="btn btn-sm btn-primary"  onclick="fetchData();">Chercher ajax</button>
+        </div>
     <div class="row">
         <div class="col-md-3 col-sm-6 md-mb-1 mb-3">
             <input type="text" class="form-control" id="search-by-name" placeholder="Nom...">
