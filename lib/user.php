@@ -25,7 +25,6 @@ function getUsers(PDO $pdo, int $limit = null, int $offset = null) {
 function deleteUser(PDO $pdo, $id) {
     $query = $pdo->prepare("DELETE FROM arc_user WHERE us_id=:us_id;");
     $query->bindValue(':us_id', $id, PDO::PARAM_INT);
-    
     return $query->execute();
 }
 
