@@ -9,7 +9,7 @@ if (isset($_POST['addFoodGiven'])) { ?>
     <script> location.replace(document.referrer); </script>
     <?php $res = addFoodGiven($pdo, $animal['an_id'], $_POST['fe_fo_id'], $_POST['fe_quantity'],  $_POST['fe_date'], $_POST['fe_time']);
     if ($res) {
-        $messages[] = 'Merci pour votre avis.';
+        $messages[] = 'La nourriture a bien été ajoutée.';
     } else {
         $errors[] = 'Une erreur s\'est produite.';
     }

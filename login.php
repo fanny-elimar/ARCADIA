@@ -3,10 +3,8 @@ require_once 'lib/config.php';
 require_once 'lib/pdo.php';
 require_once 'lib/user.php';
 require_once 'templates/_header.php';
-
 $errors = [];
 $messages = [];
-
 if (isset($_POST['loginUser'])) {
     $user = verifyUserLoginPassword($pdo, $_POST['us_email'], $_POST['us_password']);
     if ($user) {
@@ -20,14 +18,10 @@ if (isset($_POST['loginUser'])) {
         elseif ($user['us_role'] === 'employe') {
             echo "<script>document.location.replace('index.php');</script>";
         }
-        else {
-            //header('location: index.php');
-        }
     } else {
         $errors[] = 'Email ou mot de passe incorrect';
     }
 } ?>
-
 <h1>Login</h1>
 <?php foreach ($messages as $message) { ?>
     <div class="alert alert-success" role="alert">
