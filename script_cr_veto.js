@@ -1,7 +1,7 @@
   const searchByName = document.getElementById("search-by-name");
   const searchByDate = document.querySelector('#search-by-date');
 
-  
+
   function filterByName() {
     let results = document.getElementById("results");
     results.innerHTML="";
@@ -17,6 +17,12 @@
           showResults(crsfiltered)}    
 
       function showAll() {
+        const url = 'api/visits.php';
+        let crs = function fetchData() {
+          fetch(url)
+              .then((res)=>res.json())
+              .then(function(data) {console.log(data)})
+          }
         let results = document.getElementById("results");
         results.innerHTML="";
           showResults(crs)}   
