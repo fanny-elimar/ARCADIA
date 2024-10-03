@@ -5,7 +5,7 @@ require_once '../lib/user.php';
 
 // Start with PHPMailer class
 use PHPMailer\PHPMailer\PHPMailer;
-require_once '..\vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 $users=getUsers($pdo);
 $messages =[];

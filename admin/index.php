@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '\templates/_header.php';
+require_once __DIR__ . '/templates/_header.php';
 ?>
 
   <div class="px-4 text-left" >

@@ -3,13 +3,12 @@ require_once 'templates/_header.php';
 require_once '../lib/pdo.php';
 require_once '../lib/visit.php';
 
-$crs=getVisits($pdo);
-$crs_json = json_encode($crs);
 $messages =[];
 $errors =[];
 ?>
 
-<script> var crs = JSON.parse('<?=$crs_json?>');</script>
+
+
 <h1>Comptes-rendus du vétérinaire</h1>
     <div class="row">
         <div class="col-md-3 col-sm-6 md-mb-1 mb-3">
@@ -35,4 +34,4 @@ $errors =[];
 <?php
 require_once '../templates/_footer.php'
 ?>
-<script src="../script_cr_veto.js"></script>
+<script src="../script-cr-veto.js"></script>

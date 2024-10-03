@@ -46,7 +46,6 @@ function addFoodInstruction (PDO $pdo, $an_id, $in_fo_id, $in_quantity) {
     $query->bindParam(':in_quantity', $in_quantity, PDO::PARAM_INT);
     
     return $query->execute();
-
 }
 
 function modifyFoodInstruction (PDO $pdo, $in_id, $in_fo_id, $in_quantity) {
