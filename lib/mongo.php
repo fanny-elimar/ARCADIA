@@ -1,7 +1,4 @@
 <?php 
-//require_once $_SERVER['DOCUMENT_ROOT']."/ARCADIA/vendor/autoload.php";
-//require_once  "./vendor/autoload.php";
-//var_dump($_SERVER['DOCUMENT_ROOT']);
 
 $mongo_db = getenv('MONGODB_URI');
 
