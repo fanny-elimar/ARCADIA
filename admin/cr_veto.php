@@ -1,13 +1,9 @@
 <?php
 require_once 'templates/_header.php';
 require_once '../lib/pdo.php';
-require_once '../lib/visit.php';
-
 $messages =[];
 $errors =[];
 ?>
-
-
 
 <h1>Comptes-rendus du vétérinaire</h1>
     <div class="row">

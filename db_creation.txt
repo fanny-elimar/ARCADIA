@@ -1,0 +1,93 @@
+CREATE DATABASE arcadiadb;
+
+CREATE TABLE arc_animal (
+	an_id SERIAL PRIMARY KEY,
+	an_name VARCHAR(60) NOT NULL, 
+	an_species VARCHAR(60),
+	an_images VARCHAR(255), 
+	an_ha_id INT NOT NULL REFERENCES arc_habitat(ha_id), 
+	an_extra_images TEXT,
+	an_en_name VARCHAR(60)
+);
+
+CREATE TABLE arc_enclosure (
+	en_name VARCHAR(60) PRIMARY KEY NOT NULL,
+	en_comment TEXT
+);
+
+CREATE TABLE arc_feeding (
+	fe_id SERIAL PRIMARY KEY,
+	fe_fo_id INT NOT NULL REFERENCES arc_food(fo_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	fe_an_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE,
+	fe_quantity REAL NOT NULL,
+	fe_date DATE NOT NULL,
+	fe_time TIME NOT NULL
+);
+
+CREATE TABLE arc_food (
+	fo_id SERIAL PRIMARY KEY,
+	fo_type VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE arc_habitat (
+	ha_id SERIAL PRIMARY KEY,
+	ha_name VARCHAR(60) NOT NULL, 
+	ha_description TEXT,
+	ha_images VARCHAR(255),
+	ha_comment TEXT
+);
+
+CREATE TABLE arc_horaire (
+	ho_id SERIAL PRIMARY KEY, 
+	ho_periode_start DATE NOT NULL, 
+	ho_periode_end DATE NOT NULL, 
+	ho_days VARCHAR(255) NOT NULL, 
+	ho_time_start TIME NOT NULL, 
+	ho_time_end TIME NOT NULL
+);
+
+CREATE TABLE arc_image_animal (
+	im_an_id SERIAL PRIMARY KEY, 
+	im_an_an_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE, 
+	im_an_filename VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE arc_instruction (
+	in_id SERIAL PRIMARY KEY,
+	in_fo_id INT NOT NULL REFERENCES arc_food(fo_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	in_an_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE,
+	in_quantity REAL
+);
+
+CREATE TABLE arc_review (
+	re_id SERIAL PRIMARY KEY,
+	re_pseudo VARCHAR(60) NOT NULL,
+	re_review TEXT NOT NULL,
+	re_approved BOOL, 
+	re_date DATE NOT NULL
+);
+
+CREATE TABLE arc_service (
+	se_id SERIAL PRIMARY KEY,
+	se_name VARCHAR(255) NOT NULL,
+	se_description TEXT,
+	se_images VARCHAR(255),
+	se_info TEXT
+);
+
+CREATE TABLE arc_user (
+	us_id SERIAL PRIMARY KEY,
+	us_email VARCHAR(60) NOT NULL,
+	us_password VARCHAR(255) NOT NULL,
+	us_role VARCHAR(60) NOT NULL, 
+	us_fname VARCHAR(60)
+);
+
+CREATE TABLE arc_visit (
+	vi_id SERIAL PRIMARY KEY,
+	vi_condition VARCHAR(255) NOT NULL, 
+	vi_date DATE NOT NULL,
+	vi_condition_details TEXT
+	vi_an_id INT NOT NULL REFERENCES arc_animal(an_id) ON DELETE CASCADE
+);
+
