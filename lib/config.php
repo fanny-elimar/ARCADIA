@@ -1,10 +1,10 @@
 <?php
 if (getenv('alwaysdata') !== false) {
     $domain = '';
-    $hostname = 'postgresql-fannyelimar.alwaysdata.net';
-    $username = 'fannyelimar';
-    $password = 'elimarmdp';
-    $database = 'fannyelimar_arcadiadb';
+    $hostname = getenv('DB_HOST');
+    $username = getenv('DB_USER');
+    $password = getenv('DB_MDP');
+    $database = getenv('DB_NAME');
 } else {
     $domain = 'localhost';
     $hostname = 'localhost';
