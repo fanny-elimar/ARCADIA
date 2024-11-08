@@ -49,8 +49,6 @@ if (isset($_GET['ha'])) {
       $animals=getAnimalsByHabitat($pdo, $ha_id, 10, $offset);
       $total = getNumberOfAnimalsPerHabitat($pdo, $ha_id);
       $totalPages = ceil($total/10);
-      $env=getenv();
-      var_dump($env);
       ?>
         <div class="container d-flex flex-wrap justify-content-around">
           <?php 
