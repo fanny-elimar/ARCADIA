@@ -12,6 +12,7 @@ if (getenv('alwaysdata') !== false) {
     $password = 'arcadiamdp';
     $database = 'arcadiadb';
 }
+
 define("_DOMAIN_", $domain);
 define("_DB_SERVER_", $hostname);
 define("_DB_NAME_", $database);
