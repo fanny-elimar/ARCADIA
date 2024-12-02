@@ -3,7 +3,7 @@ if (getenv('alwaysdata') !== false) {
     $domain = '';
     $hostname = 'postgresql-fannyelimar.alwaysdata.net';
     $username = 'fannyelimar';
-    $password = '';
+    $password = 'elimarmdp';
     $database = 'fannyelimar_arcadiadb';
 } elseif (getenv('test')) {
     $domain = 'localhost';
