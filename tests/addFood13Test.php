@@ -5,7 +5,7 @@ require_once  "./lib/food.php";
 
 use PHPUnit\Framework\TestCase;
 
-class addFoodTest extends TestCase {
+class addFood13Test extends TestCase {
     private $pdo;
 
     // Cette méthode est exécutée avant chaque test
@@ -27,7 +27,7 @@ class addFoodTest extends TestCase {
         //$this->pdo = new PDO('pgsql:host=127.0.0.1;dbname=arcadiadb_test', 'user', 'arcadiamdp');
         //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // Appel de la fonction addFood
-        addFood($this->pdo, 'Viande');
+        addFood($this->pdo, 'Viandes');
 
         // Vérification que l'aliment a été ajouté
         $stmt = $this->pdo->query("SELECT * FROM arc_food WHERE fo_type = 'Viande'");

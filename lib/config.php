@@ -7,7 +7,7 @@ if (getenv('alwaysdata') !== false) {
     $database = getenv('DB_NAME');
 } else {
 
-// Charger les variables depuis le fichier .env
+// Charger les variables depuis le fichier .env.local
 loadEnv( './.env.local');
 
     $domain = 'localhost';

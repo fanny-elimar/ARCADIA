@@ -13,29 +13,31 @@ $url = end($url_array);
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Présentation du zoo Arcadia">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="assets/CSS/custom6.css">
             
-            <title>Arcadia</title>
+            <title>Zoo Arcadia, parc animalier en Bretagne</title>
         </head>
         <body>
             <div class="container-lg">
                 <header class="">
                     <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
                         <picture class="d-flex">
-                            <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
-                            <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
+                            <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia-small" class="img-fluid img-logo">
+                            <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo" alt="logo-arcadia-wide" >
                         </picture>    
                         <div class="text-end nav-item d-flex">
                             <?php if (isset($_SESSION['user'])) {
                                 if ($_SESSION['user']['us_role']==='vet') {?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone" alt="icone-loggedin-vet">
                                 <?php ;} elseif ($_SESSION['user']['us_role']==='admin') { ?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone" alt="icone-loggedin-admin">
                                 <?php ;} elseif ($_SESSION['user']['us_role']==='employe') { ?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone" alt="icone-loggedin-employee">
                                 <?php ;}?> 
                                 <a href="logout.php" class="nav-link px-2">Déconnexion</a> 
                             <?php ;} else { ?>
@@ -44,9 +46,9 @@ $url = end($url_array);
                         </div>
                     </div>
                     <div class="<?php if (isset($_SESSION['user']) && $_SESSION['user']['us_role']==='vet') {echo 'd-none d-md-flex';} else {echo 'd-flex';}?> flex-wrap justify-content-around pb-1 pt-1 ">
-                        <img src="<?=_ASSETS_IMAGES_FOLDER_."jo1.webp";?>" class="header_img img-fluid">    
-                        <img src="<?=_ASSETS_IMAGES_FOLDER_."spatule blanche 2.webp";?>" class="header_img big img-fluid">
-                        <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium img-fluid">
+                        <img src="<?=_ASSETS_IMAGES_FOLDER_."jo1.webp";?>" class="header_img img-fluid" alt="photo-singe-Jo">    
+                        <img src="<?=_ASSETS_IMAGES_FOLDER_."spatule blanche 2.webp";?>" class="header_img big img-fluid" alt="photo-spatule_blanche">
+                        <img src="<?=_ASSETS_IMAGES_FOLDER_."zebras-4258909_1280.webp";?>" class="header_img medium img-fluid" alt="photo-zèbre">
                     </div>
                     <nav class="navbar navbar-expand-md">
                         <div class="container">

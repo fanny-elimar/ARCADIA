@@ -1,3 +1,9 @@
+
+INSERT INTO arc_habitat(ha_name,ha_description) VALUES 
+('marais', 'L''espace marais de notre zoo vous plonge dans l''atmosphère des zones humides. En avançant sur des passerelles surélevées, vous pourrez admirer des étendues d''eau bordées de joncs et de nénuphars. Des tortues paressent sur des troncs d''arbres émergés, tandis que des alligators se dissimulent à peine sous la surface calme de l''eau. Des oiseaux, comme les hérons et les ibis, picorent dans les marécages à la recherche de leur prochain repas. Vous découvrirez également une variété de poissons et d''amphibiens. Des panneaux informatifs racontent l''importance écologique des marais et la diversité des espèces qui y vivent. Vous apprécierez cette promenade relaxante au cœur de ce biotope fascinant et vital.'),
+('jungle', 'L''espace jungle de notre zoo est une immersion totale dans l''exubérante forêt tropicale. Dès votre entrée, une végétation luxuriante vous entoure, avec des lianes pendantes, des fougères géantes et des arbres imposants abritant une multitude de créatures exotiques. Vous pouvez apercevoir des singes espiègles se balancer de branche en branche, tandis que des perroquets colorés survolent les sentiers. Des panneaux éducatifs jalonnent le parcours, offrant des informations fascinantes sur les espèces végétales et animales de la jungle. L''humidité ambiante et les sons envoûtants de la faune créent une expérience sensorielle unique, transportant les visiteurs au cœur de la nature sauvage.');
+('savane', 'L''espace savane de notre zoo est une immersion totale dans une zone aride. ');
+
 INSERT INTO arc_animal(an_name, an_species, an_images, an_ha_id) VALUES
 ('Simba', 'lion', 'simba1.webp', 2),
 ('Zephir', 'zèbre', 'zephir1.webp', 2),
@@ -11,16 +17,14 @@ INSERT INTO arc_animal(an_name, an_species, an_images, an_ha_id) VALUES
 ('Ellie', 'éléphant', 'ellie1.webp', 2),
 ('Elika', 'éléphant', 'elika1.webp', 2);
 
-INSERT INTO arc_habitat(ha_name,ha_description) VALUES 
-('marais', 'L''espace marais de notre zoo vous plonge dans l''atmosphère des zones humides. En avançant sur des passerelles surélevées, vous pourrez admirer des étendues d''eau bordées de joncs et de nénuphars. Des tortues paressent sur des troncs d''arbres émergés, tandis que des alligators se dissimulent à peine sous la surface calme de l''eau. Des oiseaux, comme les hérons et les ibis, picorent dans les marécages à la recherche de leur prochain repas. Vous découvrirez également une variété de poissons et d''amphibiens. Des panneaux informatifs racontent l''importance écologique des marais et la diversité des espèces qui y vivent. Vous apprécierez cette promenade relaxante au cœur de ce biotope fascinant et vital.'),
-('jungle', 'L''espace jungle de notre zoo est une immersion totale dans l''exubérante forêt tropicale. Dès votre entrée, une végétation luxuriante vous entoure, avec des lianes pendantes, des fougères géantes et des arbres imposants abritant une multitude de créatures exotiques. Vous pouvez apercevoir des singes espiègles se balancer de branche en branche, tandis que des perroquets colorés survolent les sentiers. Des panneaux éducatifs jalonnent le parcours, offrant des informations fascinantes sur les espèces végétales et animales de la jungle. L''humidité ambiante et les sons envoûtants de la faune créent une expérience sensorielle unique, transportant les visiteurs au cœur de la nature sauvage.');
+
 
 INSERT INTO arc_service(se_name,se_description)
 VALUES ('restauration','Notre zoo propose une variété de services de restauration pour satisfaire toutes vos envies culinaires pendant votre visite. Vous trouverez plusieurs snacks disséminés dans le parc, offrant des en-cas rapides comme des sandwiches, des fruits frais et des boissons rafraîchissantes. Pour une pause gourmande, arrêtez-vous à l''un de nos stands de glace, où des délices glacés aux saveurs variées raviront petits et grands. Pour un repas plus complet, notre restaurant vous accueille dans un cadre convivial, avec un menu diversifié comprenant des plats chauds, des salades, et des options végétariennes. Des aires de pique-nique ont été également été aménagées dans chaque espace.'),
 ('visite guidée des habitats','Profitez de visites guidées gratuites des habitats. Elles vous permettront de découvrir nos animaux de manière enrichissante et éducative. Chaque visite est une occasion d''apprendre des anecdotes fascinantes sur les espèces que vous rencontrez, leurs comportements et leurs habitats naturels. Les guides sont également disponibles pour répondre à vos questions et partager des faits surprenants. Ces visites guidées sont idéales pour tous les âges, offrant une expérience immersive et interactive qui enrichira votre visite et vous laissera avec des souvenirs inoubliables.'),
 ('Petit train','Embarquez à bord de notre petit train, qui vous conduira à travers les différentes zones du parc, telles que la jungle, la savane et les marais. Conçu pour toute la famille, ce moyen de transport pratique permet de profiter d''une vue panoramique sur les habitats et les animaux, tout en se relaxant. Le petit train est commenté, offrant des informations intéressantes et des anecdotes amusantes sur les espèces que vous croisez. C''est l''occasion idéale pour découvrir le zoo sans fatigue. Rejoignez-nous pour une expérience mémorable et conviviale, qui plaira aux petits comme aux grands.');
 
-INSERT INTO arc_review (re_pseudo, re_review, re_approved) VALUES 
-('Marie63','Nous avons passé une superbe journée à Arcadia. C’est un plaisir de voir que les animaux sont si bien traités',true),
-('Paul.legarec','Bravo pour ce joli parc, toute la famille a adoré !',true);
+INSERT INTO arc_review (re_pseudo, re_review, re_approved, re_date) VALUES 
+('Marie63','Nous avons passé une superbe journée à Arcadia. C’est un plaisir de voir que les animaux sont si bien traités',true, '26/06/2024'),
+('Paul.legarec','Bravo pour ce joli parc, toute la famille a adoré !',true, '26/06/2024');
 

@@ -35,11 +35,11 @@ $url = end($url_array);
     <header class="container mb-1">
         <div class="d-flex flex-wrap align-items-end justify-content-between mt-3">
         <picture class="d-flex">
-            <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia" class="img-fluid img-logo">
-            <img src="../<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo">
+            <source srcset="../<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia-small" class="img-fluid img-logo">
+            <img src="../<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" alt="logo-arcadia-wide" class="img-fluid img-logo">
         </picture>    
             <div class="text-end nav-item d-flex">
-                <img src="../<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone">
+                <img src="../<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone" alt="icone-admin">
                 <a href="../logout.php" class="nav-link px-2">Déconnexion</a>
             </div>
         </div>

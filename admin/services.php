@@ -43,7 +43,7 @@ $errors =[];
                 </div>
                 <div class=" p-0">
                     <form method="POST">
-                        <button type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15"></button>
+                        <button type="submit" name="deleteService<?= $service['se_id']?>" class="btn btn-primary btn-sm" value="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"><img src="../assets/icones/delete.png" height="15" alt="icone-supprimer"></button>
                     </form>
                 </div>
             </div>

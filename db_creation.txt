@@ -1,5 +1,13 @@
 CREATE DATABASE arcadiadb;
 
+CREATE TABLE arc_habitat (
+	ha_id SERIAL PRIMARY KEY,
+	ha_name VARCHAR(60) NOT NULL, 
+	ha_description TEXT,
+	ha_images VARCHAR(255),
+	ha_comment TEXT
+);
+
 CREATE TABLE arc_animal (
 	an_id SERIAL PRIMARY KEY,
 	an_name VARCHAR(60) NOT NULL, 
@@ -15,6 +23,11 @@ CREATE TABLE arc_enclosure (
 	en_comment TEXT
 );
 
+CREATE TABLE arc_food (
+	fo_id SERIAL PRIMARY KEY,
+	fo_type VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE arc_feeding (
 	fe_id SERIAL PRIMARY KEY,
 	fe_fo_id INT NOT NULL REFERENCES arc_food(fo_id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -22,19 +35,6 @@ CREATE TABLE arc_feeding (
 	fe_quantity REAL NOT NULL,
 	fe_date DATE NOT NULL,
 	fe_time TIME NOT NULL
-);
-
-CREATE TABLE arc_food (
-	fo_id SERIAL PRIMARY KEY,
-	fo_type VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE arc_habitat (
-	ha_id SERIAL PRIMARY KEY,
-	ha_name VARCHAR(60) NOT NULL, 
-	ha_description TEXT,
-	ha_images VARCHAR(255),
-	ha_comment TEXT
 );
 
 CREATE TABLE arc_horaire (
