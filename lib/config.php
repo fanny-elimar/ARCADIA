@@ -5,6 +5,12 @@ if (getenv('alwaysdata') !== false) {
     $username = 'fannyelimar';
     $password = '';
     $database = 'fannyelimar_arcadiadb';
+} elseif (getenv('test')) {
+    $domain = 'localhost';
+    $hostname = 'localhost';
+    $username = 'user';
+    $password = 'arcadiamdp';
+    $database = 'arcadiadb_test';
 } else {
     $domain = 'localhost';
     $hostname = 'localhost';
