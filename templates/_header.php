@@ -18,7 +18,7 @@ $url = end($url_array);
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="assets/CSS/custom6.css">
+            <link rel="stylesheet" href="assets/CSS/custom16.css">
             
             <title>Zoo Arcadia, parc animalier en Bretagne</title>
         </head>
@@ -29,15 +29,23 @@ $url = end($url_array);
                         <picture class="d-flex">
                             <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia-small" class="img-fluid img-logo">
                             <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo" alt="logo-arcadia-wide" >
-                        </picture>    
+                        </picture>  
+                        <div class="toggle-container">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="contrastToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span id="toggleText" class="text-accessibilite-button">Accessibilité visuelle</span>
+                        </div>
+                        <!--<button id="contrastToggle">Mode Contraste Élevé</button>  -->
                         <div class="text-end nav-item d-flex">
                             <?php if (isset($_SESSION['user'])) {
                                 if ($_SESSION['user']['us_role']==='vet') {?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone" alt="icone-loggedin-vet">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'vet.png';?>" class="img-fluid img-icone" alt="icone vétérinaire connecté">
                                 <?php ;} elseif ($_SESSION['user']['us_role']==='admin') { ?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone" alt="icone-loggedin-admin">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'admin.png';?>" class="img-fluid img-icone" alt="icone admin connecté">
                                 <?php ;} elseif ($_SESSION['user']['us_role']==='employe') { ?>
-                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone" alt="icone-loggedin-employee">
+                                    <img src="<?=_ASSETS_ICONES_FOLDER_.'employe.png';?>" class="img-fluid img-icone" alt="icone employé connecté">
                                 <?php ;}?> 
                                 <a href="logout.php" class="nav-link px-2">Déconnexion</a> 
                             <?php ;} else { ?>
@@ -52,7 +60,7 @@ $url = end($url_array);
                     </div>
                     <nav class="navbar navbar-expand-md">
                         <div class="container">
-                            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Menu déroulant">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse justify-content-center" id="n_bar">

@@ -12023,4 +12023,118 @@ h2, .h2 {
 
 .card {
   width: 18rem;
-}/*# sourceMappingURL=custom6.css.map */
+}
+
+/* Mode contraste élevé */
+/* Conteneur pour le bouton */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cacher le checkbox, car nous utiliserons l'élément adjacent pour le design */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Apparence du slider (le bouton toggle) */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Design du slider, état non activé */
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+/* Design de la partie du slider (cercle) */
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* Lorsque le toggle est activé (checked) */
+.toggle-switch input:checked + .slider {
+  background-color: #4CAF50; /* Vert lorsque activé */
+}
+
+/* Déplacer le cercle du slider lorsqu'il est activé */
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(20px); /* Déplacement du cercle vers la droite */
+}
+
+.text-accessibilite-button {
+  font-size: medium;
+}
+
+body.high-contrast {
+  background-color: #000000; /* Fond noir */
+  color: #d9e6d8; /* Texte blanc */
+  font-family: sans-serif;
+  font-size: large;
+  letter-spacing: 1px; /* Espacement entre les caractères */
+  line-height: 1.8; /* Espacement entre les lignes */
+}
+
+/* Amélioration du contraste pour tous les éléments */
+.high-contrast * {
+  color: inherit; /* Hérite de la couleur du body */
+  background-color: inherit; /* Hérite de la couleur de fond du body */
+}
+
+/* Liens */
+.high-contrast a {
+  color: #aaeba9; /* Jaune vif pour les liens */
+  text-decoration: underline; /* Souligné pour augmenter la visibilité */
+}
+
+.high-contrast a.btn:hover {
+  color: #090908;
+  background-color: #aaeba9;
+  text-decoration: underline; /* Souligné pour augmenter la visibilité */
+}
+
+.high-contrast .card {
+  border: #aaeba9 solid 2px;
+}
+
+/* Boutons */
+.high-contrast button {
+  background-color: #aaeba9; /* Fond jaune pour les boutons */
+  color: #000000; /* Texte noir */
+  border: 2px solid #000000 rounded; /* Bordure noire pour délimiter les boutons */
+}
+
+.high-contrast .card-text {
+  font-size: large;
+}
+
+.high-contrast .card-title {
+  font-size: x-large;
+}
+
+/* Titres */
+.high-contrast h1, .high-contrast .h1, .high-contrast h2, .high-contrast .h2, .high-contrast h3, .high-contrast .h3 {
+  color: #aaeba9; /* Jaune vif pour les titres */
+}/*# sourceMappingURL=custom16.css.map */

@@ -49,5 +49,7 @@ if (!$error) { ?>
 <?php } else { ?>
     <h1>Page introuvable</h1>
 <?php } ?>
+<?php require_once __DIR__ . "/templates/_footer.php"; ?>
+
 
 
