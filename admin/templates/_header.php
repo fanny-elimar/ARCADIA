@@ -25,7 +25,7 @@ $url = end($url_array);
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Just+Another+Hand&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="../assets/CSS/custom6.css">
+            <link rel="stylesheet" href="../assets/CSS/custom16.css">
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
             <title>Arcadia</title>
@@ -49,7 +49,7 @@ $url = end($url_array);
         <div class="menu_admin row m-0" style="background-color: #a4d0a4";>
             <nav class="navbar d-md-none col-10">
                 <div class="d-flex p-md-3 w-100"  >
-                    <button class="navbar-toggler  ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar_admin" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar_admin" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse " id="n_bar_admin">
