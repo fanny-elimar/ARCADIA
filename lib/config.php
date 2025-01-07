@@ -6,10 +6,8 @@ if (getenv('alwaysdata') !== false) {
     $password = getenv('DB_MDP');
     $database = getenv('DB_NAME');
 } else {
-
 // Charger les variables depuis le fichier .env.local
-loadEnv( './.env.local');
-
+loadEnv( 'C:\xampp\htdocs\ARCADIA\.env.local');
     $domain = 'localhost';
     $hostname = getenv('DB_HOST');
     $username = getenv('DB_USER');
