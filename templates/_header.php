@@ -30,12 +30,15 @@ $url = end($url_array);
                             <source srcset="<?=_ASSETS_IMAGES_FOLDER_.'logo.png' ;?>" media="(max-width:780px)" alt="logo-arcadia-small" class="img-fluid img-logo">
                             <img src="<?=_ASSETS_IMAGES_FOLDER_.'logo2.png';?>" class="img-fluid img-logo" alt="logo-arcadia-wide" >
                         </picture>  
+                        
                         <div class="toggle-container">
+                        <img src="assets/icones/contrast-A4D0A4.png" class="d-md-none" style="height: 20px;" alt="icone-accessibilitte-visuelle">
                             <label class="toggle-switch">
                                 <input type="checkbox" id="contrastToggle">
-                                <span class="slider"></span>
+                                <span class="slider" aria-label="bouton-accessibilite-visuelle"></span>
                             </label>
-                            <span id="toggleText" class="text-accessibilite-button">Accessibilité visuelle</span>
+                            <span id="toggleText" class="text-accessibilite-button d-none d-md-flex">Accessibilité visuelle</span>
+                            
                         </div>
                         <!--<button id="contrastToggle">Mode Contraste Élevé</button>  -->
                         <div class="text-end nav-item d-flex">
