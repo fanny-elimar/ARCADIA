@@ -17,12 +17,18 @@ Dans l'explorateur, taper localhost/arcadia.
 
 ### Installation de la base de données PostGreSql
 
-Créer une base de données vide, nommée arcadiadb.
+Créer une base de donnée en utilisant les scripts fournis dans le projet :
+- db_creation.txt
+- db_donnees.txt
 
-#### Avec pgAdmin  
-- clic droit sur la base données
-- restore...
-- Sélectionner le fichier "ARCADIA\Projet\BASE_DE_DONNEES\backup_arcadiadb_20240905_1500.sql"
+### Installation des dépendances
+Dans l'invite de commande, tape npm install.
+
+### Lancer le serveur
+Démarre le serveur Apache.
+
+### Accéder au site
+Ouvre ton navigateur et rends toi sur l'url : http://localhost/arcadia
 
 ## Auteur
 
