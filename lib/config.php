@@ -1,19 +1,16 @@
 <?php
 if (getenv('alwaysdata') !== false) {
     $domain = '';
-    $hostname = getenv('DB_HOST');
-    $username = getenv('DB_USER');
-    $password = getenv('DB_MDP');
-    $database = getenv('DB_NAME');
 } else {
 // Charger les variables depuis le fichier .env.local
 loadEnv( 'C:\xampp\htdocs\ARCADIA\.env.local');
     $domain = 'localhost';
-    $hostname = getenv('DB_HOST');
-    $username = getenv('DB_USER');
-    $password = getenv('DB_PASSWORD');
-    $database = getenv('DB_NAME');
 }
+
+$hostname = getenv('DB_HOST');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$database = getenv('DB_NAME');
 
 define("_DOMAIN_", $domain);
 define("_DB_SERVER_", $hostname);

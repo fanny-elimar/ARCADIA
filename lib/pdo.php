@@ -8,18 +8,14 @@ try
 } catch (PDOException $e) {
     if (getenv('alwaysdata') !== false) {
         // Retourner un message générique à l'utilisateur
-    echo "Impossible de se connecter à la base de données. Veuillez réessayer plus tard.";
-    exit; // Arrêter le script après l'erreur
-        
+        echo "Impossible de se connecter à la base de données. Veuillez réessayer plus tard.";
+        exit; // Arrêter le script après l'erreur
     } else {
         // Loguer l'erreur dans un fichier de log
         $logMessage = date('Y-m-d H:i:s') . ' - ' . $e->getMessage() . "\n";
-    error_log($logMessage, 3, 'logs/arcadia_database_errors.log');
-
-            // Retourner un message générique à l'utilisateur
-            echo "Impossible de se connecter à la base de données. Veuillez réessayer plus tard.";
-            exit; // Arrêter le script après l'erreur
+        error_log($logMessage, 3, 'logs/arcadia_database_errors.log');
+        // Retourner un message générique à l'utilisateur
+        echo "Impossible de se connecter à la base de données. Veuillez réessayer plus tard.";
+        exit; // Arrêter le script après l'erreur
     }
-    
-    
 }
